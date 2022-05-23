@@ -1,0 +1,59 @@
+{
+  "name": "rekompus",
+  "version": "1.0.0",
+  "description": "A website that makes it easier for us to find campus and major information",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raihanputro/rekompus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raihanputro/rekompus/issues"
+  },
+  "homepage": "https://github.com/raihanputro/rekompus#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.1.3",
+    "idb": "^7.0.1",
+    "lazysizes": "^5.3.2",
+    "regenerator-runtime": "^0.13.9",
+    "serviceworker-webpack-plugin": "^1.0.1",
+    "sweetalert": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.4",
+    "codeceptjs": "^3.3.3",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.3.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webp-webpack-plugin": "^3.3.6",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "postcss-loader": "^4.2.0",
+    "puppeteer": "^13.7.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^10.1.1",
+    "sharp": "^0.30.4",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.46.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.8.0",
+    "whatwg-fetch": "^3.6.2"
+  }
+}
