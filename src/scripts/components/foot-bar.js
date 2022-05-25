@@ -5,9 +5,8 @@ class footBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <footer class="py-5">
-        <div class="row">
-          <div class="col-3 test">
+        <div class="row container-fluid">
+          <div class="col-md-3 test">
             <h5 class="title-footer">Rekompus</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2"><p>Rekompus membantu siswa mencari referensi kampus dan jurusannya di seluruh  Indonesia.</p></li>
@@ -17,7 +16,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-3 test">
+          <div class="col-md-3 test">
             <h5>Fitur</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Rekomendasi Kampus</a></li>
@@ -26,7 +25,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-2 test">
+          <div class="col-md-2 test">
             <h5>Sosial Media</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Instagram</a></li>
@@ -35,7 +34,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-4 test">
+          <div class="col-md-4 test">
             <h5>Tim Capstone CPSG-27</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-1"><p>F2013B057 - Nosef Nunggaran</p></li>
@@ -45,7 +44,6 @@ class footBar extends HTMLElement {
             </ul>
           </div>
         </div>
-      </footer> 
         `;
   }
 }
