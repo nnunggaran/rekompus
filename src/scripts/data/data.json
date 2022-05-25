@@ -1,0 +1,245 @@
+{
+  "kampus": [
+    {
+      "id": "6c7bqjgi84kcowlqdz",
+      "name": "Univeritas Negeri Surabaya",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+      "pictureId": "favicon.png",
+      "city": "Surabaya",
+      "rating": 4.6,
+      "akreditasiKampus": "A",
+      "statusPmb": "Dibuka",
+      "kelasTersedia":[
+        {
+          "namaKelas": "Reguler"
+        },
+        {
+          "namaKelas": "Karyawan"
+        },
+        {
+          "namaKelas": "Online"
+        }
+      ],
+      "jurusan": [
+        {
+          "namaJurusan": "Teknik Informatika",
+          "jenjang": "S1",
+          "biayaSPP": 2750000,
+          "akreditasi": "A"
+        },
+        {
+          "namaJurusan": "Sistem Informasi",
+          "jenjang": "S1",
+          "biayaSPP": 2450000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Ilmu Hukum",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Agama Islam",
+          "jenjang": "S1",
+          "biayaSPP": 2350000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Luar Sekolah",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        }
+      ]
+    },
+    {
+      "id": "ljx8i0qu2uckcowlqdz",
+      "name": "Universitas Darul Ulum",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+      "pictureId": "favicon.png",
+      "city": "Jombang",
+      "rating": 4.6,
+      "akreditasiKampus": "B",
+      "statusPmb": "Dibuka",
+      "kelasTersedia":[
+        {
+          "namaKelas": "Reguler"
+        },
+        {
+          "namaKelas": "Karyawan"
+        },
+        {
+          "namaKelas": "Online"
+        }
+      ],
+      "jurusan": [
+        {
+          "namaJurusan": "Teknik Informatika",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "A"
+        },
+        {
+          "namaJurusan": "Sistem Informasi",
+          "jenjang": "S1",
+          "biayaSPP": 2450000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Ilmu Hukum",
+          "jenjang": "S1",
+          "biayaSPP": 2750000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Agama Islam",
+          "jenjang": "S1",
+          "biayaSPP": 2150000,
+          "akreditasi": "B"
+        }
+      ]
+    },
+    {
+      "id": "fe8bbxoazddkcowlqdz",
+      "name": "Universitas Indonesia",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+      "pictureId": "favicon.png",
+      "city": "Jakarta",
+      "rating": 4.8,
+      "akreditasiKampus": "A",
+      "statusPmb": "Ditutup",
+      "kelasTersedia":[
+        {
+          "namaKelas": "Reguler"
+        },
+        {
+          "namaKelas": "Karyawan"
+        }
+      ],
+      "jurusan": [
+        {
+          "namaJurusan": "Teknik Informatika",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "A"
+        },
+        {
+          "namaJurusan": "Sistem Informasi",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Ilmu Hukum",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Agama Islam",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        }
+      ]
+    },
+    {
+      "id": "ik1zljmlf68kcowlqdz",
+      "name": "Universitas Muhammadiyah Malang",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+      "pictureId": "favicon.png",
+      "city": "Malang",
+      "rating": 4.7,
+      "akreditasiKampus": "A",
+      "statusPmb": "Ditutup",
+      "kelasTersedia":[
+        {
+          "namaKelas": "Reguler"
+        },
+        {
+          "namaKelas": "Karyawan"
+        },
+        {
+          "namaKelas": "Online"
+        }
+      ],
+      "jurusan": [
+        {
+          "namaJurusan": "Teknik Informatika",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "A"
+        },
+        {
+          "namaJurusan": "Sistem Informasi",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Ilmu Hukum",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Agama Islam",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        }
+      ]
+    },
+    {
+      "id": "9jpuzkm6n6jkcowlqdz",
+      "name": "Universitas Hasyim Asya'ri",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.",
+      "pictureId": "favicon.png",
+      "city": "Bali",
+      "rating": 3.8,
+      "akreditasiKampus": "B",
+      "statusPmb": "Dibuka",
+      "kelasTersedia":[
+        {
+          "namaKelas": "Reguler"
+        },
+        {
+          "namaKelas": "Karyawan"
+        }
+      ],
+      "jurusan": [
+        {
+          "namaJurusan": "Teknik Informatika",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Sistem Informasi",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Ilmu Hukum",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Agama Islam",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        },
+        {
+          "namaJurusan": "Pendidikan Bahasa Arab",
+          "jenjang": "S1",
+          "biayaSPP": 2550000,
+          "akreditasi": "B"
+        }
+      ]
+    }
+  ]
+}
