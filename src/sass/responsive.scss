@@ -1,0 +1,109 @@
+$small: 340px;
+$medium: 540px;
+$large: 760px;
+$x-large: 990px;
+
+@media screen and (max-width: $large){
+  main{
+    #list-kampus{
+      .row{
+        .col-md-12{
+          .card{
+            .card-body{
+              .thumb-container{
+                display: grid;
+                padding: 0;
+                column-gap: 0;
+                row-gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                div .thumb-img{
+                  width: 160px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-nav{
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: $medium){
+  main{
+    #list-kampus{
+      .row{
+        .col-md-12{
+          .card{
+            .card-body{
+              .thumb-container{
+                display: grid;
+                padding: 0;
+                column-gap: 0;
+                row-gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                div .thumb-img{
+                  width: 100px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-nav{
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: $small) {
+  main{
+    .hero{
+      margin-top: 100px;
+      div{
+        .hero-image{
+          width: 320px;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: $medium) {
+  main{
+    .hero{
+        margin-top: 100px;
+        div{
+          .hero-image{
+            width: 400px;
+          }
+        }
+    }
+  }
+  .navbar-nav{
+    margin-left: 0;
+  }
+  
+}
+@media screen and (min-width: $large){
+
+}
+@media screen and (min-width: $x-large) {
+  
+  main{
+    .hero{
+        margin-top: 100px;
+        div{
+          .hero-image{
+            justify-content: flex-end;
+            width: 500px;
+          }
+        }
+    }
+    
+  }
+  .navbar-nav{
+    margin-left:20px;
+  }
+  
+}

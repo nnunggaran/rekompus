@@ -1,17 +1,22 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
+$white: #FFFFFF;
+$cold-white: #E8F9FD;
+$light-blue: #0AA1DD;
+$darker-blue: #2155CD;
+$gray: #474747;
 
 body {
     font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
-    height: 119px;
+    min-height: 80px;
 }
 
 .bg-header{
-    background-color: #E8F9FD;
+    background-color: $cold-white;
 }
 
 a {
@@ -19,7 +24,7 @@ a {
 }
 
 .title-header{
-    margin-left: 50px;
+    // margin-left: 50px;
     font-size: 25px;
     line-height: 48px;
     color: #0AA1DD;
@@ -27,69 +32,159 @@ a {
 }
 
 .navitem-1{
-    margin-left: 47px;
+    // margin-left: 47px;
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
     line-height: 36px;
-
-    color: #474747;
+    color: $gray;
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .navitem-2{
-    margin-left: 22px;
+    // margin-left: 22px;
     font-style: normal;
     font-weight: 400;
     font-size: 19px;
     line-height: 36px;
 
-    color: #474747;
+    color: $gray;
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn1{
-    width: 152px;
-    height: 62px;
+    width: 130px;
+    height: 44px;
     font-weight: 600;
-    margin-left: 350px;
+    // margin-left: 350px;
     border-radius: 10px;
-    border: 1px solid #0AA1DD;
-    background: #0AA1DD;
-    color: #FFFFFF;
+    border: 1px solid $light-blue;
+    background: $light-blue;
+    color: $white;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .btn2{
-    width: 152px;
-    height: 62px;
+    width: 130px;
+    height: 44px;
     font-weight: 600;
-    margin-left: 40px;
-    color: #0AA1DD;
-    border: 2px solid #0AA1DD;
-    background: #E8F9FD;
+    // margin-left: 40px;
+    color: $light-blue;
+    border: 2px solid $light-blue;
+    background: $cold-white;
     border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 footer {
     margin-top: 300px;
-    padding: 30px;
-    background: #2155CD;
-    color: white;
+    padding: 30px 0px;
+    background: $darker-blue;
+    color: $white;
+    display: block;
+    width: 100%;
 }
 
 .test {
-    border: 5px solid #2155CD;
+    border: 5px solid $darker-blue;
     background: rgba(152, 152, 152, 0.27);
 }
 
 .title-footer {
     font-size: 25px;
     line-height: 48px;
-    color: #0AA1DD;
+    color: $light-blue;
     font-weight: 700;
 }
 
+.container-fluid{
+    padding: 0px 40px;
+}
+.thumb-container{
+    width: 100%;
+}
+.thumb-img{
+    border-radius: 50%;
+    width: 64px;
+}
+.full-img{
+    width:100%;
+}
+
+.br{
+    border-radius: 10px;
+}
+.alert-warning{
+    background-color: #FF9675;
+}
+.alert-success{
+    background-color: #7CF253;
+}
+
+main{
+    .hero{
+        margin-top: 100px;
+        div{
+            h1{
+                font-weight: bold;
+            }
+            .welcome-text{
+                font-size: 18px;
+                font-weight: bolder;
+                color: $darker-blue;
+            }
+            .desc-text{
+                font-weight: normal;
+            }
+            .hero-image{
+                width: 220px;
+            }
+            button{
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+    .hero-text{
+        background-color: $darker-blue;
+        margin-top: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        h1{
+            font-weight: bolder;
+        }
+    }
+    .search-bar{
+        .filter-bar{
+            display: flex;
+            justify-content: space-around;
+            gap: 5px;
+            @media screen and (max-width: 720px){
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @media screen and (max-width: 460px){
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+    #kampus-rekomendasi{
+        padding-top: 60px;
+        h2{
+            font-weight: bold;
+        }
+    }
+    #jurusan-rekomendasi{
+        h2{
+            font-weight: bold;
+        }
+    }
+    #lokasi-kampus{
+        h2{
+            font-weight: bold;
+        }
+    }
+}
