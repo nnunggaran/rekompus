@@ -1,7 +1,24 @@
 import 'regenerator-runtime';
 import 'bootstrap';
+import '@fortawesome/fontawesome-free/js/fontawesome';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/solid';
 import '../sass/main.scss';
-import './components/app-bar';
-import './components/foot-bar';
+import '../sass/responsive.scss';
+import main from './views/main';
+import App from './views/app';
 
-console.log('test');
+main();
+const app = new App({
+  button: document.querySelector('.navbar-toggler'),
+  drawer: document.querySelector('.navbar-collapse'),
+  content: document.querySelector('main#content'),
+});
+
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
+});
