@@ -19,7 +19,7 @@ const listKampusItem = (data, container) => {
   data.kampus.forEach((kamp) => {
     container.innerHTML += `
     <div class="col-md-12 mb-3">
-        <div class="card">
+        <div class="card border-orange">
             <div class="card-body d-flex">
                 <div class="thumb-container row">
                     <div class="col-md-1">
