@@ -56,6 +56,11 @@ $x-large: 990px;
   .navbar-nav{
     margin-left: 0;
   }
+  .scroll-x{
+    width: 100%;
+    overflow-x: scroll;
+    justify-content: space-between;
+  }
 }
 @media screen and (min-width: $small) {
   main{

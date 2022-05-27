@@ -38,7 +38,6 @@ a {
     font-size: 19px;
     line-height: 36px;
     color: $gray;
-
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -48,9 +47,7 @@ a {
     font-weight: 400;
     font-size: 19px;
     line-height: 36px;
-
     color: $gray;
-
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -98,9 +95,28 @@ footer {
     color: $light-blue;
     font-weight: 700;
 }
-
+.scroll-x{
+    width: 100%;
+    overflow-x: auto;
+    column-gap: 15px;
+    justify-content: space-around;
+}
 .container-fluid{
     padding: 0px 40px;
+}
+.border-orange{
+  border: 2px solid #FF9675;
+}
+.bb-orange{
+  border-bottom: 2px solid #FF9675;
+}
+.thumb-img-detail{
+  border-radius: 50%;
+  width: 86px;
+}
+.thumb-gallery{
+  width: 100%;
+  object-fit: fill;
 }
 .thumb-container{
     width: 100%;
@@ -122,6 +138,7 @@ footer {
 .alert-success{
     background-color: #7CF253;
 }
+
 
 main{
     .hero{
@@ -187,4 +204,17 @@ main{
             font-weight: bold;
         }
     }
+    #detail-kampus{
+        padding: 0 40px;
+        margin-top: 100px;
+        .col-md-8{
+            .card{
+                .card-header{
+                    display: flex;
+                    position: sticky;
+                }
+            }
+        }
+    }
+    
 }
