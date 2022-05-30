@@ -134,11 +134,20 @@ footer {
 }
 .alert-warning{
     background-color: #FF9675;
+    color: $white;
 }
 .alert-success{
     background-color: #7CF253;
+    color: $white;
 }
-
+.desc-kampus{
+    height: 130px;
+    overflow-y: auto;
+}
+.container-reviews{
+    height: 400px;
+    overflow-y: auto;
+}
 
 main{
     .hero{
@@ -205,6 +214,9 @@ main{
         }
     }
     #detail-kampus{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0 40px;
         margin-top: 100px;
         .col-md-8{
@@ -216,5 +228,18 @@ main{
             }
         }
     }
-    
+    #list-kampus{
+        .list-kampus-container{
+            .col-md-12{
+                .card{
+                    .card-body{
+                        .row{
+                            overflow: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

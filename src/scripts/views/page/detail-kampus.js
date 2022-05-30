@@ -1,17 +1,17 @@
 // import UrlParser from '../../routes/url-parser';
+// import { createKampusDetailTemplate } from '../templates/template-creator';
 
 const DetailKampus = {
   async render() {
     return `
     <section id="detail-kampus" class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 mt-2">
         <div class="card bg-info border-orange">
           <div class="card-header alert-info text-center">
             <div class="d-flex scroll-x">
-              <span><a href="#" class="text-muted fw-bold">Info Kampus</a></span>
-              <span><a href="#" class="text-muted fw-bold">Jurusan Tersedia</a></span>
-              <span><a href="#" class="text-muted fw-bold">Info Pendaftaran</a></span>
-              <span><a href="#" class="text-muted fw-bold">Info Pendaftaran</a></span>
+              <span><a href="/#/kampus/id#info-kampus" class="text-muted fw-bold" id="scrollKampus">Info Kampus</a></span>
+              <span><a href="/#/kampus/id#prodi-tersedia" class="text-muted fw-bold" id="scrollProdi">Program Studi Tersedia</a></span>
+              <span><a href="/#/kampus/id#info-pendaftaran" class="text-muted fw-bold" id="scrollPendaftaran">Info Pendaftaran</a></span>              
             </div>
 
           </div>
@@ -24,14 +24,14 @@ const DetailKampus = {
               <span class="text-muted">Online</span>
             </div>
             <h4 class="text-center mb-2"><u>Tentang Kampus</u></h4>
-            <div class="col-md-12 mb-4 d-flex justify-content-around alert-info p-3">
+            <div class="col-md-12 mb-4 d-flex justify-content-around alert-info p-3" id="info-kampus">
               <div class="row">
                 <div class="col-md-12">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit accusamus dolores, vitae ullam
+                  <p class="desc-kampus">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit accusamus dolores, vitae ullam
                     necessitatibus perspiciatis atque dignissimos ut magni esse corrupti laborum quasi ipsa quisquam
                     sunt beatae veritatis porro a dolore et rem assumenda dicta. Sint ab accusantium saepe
                     exercitationem porro! Voluptatibus asperiores, itaque placeat consectetur laborum iusto est
-                    consequuntur. <button class="btn btn-primary p-0 px-2">Tampilkan Semua ...</button></p>
+                    consequuntur.
                 </div>
                 <div class="col-md-6 mt-2">
                   <div class="group-text d-flex">
@@ -67,26 +67,26 @@ const DetailKampus = {
                 </div>
               </div>
             </div>
-            <h4 class="text-center mb-2"><u>Jurusan Tersedia</u></h4>
-            <div class="col-md-12 mb-4 alert-info p-3">
+            <h4 class="text-center mb-2"><u>Program Studi Tersedia</u></h4>
+            <div class="col-md-12 mb-4 alert-info p-3" id="prodi-tersedia">
               <div class="row">
                 <div class="col-md-6">
                   <div class="input-group mb-2">
                     <div class="input-group-text">
                       <i class="fas fa-magnifying-glass"></i>
                     </div>
-                    <input type="search" class="form-control" id="autoSizingInputGroup" placeholder="Masukkan jurusan">
+                    <input type="search" class="form-control" id="prodiField" placeholder="Masukkan Program Studi">
                   </div>
                 </div>
                 <div class="col-md-6 mt-2">
-                  <h5>5 dari 12 jurusan ditampilkan</h5>
+                  <h5>5 dari 12 program studi ditampilkan</h5>
                 </div>
                 <div class="col-md-12">
-                  <div class="row" style="border: 2px solid salmon;">
+                  <div class="row border-orange">
                     <div class="col-md-12">
                       <div class="card border-orange mt-2 mb-2">
-                        <div class="card-body d-flex m-0">
-                          <div class="group-text">
+                        <div class="card-body d-flex m-0" id="prodi-tersedia">
+                          <div class="group-text mr-2">
                             <h5 class="text-heading">S1 - Pariwisata</h5>
                             <span class="alert alert-info p-1">Akreditasi: A</span>
                           </div>
@@ -97,7 +97,7 @@ const DetailKampus = {
                         </div>
                         <div class="card-footer bg-primary">
                           <a href="/#/kampus-rekomendasi/id">
-                            <button class="btn btn-primary w-100">Detail</button>
+                            <button class="btn btn-primary fw-bold w-100">Detail</button>
                           </a>
                         </div>
                       </div>
@@ -114,7 +114,7 @@ const DetailKampus = {
                         </div>
                         <div class="card-footer bg-primary">
                           <a href="/#/kampus-rekomendasi/id">
-                            <button class="btn btn-primary w-100">Detail</button>
+                            <button class="btn btn-primary fw-bold w-100">Detail</button>
                           </a>
                         </div>
                       </div>
@@ -131,7 +131,7 @@ const DetailKampus = {
                         </div>
                         <div class="card-footer bg-primary">
                           <a href="/#/kampus-rekomendasi/id">
-                            <button class="btn btn-primary w-100">Detail</button>
+                            <button class="btn btn-primary fw-bold w-100">Detail</button>
                           </a>
                         </div>
                       </div>
@@ -148,7 +148,7 @@ const DetailKampus = {
                         </div>
                         <div class="card-footer bg-primary">
                           <a href="/#/kampus-rekomendasi/id">
-                            <button class="btn btn-primary w-100">Detail</button>
+                            <button class="btn btn-primary fw-bold w-100">Detail</button>
                           </a>
                         </div>
                       </div>
@@ -165,7 +165,7 @@ const DetailKampus = {
                         </div>
                         <div class="card-footer bg-primary">
                           <a href="/#/kampus-rekomendasi/id">
-                            <button class="btn btn-primary w-100">Detail</button>
+                            <button class="btn btn-primary fw-bold w-100">Detail</button>
                           </a>
                         </div>
                       </div>
@@ -191,10 +191,44 @@ const DetailKampus = {
                 </div>
               </div>
             </div>
+            <h4 class="text-center mb-2">Form Review</h4>
+            <form id="postReview">
+              <input type="hidden" id="txtId" value="">
+              <label for="txtName">Your Name :</label>
+              <br>
+              <input type="text" id="txtName" placeholder="Type your name here..." class="form-control" value="user" readonly>
+              <br>
+              <label for="txtReview">Your Review :</label>
+              <br>
+              <textarea id="txtReview" placeholder="Type your review here..." class="form-control"></textarea>
+              <br>
+              <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+            <br>
+            <h4 class="text-center mb-2">User Reviews</h4>
+            <hr>
+            <div class="container-reviews">
+              <h5>Name</h5>
+              <p class="text-muted">Review</p>
+              <p class="text-primary">Date</p>
+              <hr>
+              <h5>Name</h5>
+              <p class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt earum, repellat asperiores hic veniam aliquam reiciendis natus consequatur magnam eveniet facere cumque fugit doloribus quod! Dicta esse aliquam rerum, alias eveniet tenetur, blanditiis quisquam eum voluptatem quos saepe fuga placeat, corrupti voluptas tempore! Rem, temporibus illum doloremque dicta accusamus quibusdam perferendis pariatur magni a unde numquam suscipit iste ab quaerat nulla ducimus, reprehenderit quam necessitatibus inventore obcaecati. Aliquam et voluptas perspiciatis iste commodi cupiditate doloribus odio mollitia, delectus id, reprehenderit nemo enim fuga assumenda, numquam voluptatum nobis unde doloremque minima fugit autem porro dicta. Magnam, aliquam reiciendis? Tempore, quos aliquam?</p>
+              <p class="text-primary">Date</p>
+              <hr>
+              <h5>Name</h5>
+              <p class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt earum, repellat asperiores hic veniam aliquam reiciendis natus consequatur magnam eveniet facere cumque fugit doloribus quod! Dicta esse aliquam rerum</p>
+              <p class="text-primary">Date</p>
+              <hr>
+              <h5>Name</h5>
+              <p class="text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt earum, repellat asperiores hic veniam aliquam reiciendis natus consequatur magnam eveniet facere cumque fugit doloribus quod! Dicta esse aliquam rerum</p>
+              <p class="text-primary">Date</p>
+              <hr>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 mt-2">
         <div class="row">
           <div class="col-md-12">
             <div class="card border-orange">
@@ -250,7 +284,7 @@ const DetailKampus = {
               </div>
               <div class="card-footer bg-primary">
                 <a href="/#/gallery/id">
-                  <button class="btn btn-primary w-100 fs-5 fw-bold">Detail</button>
+                  <button class="btn btn-primary fw-bold w-100 fs-5 fw-bold">Detail</button>
                 </a>
               </div>
             </div>
@@ -262,7 +296,7 @@ const DetailKampus = {
               <div class="card-header bb-orange">
                 <h4 class="text-heading text-muted text-center">Info Pendaftaran</h4>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="info-pendaftaran">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="card border-orange mt-2 mb-2">
@@ -281,7 +315,7 @@ const DetailKampus = {
                       </div>
                       <div class="card-footer bg-primary">
                         <a href="/#/kampus-rekomendasi/id">
-                          <button class="btn btn-primary w-100">Daftar</button>
+                          <button class="btn btn-primary fw-bold w-100">Daftar</button>
                         </a>
                       </div>
                     </div>
@@ -303,7 +337,7 @@ const DetailKampus = {
                       </div>
                       <div class="card-footer bg-primary">
                         <a href="/#/kampus-rekomendasi/id">
-                          <button class="btn btn-primary w-100">Daftar</button>
+                          <button class="btn btn-primary fw-bold w-100">Daftar</button>
                         </a>
                       </div>
                     </div>
@@ -325,7 +359,7 @@ const DetailKampus = {
                       </div>
                       <div class="card-footer bg-primary">
                         <a href="/#/kampus-rekomendasi/id">
-                          <button class="btn btn-primary w-100">Daftar</button>
+                          <button class="btn btn-primary fw-bold w-100">Daftar</button>
                         </a>
                       </div>
                     </div>
@@ -347,7 +381,7 @@ const DetailKampus = {
                       </div>
                       <div class="card-footer bg-primary">
                         <a href="/#/kampus-rekomendasi/id">
-                          <button class="btn btn-primary w-100">Daftar</button>
+                          <button class="btn btn-primary fw-bold w-100">Daftar</button>
                         </a>
                       </div>
                     </div>
@@ -364,8 +398,35 @@ const DetailKampus = {
   async afterRender() {
     // const url = UrlParser.parseActiveUrlWithoutCombiner();
     // const kampus = await KampusSource.detailKampus(url.id);
-    // const kampusContainer = document.querySelector('#kampusDetail');
+    // const kampusContainer = document.querySelector('#detail-kampus');
     // kampusContainer.innerHTML = createKampusDetailTemplate(kampus);
+
+    const scrollKampus = document.getElementById('scrollKampus');
+    const scrollProdi = document.getElementById('scrollProdi');
+    const scrollPendaftaran = document.getElementById('scrollPendaftaran');
+
+    const infoKampus = document.getElementById('info-kampus');
+    const prodiTersedia = document.getElementById('prodi-tersedia');
+    const infoPendaftaran = document.getElementById('info-pendaftaran');
+    const containerReviews = document.querySelector('.container-reviews');
+
+    scrollKampus.addEventListener('click', () => {
+      window.scrollTo({ top: infoKampus.offsetTop - 20 });
+    });
+    scrollProdi.addEventListener('click', () => {
+      window.scrollTo({ top: prodiTersedia.offsetTop - 20 });
+    });
+    scrollPendaftaran.addEventListener('click', () => {
+      const mediaQueryLarge = window.matchMedia('(min-width: 760px)');
+      const checkMedia = mediaQueryLarge.matches;
+      if (checkMedia) {
+        window.scrollTo({ top: infoPendaftaran.offsetTop + 80 });
+      } else {
+        window.scrollTo({
+          top: (2 * containerReviews.offsetHeight) + 3600,
+        });
+      }
+    });
   },
 };
 

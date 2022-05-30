@@ -52,21 +52,21 @@ const ListKampus = {
             <div class="row mt-2 pt-2 pb-2 bg-info list-kampus-container">
             </div>
             <nav aria-label="Page navigation example mb-2">
-                    <ul class="pagination pagination-sm justify-content-center">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">Previous</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">Next</span>
-                        </a>
-                      </li>
-                    </ul>
+                <ul class="pagination pagination-md justify-content-center mt-2">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">Next</span>
+                    </a>
+                  </li>
+                </ul>
             </nav>
             
         </section>
@@ -89,8 +89,7 @@ const ListKampus = {
     const selectPmbEl = document.querySelector('select#pmb');
     selectPmbEl.innerHTML += selectPmbItem();
     const listKampusContainer = document.querySelector('.list-kampus-container');
-    const showListKampus = listKampusItem(data, listKampusContainer);
-    showListKampus();
+    listKampusItem(data, listKampusContainer);
   },
 };
 
