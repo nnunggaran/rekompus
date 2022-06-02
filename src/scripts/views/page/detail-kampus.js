@@ -192,18 +192,18 @@ const DetailKampus = {
               </div>
             </div>
             <h4 class="text-center mb-2">Form Review</h4>
+            <hr>
             <form id="postReview">
-              <input type="hidden" id="txtId" value="">
-              <label for="txtName">Your Name :</label>
+              <input type="hidden" id="txtId" value=":id">
+              <label for="txtName">Nama anda :</label>
               <br>
-              <input type="text" id="txtName" placeholder="Type your name here..." class="form-control" value="user" readonly>
-              <br>
-              <label for="txtReview">Your Review :</label>
-              <br>
-              <textarea id="txtReview" placeholder="Type your review here..." class="form-control"></textarea>
-              <br>
+              <input type="text" id="txtNama" placeholder="Masukkan nama anda..." class="form-control mb-2" value="user" readonly>
+              <label for="txtReview">Review anda :</label>
+              <textarea id="txtReview" placeholder="Masukkan review anda..." class="form-control mb-2"></textarea>
               <button type="submit" class="btn btn-primary">Post</button>
+              <hr>
             </form>
+            
             <br>
             <h4 class="text-center mb-2">User Reviews</h4>
             <hr>
