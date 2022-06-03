@@ -6,7 +6,7 @@ class footBar extends HTMLElement {
   render() {
     this.innerHTML = `
         <div class="row container-fluid">
-          <div class="col-md-3 test">
+          <div class="col-md-3 border-footer">
             <h5 class="title-footer">Rekompus</h5>
             <ul class="nav flex-column">
               <li class="nav-item mb-2">
@@ -18,7 +18,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-md-3 test pt-3">
+          <div class="col-md-3 border-footer pt-3">
             <h5>Fitur</h5>
             <ul class="nav flex-column pt-1">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Rekomendasi Kampus</a></li>
@@ -27,7 +27,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-md-2 test pt-3">
+          <div class="col-md-2 border-footer pt-3">
             <h5>Sosial Media</h5>
             <ul class="nav flex-column pt-1">
               <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
@@ -36,7 +36,7 @@ class footBar extends HTMLElement {
             </ul>
           </div>
   
-          <div class="col-md-4 test pt-3">
+          <div class="col-md-4 border-footer pt-3">
             <h5>Tim Capstone CPSG-27</h5>
             <ul class="nav flex-column pt-1">
               <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/nosef-nunggaran/" class="text-white" target="_blank" rel="noopener noreferrer">F2013B057 - Nosef Nunggaran</a></li>
