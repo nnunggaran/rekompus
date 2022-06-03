@@ -4,6 +4,7 @@ import DetailKampus from '../views/page/detail-kampus';
 import EditProfileUser from '../views/page/edit-profile-user';
 import DashboardUser from '../views/page/dashboard-user';
 import Login from '../views/page/login';
+import Daftar from '../views/page/daftar';
 
 const routes = {
   '/': Homepage,
@@ -13,6 +14,7 @@ const routes = {
   '/dashboard/:id': DashboardUser,
   '/edit-profile/:id': EditProfileUser,
   '/login': Login,
+  '/daftar': Daftar,
 };
 
 export default routes;

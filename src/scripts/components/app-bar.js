@@ -21,7 +21,7 @@ class AppBar extends HTMLElement {
                 </li>
               </ul>
               <form class="d-flex ms-auto">
-                  <button type="button" class="btn1 btn-outline-primary me-3">Daftar</button>
+                  <button type="button" class="btn1 btn-outline-primary me-3"><a class="nav-link active text-white" aria-current="page" href="#/daftar">Daftar</a></button>
                   <button type="button" class="btn2 btn-outline-primary"><a class="nav-link active" aria-current="page" href="#/login">Masuk</a></button>
               </form>
             </div>
