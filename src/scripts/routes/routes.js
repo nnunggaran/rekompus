@@ -11,6 +11,8 @@ import EditProfileAdmin from '../views/page/edit-profil-admin';
 import InfoKampus from '../views/page/info-kampus';
 import InfoJurusan from '../views/page/info-jurusan';
 import SettingJurusan from '../views/page/setting-jurusan';
+import Login from '../views/page/login';
+import Daftar from '../views/page/daftar';
 
 const routes = {
   '/': Homepage,
@@ -27,6 +29,8 @@ const routes = {
   '/info-jurusan/:id': InfoJurusan,
   '/edit-kampus/:id': EditKampus,
   '/setting-jurusan/:id': SettingJurusan,
+  '/login': Login,
+  '/daftar': Daftar,
 };
 
 export default routes;

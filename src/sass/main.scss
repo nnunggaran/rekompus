@@ -7,6 +7,7 @@ $light-blue: #0AA1DD;
 $darker-blue: #2155CD;
 $gray: #474747;
 
+
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -84,7 +85,7 @@ a {
 }
 
 footer {
-    margin-top: 300px;
+    margin-top: 20px;
     padding: 30px 0px;
     background: $darker-blue;
     color: $white;
@@ -92,7 +93,7 @@ footer {
     width: 100%;
 }
 
-.test {
+.border-footer {
     border: 5px solid $darker-blue;
     background: rgba(152, 152, 152, 0.27);
 }
@@ -250,4 +251,15 @@ main{
         }
     }
 
+}
+
+.title-login {
+    margin-top: 50px;
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    color: #0AA1DD;
 }

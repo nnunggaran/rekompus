@@ -8,6 +8,7 @@ import '../sass/main.scss';
 import '../sass/responsive.scss';
 import main from './views/main';
 import App from './views/app';
+import swRegister from './utils/sw-register';
 
 main();
 const app = new App({
@@ -22,4 +23,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });

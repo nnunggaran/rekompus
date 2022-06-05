@@ -5,7 +5,7 @@ class AppBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <nav class="navbar navbar-expand-lg navbar-light bg-header fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-header fixed-top mb-3">
           <div class="container-fluid">
             <a class="title-header" href="#">Rekompus</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,8 +21,8 @@ class AppBar extends HTMLElement {
                 </li>
               </ul>
               <form class="d-flex ms-auto">
-                  <button type="button" class="btn1 btn-outline-primary me-3">Daftar</button>
-                  <button type="button" class="btn2 btn-outline-primary">Masuk</button>
+                  <button type="button" class="btn1 btn-outline-primary me-3"><a class="nav-link active text-white" aria-current="page" href="#/daftar">Daftar</a></button>
+                  <button type="button" class="btn2 btn-outline-primary"><a class="nav-link active" aria-current="page" href="#/login">Masuk</a></button>
               </form>
             </div>
           </div>
