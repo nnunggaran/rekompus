@@ -6,8 +6,8 @@ const Homepage = {
     <section class="hero container-fluid row">
       <div class="col-md-6">
           <p class="welcome-text">Selamat Datang di Rekompus</p>
-          <h1>Rekomendasi Kampus dan Program Studi Impianmu</h1>
-          <p class="desc-text">Temukan Rekomendasi Kampus dan Program Studi Impianmu di Rekompus sekarang juga.<br>
+          <h1>Rekomendasi Kampus dan Jurusan Impianmu</h1>
+          <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
               Daftar sekarang gratis!</p>
           <a href="#kampus-rekomendasi">
               <button class="btn btn-primary">Eksplor</button>

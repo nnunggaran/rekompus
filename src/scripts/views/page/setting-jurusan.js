@@ -72,7 +72,7 @@ const SettingJurusan = {
                               Online<br>
                             </div>
                             <div class="col-md-2 d-flex align-items-center justify-content-around">
-                              <a href="#/jurusan-info/:id" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
+                              <a href="#/info-jurusan/:id" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
                               <a href="#/delete-jurusan-favorite/:id" class="text-danger"><i class="fa fa-trash fa-4x"
                                   aria-hidden="true"></i></a>
                             </div>

@@ -80,43 +80,7 @@ const EditJurusan = {
                         placeholder="Deskripsi Jurusan"></textarea>
                     </div>
                   </div>
-                </div>
-
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="kelasTersedia">
-                        <h5 class="fw-bold text-muted">Kelas Tersedia</h5>
-                      </label>
-                    </div>
-
-                    <div class="col-sm-12 col-md-9 row">
-                      <div class="col-sm-6 col-md-3">
-                        <input type="checkbox" name="kelasTersedia" id="Reguler" value="Reguler"
-                          class="form-check-input">
-                        <label for="Reguler" class="form-check-label">Reguler</label>
-                      </div>
-
-                      <div class="col-sm-6 col-md-3">
-                        <input type="checkbox" name="kelasTersedia" id="Karyawan" value="Karyawan"
-                          class="form-check-input">
-                        <label for="Karyawan" class="form-check-label">Karyawan</label>
-                      </div>
-
-                      <div class="col-sm-6 col-md-3">
-                        <input type="checkbox" name="kelasTersedia" id="Online" value="Online"
-                          class="form-check-input">
-                        <label for="Online" class="form-check-label">Online</label>
-                      </div>
-
-                      <div class="col-sm-6 col-md-3">
-                        <input type="checkbox" name="kelasTersedia" id="Umum" value="Umum"
-                          class="form-check-input">
-                        <label for="Umum" class="form-check-label">Umum</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div>                
 
                 <div class="card-body border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
@@ -163,7 +127,7 @@ const EditJurusan = {
                 <div class="text-end">
                   <button type="submit" class="btn btn-dblue fs-4"><i class="fa fa-save fa-lg"
                       aria-hidden="true"></i>
-                    Simpan</button>
+                    Update</button>
                 </div>
               </div>          
             </form>
@@ -171,7 +135,6 @@ const EditJurusan = {
         </div>
         </div>
       </section>
-      </form>
     </section>`;
   },
 

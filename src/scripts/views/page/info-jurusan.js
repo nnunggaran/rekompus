@@ -32,104 +32,106 @@ const InfoJurusan = {
         <div class="card border-0">
         <div class="row m-2">
           <div class="col-md-12 mb-3">
-            <form id="formJurusan">
-              <div class="card border-0">
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="namaJurusan">
-                        <h5 class="fw-bold text-muted">Nama Jurusan</h5>
-                      </label>
-                    </div>
-                    <div class="col-sm-12 col-md-9">
-                      <input type="text" class="form-control border-orange w-100" id="namaJurusan"
-                        placeholder="Masukkan Nama Jurusan" readonly>
-                    </div>
+            <div class="card border-0">
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="namaJurusan">
+                      <h5 class="fw-bold text-muted">Nama Jurusan</h5>
+                    </label>
+                  </div>
+                  <div class="col-sm-12 col-md-9">
+                    <input type="text" class="form-control border-orange w-100" id="namaJurusan"
+                      placeholder="Masukkan Nama Jurusan" readonly>
                   </div>
                 </div>
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="jenjang">
-                        <h5 class="fw-bold text-muted">Jenjang</h5>
-                      </label>
-                    </div>
+              </div>
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="jenjang">
+                      <h5 class="fw-bold text-muted">Jenjang</h5>
+                    </label>
+                  </div>
 
-                    <div class="col-sm-12 col-md-9">
-                      <select id="jenjang" class="form-control border-orange w-100" disabled>
-                        <option value="" selected disabled>Pilih Jenjang</option>
-                        <option value="S1">S1</option>
-                        <option value="S2">S2</option>
-                        <option value="S3">S3</option>
-                        <option value="D3">D3</option>
-                        <option value="D4">D4</option>
-                      </select>
-                    </div>
+                  <div class="col-sm-12 col-md-9">
+                    <select id="jenjang" class="form-control border-orange w-100" disabled>
+                      <option value="" selected disabled>Pilih Jenjang</option>
+                      <option value="S1">S1</option>
+                      <option value="S2">S2</option>
+                      <option value="S3">S3</option>
+                      <option value="D3">D3</option>
+                      <option value="D4">D4</option>
+                    </select>
                   </div>
                 </div>
+              </div>
 
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="deskripsiJurusan">
-                        <h5 class="fw-bold text-muted">Deskripsi Jurusan</h5>
-                      </label>
-                    </div>
-                    <div class="col-sm-12 col-md-9">
-                      <textarea id="deskripsiJurusan" class="form-control w-100 border-orange"
-                        placeholder="Deskripsi Jurusan" readonly></textarea>
-                    </div>
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="deskripsiJurusan">
+                      <h5 class="fw-bold text-muted">Deskripsi Jurusan</h5>
+                    </label>
                   </div>
-                </div>                
-
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="biayaSPP">
-                        <h5 class="fw-bold text-muted">Biaya SPP</h5>
-                      </label>
-                    </div>
-                    <div class="col-sm-12 col-md-9">
-                      <input type="number" class="form-control border-orange w-100" id="biayaSPP"
-                        placeholder="Masukkan biaya SPP">
-                    </div>
+                  <div class="col-sm-12 col-md-9">
+                    <textarea id="deskripsiJurusan" class="form-control w-100 border-orange"
+                      placeholder="Deskripsi Jurusan" readonly></textarea>
                   </div>
                 </div>
+              </div>                
 
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="pelajaran">
-                        <h5 class="fw-bold text-muted">Pelajaran yang didapat</h5>
-                      </label>
-                    </div>
-                    <div class="col-sm-12 col-md-9">
-                      <textarea id="pelajaran" class="form-control w-100 border-orange"
-                        placeholder="Masukkan pelajaran yang akan dipelajari di jurusan ini. Jika lebih dari satu pisahkan dengan tanda koma (,)." readonly></textarea>
-                    </div>
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="biayaSPP">
+                      <h5 class="fw-bold text-muted">Biaya SPP</h5>
+                    </label>
+                  </div>
+                  <div class="col-sm-12 col-md-9">
+                    <input type="number" class="form-control border-orange w-100" id="biayaSPP"
+                      placeholder="Masukkan biaya SPP" readonly>
                   </div>
                 </div>
+              </div>
 
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="prospekKarir">
-                        <h5 class="fw-bold text-muted">Prospek Karir</h5>
-                      </label>
-                    </div>
-                    <div class="col-sm-12 col-md-9">
-                      <textarea id="prospekKarir" class="form-control w-100 border-orange"
-                        placeholder="Masukkan prospek karir. Jika lebih dari satu pisahkan dengan tanda koma (,)." readonly></textarea>
-                    </div>
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="pelajaran">
+                      <h5 class="fw-bold text-muted">Pelajaran yang didapat</h5>
+                    </label>
+                  </div>
+                  <div class="col-sm-12 col-md-9">
+                    <textarea id="pelajaran" class="form-control w-100 border-orange"
+                      placeholder="Masukkan pelajaran yang akan dipelajari di jurusan ini. Jika lebih dari satu pisahkan dengan tanda koma (,)." readonly></textarea>
                   </div>
                 </div>
-              </div>          
-            </form>
+              </div>
+
+              <div class="card-body border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="prospekKarir">
+                      <h5 class="fw-bold text-muted">Prospek Karir</h5>
+                    </label>
+                  </div>
+                  <div class="col-sm-12 col-md-9">
+                    <textarea id="prospekKarir" class="form-control w-100 border-orange"
+                      placeholder="Masukkan prospek karir. Jika lebih dari satu pisahkan dengan tanda koma (,)." readonly></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="text-end">
+                <a href="#/setting-jurusan/:id/">
+                  <button class="btn btn-danger fs-4 my-1"><i class="fa fa-arrow-rotate-back fa-lg" aria-hidden="true"></i> Kembali</button>
+                </a>
+              </div>
+            </div>          
           </div>
         </div>
         </div>
       </section>
-      </form>
     </section>`;
   },
 

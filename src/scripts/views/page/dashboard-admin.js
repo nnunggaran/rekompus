@@ -53,37 +53,37 @@ const DashboardAdmin = {
                       <div class="card border-orange">
                         <div class="card-body d-flex">
                           <div class="thumb-container row">
-                            <div class="col-md-1 my-2">
+                            <div class="col-sm-6 col-md-1 my-2">
                               <a href="#">
                                 <img src="./favicon.png" alt="" class="thumb-img">
                               </a>
                             </div>
-                            <div class="col-md-3 my-2">
+                            <div class="col-sm-6 col-md-3 my-2">
                               <h4 class="fw-bold"><a href="#/kampus/:id" class="text-dark text-decoration-none">Nama
                                   Kampus</a></h4>
                               <p><i class="fas fa-location-dot" aria-hidden="true"></i> Kota</p>
                               <span class="alert alert-info p-1">Akreditasi A</span>
                               <span class="alert alert-info p-1">PTN</span>
                             </div>
-                            <div class="col-md-2 my-2">
+                            <div class="col-sm-6 col-md-2 my-2">
                               <h4><u>Kelas Tersedia</u></h4>
                               Reguler<br>
                               Karyawan<br>
                               Online<br>
                               Umum<br>
                             </div>
-                            <div class="col-md-2 my-2">
+                            <div class="col-sm-6 col-md-2 my-2">
                               <h4><u>Jurusan</u></h4>
                               Teknik Informatika<br>
                               Sistem Informasi<br>
                               Ilmu Hukum<br>
                               <a href="#/kampus/:id"><button class="btn alert-info ">Selengkapnya</button></a>
                             </div>
-                            <div class="col-md-2 my-2">
+                            <div class="col-sm-6 col-md-2 my-2">
                               <h4><u>Status PMB</u></h4>
                               <p><span class="alert alert-success text-white p-1">Dibuka</span></p>
                             </div>
-                            <div class="col-md-2 my-2 d-flex align-items-center justify-content-around">
+                            <div class="col-sm-6 col-md-2 my-2 d-flex align-items-center justify-content-around">
                               <a href="#/info-kampus/:id" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
                               <a href="#/delete-kampus/:id" class="text-danger"><i class="fa fa-trash fa-4x"
                                   aria-hidden="true"></i></a>

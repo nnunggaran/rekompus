@@ -10,7 +10,7 @@ const DetailKampus = {
           <div class="card-header alert-info text-center">
             <div class="d-flex scroll-x">
               <span><a href="/#/kampus/id#info-kampus" class="text-muted fw-bold" id="scrollKampus">Info Kampus</a></span>
-              <span><a href="/#/kampus/id#prodi-tersedia" class="text-muted fw-bold" id="scrollProdi">Program Studi Tersedia</a></span>
+              <span><a href="/#/kampus/id#jurusan-tersedia" class="text-muted fw-bold" id="scrollJurusan">Jurusan Tersedia</a></span>
               <span><a href="/#/kampus/id#info-pendaftaran" class="text-muted fw-bold" id="scrollPendaftaran">Info Pendaftaran</a></span>              
             </div>
 
@@ -20,7 +20,6 @@ const DetailKampus = {
             <div class="col-md-12 mb-4 d-flex p-3 alert-info scroll-x">
               <span class="text-muted">Reguler</span>
               <span class="text-muted">Karyawan</span>
-              <span class="text-muted">Umum</span>
               <span class="text-muted">Online</span>
             </div>
             <h4 class="text-center mb-2"><u>Tentang Kampus</u></h4>
@@ -67,25 +66,25 @@ const DetailKampus = {
                 </div>
               </div>
             </div>
-            <h4 class="text-center mb-2"><u>Program Studi Tersedia</u></h4>
-            <div class="col-md-12 mb-4 alert-info p-3" id="prodi-tersedia">
+            <h4 class="text-center mb-2"><u>Jurusan Tersedia</u></h4>
+            <div class="col-md-12 mb-4 alert-info p-3" id="jurusan-tersedia">
               <div class="row">
                 <div class="col-md-6">
                   <div class="input-group mb-2">
                     <div class="input-group-text">
                       <i class="fas fa-magnifying-glass"></i>
                     </div>
-                    <input type="search" class="form-control" id="prodiField" placeholder="Masukkan Program Studi">
+                    <input type="search" class="form-control" id="jurusanField" placeholder="Masukkan Jurusan">
                   </div>
                 </div>
                 <div class="col-md-6 mt-2">
-                  <h5>5 dari 12 program studi ditampilkan</h5>
+                  <h5>5 dari 12 Jurusan ditampilkan</h5>
                 </div>
                 <div class="col-md-12">
                   <div class="row border-orange">
                     <div class="col-md-12">
                       <div class="card border-orange mt-2 mb-2">
-                        <div class="card-body d-flex m-0" id="prodi-tersedia">
+                        <div class="card-body d-flex m-0" id="jurusan-tersedia">
                           <div class="group-text mr-2">
                             <h5 class="text-heading">S1 - Pariwisata</h5>
                             <span class="alert alert-info p-1">Akreditasi: A</span>
@@ -402,19 +401,19 @@ const DetailKampus = {
     // kampusContainer.innerHTML = createKampusDetailTemplate(kampus);
 
     const scrollKampus = document.getElementById('scrollKampus');
-    const scrollProdi = document.getElementById('scrollProdi');
+    const scrollJurusan = document.getElementById('scrollJurusan');
     const scrollPendaftaran = document.getElementById('scrollPendaftaran');
 
     const infoKampus = document.getElementById('info-kampus');
-    const prodiTersedia = document.getElementById('prodi-tersedia');
+    const jurusanTersedia = document.getElementById('jurusan-tersedia');
     const infoPendaftaran = document.getElementById('info-pendaftaran');
     const containerReviews = document.querySelector('.container-reviews');
 
     scrollKampus.addEventListener('click', () => {
       window.scrollTo({ top: infoKampus.offsetTop - 20 });
     });
-    scrollProdi.addEventListener('click', () => {
-      window.scrollTo({ top: prodiTersedia.offsetTop - 20 });
+    scrollJurusan.addEventListener('click', () => {
+      window.scrollTo({ top: jurusanTersedia.offsetTop - 20 });
     });
     scrollPendaftaran.addEventListener('click', () => {
       const mediaQueryLarge = window.matchMedia('(min-width: 760px)');
