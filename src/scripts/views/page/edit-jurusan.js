@@ -31,10 +31,10 @@ const EditJurusan = {
       <section class="form-jurusan my-3">
         <div class="card border-0">
         <div class="row m-2">
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 my-3">
             <form id="formJurusan">
               <div class="card border-0">
-                <div class="card-body border-orange mb-3 alert-info">
+                <div class="card border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
                     <div class="col-sm-12 col-md-3">
                       <label for="namaJurusan">
@@ -47,7 +47,7 @@ const EditJurusan = {
                     </div>
                   </div>
                 </div>
-                <div class="card-body border-orange mb-3 alert-info">
+                <div class="card border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
                     <div class="col-sm-12 col-md-3">
                       <label for="jenjang">
@@ -68,7 +68,7 @@ const EditJurusan = {
                   </div>
                 </div>
 
-                <div class="card-body border-orange mb-3 alert-info">
+                <div class="card border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
                     <div class="col-sm-12 col-md-3">
                       <label for="deskripsiJurusan">
@@ -82,21 +82,63 @@ const EditJurusan = {
                   </div>
                 </div>                
 
-                <div class="card-body border-orange mb-3 alert-info">
-                  <div class="row p-2 align-items-center">
-                    <div class="col-sm-12 col-md-3">
-                      <label for="biayaSPP">
-                        <h5 class="fw-bold text-muted">Biaya SPP</h5>
-                      </label>
+                <div class="card border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="kelasTersedia">
+                      <h5 class="fw-bold text-muted">Kelas Tersedia</h5>
+                    </label>
+                  </div>
+
+                  <div class="col-sm-12 col-md-9 row">
+                    <div class="col-sm-6 col-md-4">
+                      <input type="checkbox" name="kelasTersedia" id="Reguler" value="Reguler"
+                        class="form-check-input">
+                      <label for="Reguler" class="form-check-label">Reguler</label>
                     </div>
-                    <div class="col-sm-12 col-md-9">
-                      <input type="number" class="form-control border-orange w-100" id="biayaSPP"
-                        placeholder="Masukkan biaya SPP">
+
+                    <div class="col-sm-6 col-md-4">
+                      <input type="checkbox" name="kelasTersedia" id="Karyawan" value="Karyawan"
+                        class="form-check-input">
+                      <label for="Karyawan" class="form-check-label">Karyawan</label>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                      <input type="checkbox" name="kelasTersedia" id="Online" value="Online"
+                        class="form-check-input">
+                      <label for="Online" class="form-check-label">Online</label>
                     </div>
                   </div>
                 </div>
+              </div> 
 
-                <div class="card-body border-orange mb-3 alert-info">
+              <div class="card border-orange mb-3 alert-info">
+                <div class="row p-2 align-items-center">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="biayaSPP">
+                      <h5 class="fw-bold text-muted">Biaya SPP</h5>
+                    </label>
+                  </div>
+                  <div class="col-sm-12 col-md-9">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <input type="number" class="form-control border-orange w-100" id="sppReguler"
+                      placeholder="SPP Reguler">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <input type="number" class="form-control border-orange w-100" id="sppKaryawan"
+                      placeholder="SPP Karyawan">
+                    </div>
+                    <div class="col-sm-12 col-md-4 my-1">
+                      <input type="number" class="form-control border-orange w-100" id="sppOnline"
+                      placeholder="SPP Online">
+                    </div>
+                  </div>                                
+                  </div>
+                </div>
+              </div>
+
+                <div class="card border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
                     <div class="col-sm-12 col-md-3">
                       <label for="pelajaran">
@@ -110,7 +152,7 @@ const EditJurusan = {
                   </div>
                 </div>
 
-                <div class="card-body border-orange mb-3 alert-info">
+                <div class="card border-orange mb-3 alert-info">
                   <div class="row p-2 align-items-center">
                     <div class="col-sm-12 col-md-3">
                       <label for="prospekKarir">

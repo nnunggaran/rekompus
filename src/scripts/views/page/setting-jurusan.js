@@ -30,13 +30,13 @@ const SettingJurusan = {
       <section class="card my-3">
         <div class="card-header alert-info">
           <div class="d-flex justify-content-around alert-info py-2">
-            <a class="text-decoration-none text-muted border-bottom border-info border-2 text-center" role="button"
+            <a class="d-inline-block text-decoration-none text-muted border-bottom border-info border-2 text-center mx-2" role="button"
               data-bs-toggle="collapse" href="#/dashboard/#jurusanList" data-bs-target="#jurusanList" aria-expanded="true"
               aria-controls="jurusanList" id="btnJurusanList">
               <h4>List Jurusan</h4>
             </a>
 
-            <a class="text-decoration-none text-muted fw-bold text-center" role="button" data-bs-toggle="collapse"
+            <a class="d-inline-block text-decoration-none text-muted fw-bold text-center mx-2" role="button" data-bs-toggle="collapse"
               href="#/dashboard/#addJurusan" aria-expanded="true" data-bs-target="#addJurusan" aria-controls="addJurusan"
               id="btnAddJurusan">
               <h4>Tambah Jurusan</h4>
@@ -153,7 +153,37 @@ const SettingJurusan = {
                                   placeholder="Deskripsi Jurusan"></textarea>
                               </div>
                             </div>
-                          </div>                          
+                          </div>
+                          
+                          <div class="card border-orange mb-3 alert-info">
+                            <div class="row p-2 align-items-center">
+                              <div class="col-sm-12 col-md-3">
+                                <label for="kelasTersedia">
+                                  <h5 class="fw-bold text-muted">Kelas Tersedia</h5>
+                                </label>
+                              </div>
+
+                              <div class="col-sm-12 col-md-9 row">
+                                <div class="col-sm-6 col-md-4">
+                                  <input type="checkbox" name="kelasTersedia" id="Reguler" value="Reguler"
+                                    class="form-check-input">
+                                  <label for="Reguler" class="form-check-label">Reguler</label>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4">
+                                  <input type="checkbox" name="kelasTersedia" id="Karyawan" value="Karyawan"
+                                    class="form-check-input">
+                                  <label for="Karyawan" class="form-check-label">Karyawan</label>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4">
+                                  <input type="checkbox" name="kelasTersedia" id="Online" value="Online"
+                                    class="form-check-input">
+                                  <label for="Online" class="form-check-label">Online</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
 
                           <div class="card border-orange mb-3 alert-info">
                             <div class="row p-2 align-items-center">
@@ -163,8 +193,20 @@ const SettingJurusan = {
                                 </label>
                               </div>
                               <div class="col-sm-12 col-md-9">
-                                <input type="number" class="form-control border-orange w-100" id="biayaSPP"
-                                  placeholder="Masukkan biaya SPP">
+                              <div class="row">
+                                <div class="col-sm-12 col-md-4 my-1">
+                                  <input type="number" class="form-control border-orange w-100" id="sppReguler"
+                                  placeholder="SPP Reguler">
+                                </div>
+                                <div class="col-sm-12 col-md-4 my-1">
+                                  <input type="number" class="form-control border-orange w-100" id="sppKaryawan"
+                                  placeholder="SPP Karyawan">
+                                </div>
+                                <div class="col-sm-12 col-md-4 my-1">
+                                  <input type="number" class="form-control border-orange w-100" id="sppOnline"
+                                  placeholder="SPP Online">
+                                </div>
+                              </div>                                
                               </div>
                             </div>
                           </div>
