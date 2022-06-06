@@ -30,8 +30,8 @@ const listKampusItem = (data, container) => {
                     <div class="col-md-3">
                         <h4 class="fw-bold"><a href="#" class="text-dark">${kamp.name}</a></h4>
                         <p><i class="fas fa-location-dot" aria-hidden="true"></i> ${kamp.city}</p>
-                        <span class="alert alert-info p-1">Akreditasi ${kamp.akreditasiKampus}</span>
-                        <span class="alert alert-info p-1">PTS</span>
+                        <span class="d-inline-block my-1 alert alert-info p-1">Akreditasi ${kamp.akreditasiKampus}</span>
+                        <span class="d-inline-block my-1 alert alert-info p-1">PTS</span>
                     </div>
                     <div class="col-md-3">
                     ${kamp.kelasTersedia.reduce((show, value) => show.concat(`${value.namaKelas}<br>`), '<h4><u>Kelas Tersedia</u></h4>')}

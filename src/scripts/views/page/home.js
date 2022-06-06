@@ -10,7 +10,7 @@ const Homepage = {
           <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
               Daftar sekarang gratis!</p>
           <a href="#kampus-rekomendasi">
-              <button class="btn btn-primary">Eksplor</button>
+              <button class="btn btn-info text-white">Eksplor</button>
           </a>
       </div>
       <div class="col-md-6">

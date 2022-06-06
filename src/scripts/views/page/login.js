@@ -22,7 +22,7 @@ const Login = {
                                             <label for="inputPassword">Password</label><br>
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Masukkan Password" name="password">
                                         </div>
-                                        <button type="submit" class="btn btn-primary form-control mt-4 text-white">Masuk</button>
+                                        <button type="submit" class="btn btn-info form-control mt-4 text-white">Masuk</button>
                                     </form>
                                     <div class="text-center mt-3">
                                         <a class="small" href="#/daftar">Belum punya akun? Daftar!</a>
