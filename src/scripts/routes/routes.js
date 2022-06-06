@@ -13,12 +13,14 @@ import InfoJurusan from '../views/page/info-jurusan';
 import SettingJurusan from '../views/page/setting-jurusan';
 import Login from '../views/page/login';
 import Daftar from '../views/page/daftar';
+import DetailJurusan from '../views/page/detail-jurusan';
 
 const routes = {
   '/': Homepage,
   '/home': Homepage,
   '/list-kampus': ListKampus,
   '/kampus/:id': DetailKampus,
+  '/jurusan/:id': DetailJurusan,
   '/dashboard/:id': DashboardUser,
   '/edit-profile/:id': EditProfileUser,
   '/dashboard-admin/:id': DashboardAdmin,

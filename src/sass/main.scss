@@ -3,6 +3,7 @@
 
 $white: #FFFFFF;
 $cold-white: #E8F9FD;
+$lighten-blue: #79DAE8;
 $light-blue: #0AA1DD;
 $darker-blue: #2155CD;
 $gray: #474747;
@@ -149,12 +150,12 @@ footer {
     background-color: #7CF253;
     color: $white;
 }
-.desc-kampus{
+.desc-kampus, .desc-jurusan{
     height: 130px;
     overflow-y: auto;
 }
 .container-reviews{
-    height: 400px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -261,5 +262,24 @@ main{
 }
 
 .btn-primary {
-    color: #0AA1DD;
+    background-color: $darker-blue;
+    color: white;
+    border: none;
+}
+
+.btn-info{
+    background-color: $light-blue;
+    color: white;
+}
+
+.bg-info{
+    background-color: $lighten-blue !important;
+}
+
+.bg-primary {
+    background-color: $darker-blue !important;
+}
+
+.bg-regular-blue{
+    background-color: $light-blue;
 }
