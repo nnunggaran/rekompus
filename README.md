@@ -3,7 +3,9 @@
 # Rekompus
 Rekompus adalah sebuah website yang memberikan kemudahan bagi para siswa SMA sederajat untuk mencari informasi mengenai perguruan tinggi di Indonesia beserta program studinya. 
 
-## <b>Anggota Tim Capstone Project CPSG-27</b>
+**Berikut Repositori Back-end: [Rekompus.api](https://github.com/raihanputro/rekompus.api)**
+
+## Anggota Tim Capstone Project CPSG-27
 1. F2209A172 - Nurul Huda
 2. F2013B057 - Nosef Nunggaran
 3. F2009A039 - Raihan Putro Maulana Rizky
