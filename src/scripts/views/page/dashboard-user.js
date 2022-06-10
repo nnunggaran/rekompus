@@ -1,3 +1,4 @@
+import KampusSource from '../../data/rekompus-source';
 import { heroText } from '../templates/template-creator';
 
 const DashboardUser = {
@@ -172,6 +173,11 @@ const DashboardUser = {
     `;
   },
   async afterRender() {
+    // const kampuss = await FavoriteRekompusSourceIdb.listKampus();
+    // const kampusContainer = document.querySelector('.list-kampus-favorite');
+    // kampuss.forEach((kampus) => {
+    //   kampusContainer.innerHTML += createListKampusItemTemplateDashboard(kampus);
+    // });
     const heroEl = document.querySelector('.hero-text');
     heroEl.innerHTML = heroText('Yuk lihat Kampus dan Jurusan Favoritmu!');
 
@@ -193,6 +199,8 @@ const DashboardUser = {
       btnKampusFavorite.classList.remove('border-bottom', 'border-info', 'border-2', 'fw-bold');
       btnJurusanFavorite.classList.add('border-bottom', 'border-info', 'border-2', 'fw-bold');
     });
+
+    scrollTo({ top: 0 });
   },
 };
 
