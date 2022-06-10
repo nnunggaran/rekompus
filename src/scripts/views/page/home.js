@@ -14,7 +14,7 @@ const Homepage = {
           </a>
       </div>
       <div class="col-md-6">
-          <img src="./images/hero-image.png" alt="" class="hero-image">
+        <img src="./images/hero-image.png" alt="" class="hero-image">
       </div>
     </section>
     <section id="kampus-rekomendasi" class="container-fluid mt-5">
@@ -33,6 +33,7 @@ const Homepage = {
     jurusanRekomendasiEl.innerHTML = jurusanRekomendasi();
     const lokasiKampusEl = document.querySelector('#lokasi-kampus');
     lokasiKampusEl.innerHTML = kampusBerdasarkanLokasi();
+    scrollTo({ top: 0 });
   },
 };
 
