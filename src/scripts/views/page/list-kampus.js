@@ -6,8 +6,9 @@ import {
   selectPmbItem,
   selectProvinsiItem,
 } from '../templates/list-kampus-creator';
-import { heroText, listKampusItem } from '../templates/template-creator';
+import { createListKampusItemTemplate, heroText } from '../templates/template-creator';
 import data from '../../data/data.json';
+import RekompusSource from '../../data/rekompus-source';
 
 const ListKampus = {
   async render() {
@@ -49,7 +50,7 @@ const ListKampus = {
             </div>
         </section>
         <section id="list-kampus" class="container-fluid">
-            <div class="row mt-2 pt-2 pb-2 bg-info list-kampus-container">
+            <div class="row mt-2 pt-2 pb-2 bg-light shadow list-kampus-container">
             </div>
             <nav aria-label="Page navigation example mb-2">
                 <ul class="pagination pagination-md justify-content-center mt-2">
@@ -70,10 +71,23 @@ const ListKampus = {
             </nav>
             
         </section>
+        <div id="loading-container">
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
     `;
   },
 
   async afterRender() {
+    const loadingContainer = document.getElementById('loading-container');
+    loadingContainer.classList.add('show');
+    const kampuss = await RekompusSource.listKampus();
+
+    const kampusList = document.querySelector('.list-kampus-container');
+    kampuss.forEach((kampus) => {
+      kampusList.innerHTML += createListKampusItemTemplate(kampus);
+    });
+    loadingContainer.classList.remove('show');
+
     const heroEl = document.querySelector('.hero-text');
     heroEl.innerHTML = heroText('Cari Kampus Impianmu');
     const selectJurusanEl = document.querySelector('select#jurusan');
@@ -88,8 +102,8 @@ const ListKampus = {
     selectJenjangEl.innerHTML += selectJenjangItem();
     const selectPmbEl = document.querySelector('select#pmb');
     selectPmbEl.innerHTML += selectPmbItem();
-    const listKampusContainer = document.querySelector('.list-kampus-container');
-    listKampusItem(data, listKampusContainer);
+
+    scrollTo({ top: 0 });
   },
 };
 

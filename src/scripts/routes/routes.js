@@ -14,6 +14,7 @@ import SettingJurusan from '../views/page/setting-jurusan';
 import Login from '../views/page/login';
 import Daftar from '../views/page/daftar';
 import DetailJurusan from '../views/page/detail-jurusan';
+import NotFound from '../views/page/404';
 
 const routes = {
   '/': Homepage,
@@ -33,6 +34,7 @@ const routes = {
   '/setting-jurusan/:id': SettingJurusan,
   '/login': Login,
   '/daftar': Daftar,
+  '/404': NotFound,
 };
 
 export default routes;

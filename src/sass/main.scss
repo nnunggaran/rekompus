@@ -19,6 +19,7 @@ body {
 
 .bg-header{
     background-color: $cold-white;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
 a {
@@ -151,7 +152,7 @@ footer {
     color: $white;
 }
 .desc-kampus, .desc-jurusan{
-    height: 130px;
+    max-height: 130px;
     overflow-y: auto;
 }
 .container-reviews{
@@ -238,20 +239,25 @@ main{
             }
         }
     }
-    #list-kampus{
-        .list-kampus-container{
-            .col-md-12{
-                .card{
-                    .card-body{
-                        .row{
-                            overflow: auto;
-                        }
-                    }
+    #list-kampus{        
+    }
+
+}
+
+.list-kampus-container{
+    .col-md-12{
+        .card{
+            .card-body{
+                .row{
+                    overflow: auto;
                 }
             }
         }
+        .card:hover{
+            opacity: 0.8;
+            box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.25);
+        }
     }
-
 }
 
 .title-login {
