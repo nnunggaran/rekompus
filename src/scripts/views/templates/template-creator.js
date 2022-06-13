@@ -83,10 +83,10 @@ const createListKampusItemTemplateDashboard = (kampus, level = 'user') => `
             <h4><u>Status PMB</u></h4>
             ${checkPmb(kampus.statusPmb)}
           </div>
-          <div class="col-sm-6 col-md-2 my-2 d-flex align-items-center justify-content-around">
+          <div class="col-sm-6 col-md-2 my-2 d-flex align-items-center justify-content-around" data-id="${kampus.id}" data-name="${kampus.name}">
             <a href="#/${level === 'admin' ? 'info-kampus' : 'kampus'}/${kampus.id}" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
-            <a href="#/${level === 'admin' ? 'delete-kampus' : 'delete-kampus-favorite'}/${kampus.id}" class="text-danger"><i class="fa fa-trash fa-4x"
-                aria-hidden="true"></i></a>
+            <a href="#/admin/${sessionStorage.getItem('email')}" class="text-danger delete-item"><i class="fa fa-trash fa-4x border-none"
+            aria-hidden="true"></i></a>
           </div>
         </div>
       </div>
@@ -538,8 +538,11 @@ const createKampusDetailForm = (kampus) => {
           </div>
 
           <div class="text-end">
-            <a href="#/dashboard-admin/${localStorage.getItem('email')}">
-            <button type="submit" class="btn btn-danger fs-4 my-1"><i class="fa fa-arrow-rotate-back fa-lg" aria-hidden="true"></i> Kembali</button>
+            <a href="#/info-kampus/${data.id}" id="${data.id}" class="delete-item">
+            <button type="submit" class="btn btn-danger fs-4 my-1"><i class="fa fa-trash fa-lg" aria-hidden="true"></i> Hapus</button>
+            </a>  
+            <a href="#/admin/${sessionStorage.getItem('email')}">
+            <button type="submit" class="btn btn-warning text-white fs-4 my-1"><i class="fa fa-arrow-rotate-back fa-lg" aria-hidden="true"></i> Kembali</button>
             </a>  
             <a href="#/setting-jurusan/${data.id}" class="btn btn-dblue fs-4 my-1"><i class="fa fa-graduation-cap fa-lg"></i>
             Jurusan</a>
@@ -784,9 +787,6 @@ const createKampusDetailFormWithSubmit = (kampus) => {
             </div>
 
             <div class="text-end">
-              <a href="#/dashboard-admin/${localStorage.getItem('email')}">
-              <button type="submit" class="btn btn-danger fs-4 my-1"><i class="fa fa-arrow-rotate-back fa-lg" aria-hidden="true"></i> Kembali</button>
-              </a>  
               <a href="#/setting-jurusan/${data.id}" class="btn btn-dblue fs-4 my-1"><i class="fa fa-graduation-cap fa-lg"></i>
               Jurusan</a>
             </div>

@@ -24,10 +24,57 @@ const InfoKampus = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const kampus = await RekompusSource.detailKampus(url.id);
     const kampusContainer = document.getElementById('infoKampus');
-
     kampusContainer.innerHTML = createKampusDetailForm(kampus);
+    const btnDeleteKampus = document.querySelector('.delete-item');
+    const namaKampus = kampus.map((item) => item.name);
     loadingContainer.classList.remove('show');
     scrollTo({ top: 0 });
+    btnDeleteKampus.addEventListener('click', (e) => {
+      e.preventDefault();
+      const kampusItem = e.target.parentElement.id;
+      console.log(kampusItem);
+      removeKampus(kampusItem);
+    });
+    function removeKampus(data) {
+      const deleteKampus = (item) => {
+        const delKampus = RekompusSource.deleteKampus(item);
+        return delKampus;
+      };
+      swal({
+        title: 'Yakin ingin menghapus?',
+        text: `Anda akan menghapus kampus ${namaKampus}`,
+        icon: 'warning',
+        buttons: [
+          'Batalkan',
+          'Konfirmasi',
+        ],
+        dangerMode: true,
+      }).then((isConfirm) => {
+        if (isConfirm) {
+          removeKampus(data);
+          swal({
+            icon: 'success',
+            title: 'Berhasil menghapus!',
+            text: 'Anda berhasil menghapus data yang dipilih.',
+          }).then(
+            deleteKampus(data),
+            swal({
+              icon: 'success',
+              title: 'Berhasil!',
+              text: 'Berhasil menghapus kampus!',
+            }).then(
+              window.location.href = `/#/admin/${sessionStorage.getItem('email')}`,
+            ),
+          );
+        } else {
+          swal({
+            icon: 'success',
+            title: 'Sukses Membatalkan',
+            text: 'Berhasil membatalkan penghapusan kampus.',
+          });
+        }
+      });
+    }
   },
 };
 

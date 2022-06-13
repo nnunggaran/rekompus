@@ -85,9 +85,65 @@ const DashboardAdmin = {
     loadingContainer.classList.add('show');
     const kampuss = await RekompusSource.listKampus();
     const kampusContainer = document.querySelector('.list-kampus-container');
+    if (kampuss.length === 0) {
+      kampusContainer.innerHTML = `
+      <div class="container-fluid">
+        <h2 class="text-center">Tidak ada data!</h2>
+        <div class="d-flex">
+        <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+        </div>
+        
+      </div>
+      `;
+    }
+
     kampuss.forEach((kampus) => {
       kampusContainer.innerHTML += createListKampusItemTemplateDashboard(kampus, 'admin');
     });
+
+    const btnDeleteKampus = document.querySelectorAll('.delete-item');
+
+    btnDeleteKampus.forEach((delKampus) => {
+      delKampus.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const kampusItem = e.target.parentElement.parentElement.parentElement.dataset.id;
+        const itemName = e.target.parentElement.parentElement.parentElement.dataset.name;
+        removeKampus(kampusItem, itemName);
+      });
+    });
+
+    const removeKampus = async (data, name) => {
+      const deleteKampus = async (item, itemName) => {
+        const delKampus = await RekompusSource.deleteKampus(item);
+        swal({
+          icon: 'success',
+          title: 'Berhasil menghapus!',
+          text: `Anda berhasil menghapus kampus ${itemName}`,
+        }).then(() => window.location.reload());
+        return delKampus;
+      };
+      swal({
+        title: 'Yakin ingin menghapus?',
+        text: `Anda akan menghapus kampus ${name}`,
+        icon: 'warning',
+        buttons: [
+          'Batalkan',
+          'Konfirmasi',
+        ],
+        dangerMode: true,
+      }).then((isConfirm) => {
+        if (isConfirm) {
+          deleteKampus(data, name);
+        } else {
+          swal({
+            icon: 'success',
+            title: 'Sukses Membatalkan',
+            text: 'Berhasil membatalkan penghapusan kampus.',
+          });
+        }
+      });
+    };
+
     const heroTextEl = document.querySelector('.hero-text');
     heroTextEl.innerHTML = heroText('Dashboard Admin');
     scrollTo({ top: 0 });
