@@ -60,7 +60,7 @@ const Login = {
       };
 
       const postLogin = await RekompusSource.loginUser(formData);
-
+      console.log(postLogin);
       if (postLogin.status === 1) {
         swal({
           icon: 'success',
@@ -68,11 +68,11 @@ const Login = {
           text: 'Username dan Password benar!',
           timer: 2000,
         });
-        localStorage.removeItem('jwt');
-        localStorage.removeItem('email');
-        await localStorage.setItem('email', formData.email);
-        await localStorage.setItem('jwt', postLogin.data);
-        window.location = `/#/dashboard-admin/${formData.email}`;
+        sessionStorage.removeItem('jwt');
+        sessionStorage.removeItem('email');
+        await sessionStorage.setItem('email', formData.email);
+        await sessionStorage.setItem('jwt', postLogin.data);
+        window.location = `/#/admin/${formData.email}`;
       } else {
         swal({
           icon: 'warning',
