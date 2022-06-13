@@ -24,7 +24,7 @@ const routes = {
   '/jurusan/:id': DetailJurusan,
   '/dashboard/:id': DashboardUser,
   '/edit-profile/:id': EditProfileUser,
-  '/dashboard-admin/:id': DashboardAdmin,
+  '/admin/:id': DashboardAdmin,
   '/edit-profile-admin/:id': EditProfileAdmin,
   '/add-kampus': AddKampus,
   '/edit-jurusan/:id': EditJurusan,
