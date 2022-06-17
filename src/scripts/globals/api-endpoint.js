@@ -8,6 +8,7 @@ const API_ENDPOINT = {
   DELETE_KAMPUS: (id) => `${CONFIG.BASE_URL}/kampus/${id}`,
   UPDATE_KAMPUS: (id) => `${CONFIG.BASE_URL}/kampus/${id}`,
   DETAIL_KAMPUS: (id) => `${CONFIG.BASE_URL}/kampus/${id}`,
+  UPLOAD_LOGO: (id) => `${CONFIG.BASE_URL}/kampus/${id}/pictureid`,
 };
 
 export default API_ENDPOINT;

@@ -1,4 +1,5 @@
 import RekompusSource from '../../data/rekompus-source';
+import { getCookie } from '../../utils/cookie';
 import { heroText, createListKampusItemTemplateDashboard } from '../templates/template-creator';
 
 const DashboardAdmin = {
@@ -32,20 +33,24 @@ const DashboardAdmin = {
             <h4><i class="fa fa-school"></i> Kampus</h4>            
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body p-0">
           <div class="row">
             <div class="col-md-12">
               <div class="card" id="kampusList">
-                <div class="card-header bg-primary d-flex justify-content-between p-3">
-                  <div class="input-group w-50">
-                    <div class="input-group-text">
-                      <i class="fas fa-magnifying-glass"></i>
+                <div class="card-header bg-primary p-2">
+                  <div class="row justify-content-between">
+                    <div class="col-sm-12 col-md-9 col-lg-9 my-1">
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <i class="fas fa-magnifying-glass"></i>
+                        </div>
+                        <input type="search" class="form-control p-2 fs-5 fw-bold" id="kampusField" placeholder="Cari kampus">
+                      </div>
                     </div>
-                    <input type="search" class="form-control p-2 fs-6" id="kampusField" placeholder="Cari kampus">
-                  </div>
-                  <div class="button-add-kampus">
-                    <a href="/#/add-kampus" class="btn alert-success p-2 px-3 fs-5 fw-bold shadow"><i class="fa fa-plus-square"
-                        aria-hidden="true"></i> Kampus</a>
+                    <div class="button-add-kampus col-sm-12 col-md-3 col-lg-3 my-1 ms-auto">
+                      <a href="/#/add-kampus" class="btn alert-success p-2 px-3 fs-5 fw-bold shadow w-100"><i class="fa fa-plus-square"
+                          aria-hidden="true"></i> Kampus</a>
+                    </div>
                   </div>
                 </div>
                 <div class="card-body bg-light">
@@ -83,6 +88,17 @@ const DashboardAdmin = {
   async afterRender() {
     const loadingContainer = document.getElementById('loading-container');
     loadingContainer.classList.add('show');
+    if (getCookie('email').length === 0 && getCookie('jwt').length === 0) {
+      swal({
+        icon: 'error',
+        title: 'Error!',
+        text: 'Harap login terlebih dahulu!',
+        timer: 2000,
+      }).then(() => {
+        window.location.href = '/#/login';
+      });
+    }
+
     const kampuss = await RekompusSource.listKampus();
     const kampusContainer = document.querySelector('.list-kampus-container');
     if (kampuss.length === 0) {
@@ -100,16 +116,15 @@ const DashboardAdmin = {
     kampuss.forEach((kampus) => {
       kampusContainer.innerHTML += createListKampusItemTemplateDashboard(kampus, 'admin');
     });
+    const listContainer = document.querySelector('.list-kampus-container');
 
-    const btnDeleteKampus = document.querySelectorAll('.delete-item');
-
-    btnDeleteKampus.forEach((delKampus) => {
-      delKampus.addEventListener('click', async (e) => {
-        e.preventDefault();
+    listContainer.addEventListener('click', (e) => {
+      if (e.target.parentElement.parentElement.className === 'text-danger delete-item') {
+        console.log(e.target);
         const kampusItem = e.target.parentElement.parentElement.parentElement.dataset.id;
         const itemName = e.target.parentElement.parentElement.parentElement.dataset.name;
         removeKampus(kampusItem, itemName);
-      });
+      }
     });
 
     const removeKampus = async (data, name) => {
@@ -119,8 +134,17 @@ const DashboardAdmin = {
           icon: 'success',
           title: 'Berhasil menghapus!',
           text: `Anda berhasil menghapus kampus ${itemName}`,
-        }).then(() => window.location.reload());
-        return delKampus;
+        }).then(async () => {
+          const renderContainer = document.querySelector('.list-kampus-container');
+          renderContainer.innerHTML = '';
+          loadingContainer.classList.add('show');
+          const kampusRender = await RekompusSource.listKampus();
+          kampusRender.forEach((kampus) => {
+            renderContainer.innerHTML += createListKampusItemTemplateDashboard(kampus, 'admin');
+          });
+          loadingContainer.classList.remove('show');
+          scrollTo({ top: 0 });
+        });
       };
       swal({
         title: 'Yakin ingin menghapus?',
@@ -138,7 +162,7 @@ const DashboardAdmin = {
           swal({
             icon: 'success',
             title: 'Sukses Membatalkan',
-            text: 'Berhasil membatalkan penghapusan kampus.',
+            text: `Berhasil membatalkan penghapusan kampus ${name}.`,
           });
         }
       });

@@ -1,6 +1,7 @@
 import RekompusSource from '../../data/rekompus-source';
 import UrlParser from '../../routes/url-parser';
 import { heroText, createKampusDetailForm } from '../templates/template-creator';
+import { getCookie } from '../../utils/cookie';
 
 const InfoKampus = {
   async render() {
@@ -32,12 +33,11 @@ const InfoKampus = {
     btnDeleteKampus.addEventListener('click', (e) => {
       e.preventDefault();
       const kampusItem = e.target.parentElement.id;
-      console.log(kampusItem);
       removeKampus(kampusItem);
     });
-    function removeKampus(data) {
-      const deleteKampus = (item) => {
-        const delKampus = RekompusSource.deleteKampus(item);
+    function removeKampus(id) {
+      const deleteKampus = (data) => {
+        const delKampus = RekompusSource.deleteKampus(data);
         return delKampus;
       };
       swal({
@@ -51,26 +51,19 @@ const InfoKampus = {
         dangerMode: true,
       }).then((isConfirm) => {
         if (isConfirm) {
-          removeKampus(data);
+          deleteKampus(id);
           swal({
             icon: 'success',
-            title: 'Berhasil menghapus!',
-            text: 'Anda berhasil menghapus data yang dipilih.',
+            title: 'Berhasil!',
+            text: `Berhasil menghapus kampus ${namaKampus}!`,
           }).then(
-            deleteKampus(data),
-            swal({
-              icon: 'success',
-              title: 'Berhasil!',
-              text: 'Berhasil menghapus kampus!',
-            }).then(
-              window.location.href = `/#/admin/${sessionStorage.getItem('email')}`,
-            ),
+            window.location.href = `/#/admin/${getCookie('email')}`,
           );
         } else {
           swal({
             icon: 'success',
             title: 'Sukses Membatalkan',
-            text: 'Berhasil membatalkan penghapusan kampus.',
+            text: `Berhasil membatalkan penghapusan kampus ${namaKampus}.`,
           });
         }
       });

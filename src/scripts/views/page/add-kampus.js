@@ -1,6 +1,7 @@
 /* eslint-disable no-shadow */
 import swal from 'sweetalert';
 import RekompusSource from '../../data/rekompus-source';
+import { getCookie } from '../../utils/cookie';
 import { heroText } from '../templates/template-creator';
 
 const AddKampus = {
@@ -20,7 +21,7 @@ const AddKampus = {
               <p class="fw-bold text-muted">Kota</p>
             </div>
             <div class="col-md-5 p-3 my-auto">
-              <a href="/#/admin/${localStorage.getItem('email')}"
+              <a href="/#/admin/${getCookie('email')}"
                 class="link text-dark text-decoration-none border-bottom border-info border-2 fw-bold fs-5 py-2">
                 <i class="fa fa-edit fa-2x text-muted" aria-hidden="true"></i> <span class="text-muted ">Atur data
                   kampus</span>
@@ -439,7 +440,7 @@ const AddKampus = {
       const groupJurusanSelector = document.querySelectorAll('.group-form-jurusan');
       if (groupJurusanSelector.length < 2) {
         swal({
-          icon: 'warning',
+          icon: 'error',
           title: 'Gagal menghapus jurusan!',
           text: 'Tidak bisa menghapus jurusan. Setidaknya ada minimal satu jurusan!',
         });

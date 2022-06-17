@@ -2,6 +2,7 @@ import swal from 'sweetalert';
 import '../components/app-bar';
 import '../components/foot-bar';
 import RekompusSource from '../data/rekompus-source';
+import { deleteCookie, getCookie } from '../utils/cookie';
 
 const main = async () => {
   const headerEl = document.querySelector('header');
@@ -9,12 +10,11 @@ const main = async () => {
   headerEl.innerHTML = '<app-bar></app-bar>';
   footerEl.innerHTML = '<foot-bar></foot-bar>';
   const btnContainerAppBar = document.querySelector('#btnAppbar');
-  const checkSessionStorage = await sessionStorage.getItem('jwt');
-  if (checkSessionStorage) {
+  if (getCookie('jwt').length !== 0) {
     btnContainerAppBar.innerHTML = `
     <button type="button" class="btn1 btn-outline-primary bg-danger me-3" id="logout">Keluar</button>
     <div class="user-profile btn2 alert-primary text-dark">        
-      <a class="nav-link active" aria-current="page" href="/#/admin/${sessionStorage.getItem('email')}" class="mt-0 mb-3">
+      <a class="nav-link active" aria-current="page" href="/#/admin/${getCookie('email')}" class="mt-0 mb-3">
           <span class="d-inline-block">
             <img src="./images/default-profile.png" alt="foto-user" class="rounded-pill" style="width:30px;">
           </span>
@@ -47,9 +47,8 @@ const main = async () => {
             headerEl.innerHTML = '<app-bar></app-bar>';
             const removeDataLogin = async () => {
               const logout = RekompusSource.logoutUser();
-              console.log(logout);
-              sessionStorage.removeItem('jwt');
-              sessionStorage.removeItem('email');
+              deleteCookie('jwt');
+              deleteCookie('email');
             };
             removeDataLogin();
             window.location.href = '/#/';
