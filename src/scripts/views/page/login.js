@@ -1,5 +1,6 @@
 import swal from 'sweetalert';
 import RekompusSource from '../../data/rekompus-source';
+import { setCookie } from '../../utils/cookie';
 
 const Login = {
   async render() {
@@ -68,10 +69,8 @@ const Login = {
           text: 'Username dan Password benar!',
           timer: 2000,
         });
-        sessionStorage.removeItem('jwt');
-        sessionStorage.removeItem('email');
-        await sessionStorage.setItem('email', formData.email);
-        await sessionStorage.setItem('jwt', postLogin.data);
+        setCookie('jwt', postLogin.data, 6);
+        setCookie('email', formData.email, 6);
         window.location = `/#/admin/${formData.email}`;
       } else {
         swal({
@@ -85,6 +84,8 @@ const Login = {
       fieldUsername.value = '';
       fieldPassword.value = '';
     });
+
+    scrollTo({ top: 0 });
   },
 };
 
