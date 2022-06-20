@@ -19,9 +19,9 @@ import NotFound from '../views/page/404';
 const routes = {
   '/': Homepage,
   '/home': Homepage,
-  '/list-kampus': ListKampus,
+  '/kampus': ListKampus,
   '/kampus/:id': DetailKampus,
-  '/jurusan/:id': DetailJurusan,
+  '/kampus/:id/jurusan/:subid': DetailJurusan,
   '/dashboard/:id': DashboardUser,
   '/edit-profile/:id': EditProfileUser,
   '/admin/:id': DashboardAdmin,

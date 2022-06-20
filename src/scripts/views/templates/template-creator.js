@@ -167,7 +167,7 @@ const createKampusDetailTemplate = (kampus) => {
             </div>
             <div class="col-md-12">
               <div class="row bg-light shadow-sm" id="jurusan-tersedia">
-                ${loopJurusan(data.jurusan)}
+                ${loopJurusan(data, data.jurusan)}
               </div>
               <nav aria-label="Page navigation example mb-2">
                 <ul class="pagination pagination-md justify-content-center mt-2">
@@ -728,6 +728,31 @@ const createKampusDetailFormWithSubmit = (kampus) => {
   return result;
 };
 
+const createJurusanDetailTemplate = (kampus, idJurusan) => {
+  const dataKampus = kampus.map((data) => `
+  <section class="hero-text container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <a href="#/kampus/${data.id}">
+          <span
+            class="alert bg-primary border-2 border-white rounded-3 text-white fw-bold fs-4 py-2 px-3 d-inline-block"><i class="fa fa-school"></i> ${data.name}</span>
+        </a>
+      </div>
+
+      <div class="col-md-12">
+        <h4 class="fw-bold text-white fs-3 pb-2"><i class="fa fa-graduation-cap"></i> ${data.jurusan.filter((item) => item.id === idJurusan).map((item) => item.namaJurusan)}</h4>
+      </div>
+
+      <div class="col-md-12">       
+        ${loopJurusanWithFilterHeading(data, idJurusan)}
+      </div>
+    </div>
+    </section>
+    ${itemsJurusanWithFilter(data, idJurusan)}
+  `);
+  return dataKampus;
+};
+
 const createSettingJurusanContainerTemplate = (kampus) => {
   const result = kampus.map((data) => `
     <section class="head-profile mt-2">
@@ -1003,7 +1028,6 @@ function editKelasTersedia(data) {
 }
 
 function akreditasiKampus(data) {
-  console.log(data);
   const dataAkreditasi = ['A', 'B', 'C', 'Baik', 'Sangat Baik', 'Unggul', 'Belum Terakreditasi'];
   const selectSpace = document.createElement('select');
   selectSpace.setAttribute('id', 'akreditasiKampus');
@@ -1106,7 +1130,7 @@ function redirectWa(phone) {
   return result;
 }
 
-function loopJurusan(data) {
+function loopJurusan(kampus, data) {
   const jurusan = data.map((item) => `
   <div class="col-md-12">
     <div class="card border-orange my-2">
@@ -1121,7 +1145,7 @@ function loopJurusan(data) {
         </div>
       </div>
       <div class="card-footer bg-primary">
-        <a href="/#/jurusan/${item.id}">
+        <a href="/#/kampus/${kampus.id}/jurusan/${item.id}">
           <button class="btn btn-primary fw-bold w-100">Detail</button>
         </a>
       </div>
@@ -1130,6 +1154,195 @@ function loopJurusan(data) {
   `);
   const result = jurusan.join('');
   return result;
+}
+
+function loopJurusanWithFilterHeading(data, idJurusan) {
+  const jurusan = data.jurusan.filter((item) => item.id === idJurusan)
+    .map((item) => `
+    <span
+      class="alert bg-transparent border-2 border-white rounded-pill text-white fw-bold py-1 px-3 d-inline-block my-1">${item.jenjang}</span>
+    `);
+
+  let spaceKelasTersedia = '';
+  const kelasTersedia = data.jurusan
+    .filter((item) => item.id === idJurusan)
+    .map((item) => {
+      const loopKelas = item.kelas.forEach((value) => {
+        spaceKelasTersedia += `<span
+        class="alert bg-transparent border-2 border-white rounded-pill text-white fw-bold py-1 px-2 d-inline-block my-1 mx-1">${value.name}</span>`;
+      });
+
+      return loopKelas;
+    });
+
+  const result = `${jurusan} ${spaceKelasTersedia}`;
+  return result;
+}
+
+function loopJurusanNameAndPrice(data, idJurusan) {
+  console.log('data', data);
+  let spaceKelasTersedia = '';
+  const kelasTersedia = data.jurusan
+    .filter((item) => item.id === idJurusan)
+    .map((item) => {
+      const loopKelas = item.kelas.forEach((value) => {
+        console.log('value', value);
+        const createItemJurusanTemplate = `
+        <div class="col-sm-12 col-md-6 col-lg-4 card shadow-sm p-3">
+          <h5 class="text-heading py-1 px-2"> <i class="fa fa-building-circle-check text-primary"></i> ${value.name}</h5>
+          <h5 class="text-secondary py-1 px-2">Rp. ${value.biayaSPP} </h5>
+        </div>`;
+        spaceKelasTersedia += createItemJurusanTemplate;
+      });
+
+      return loopKelas;
+    });
+
+  const result = spaceKelasTersedia;
+  return result;
+}
+
+function itemsJurusanWithFilter(data, idJurusan) {
+  const jurusan = data.jurusan
+    .filter((item) => item.id === idJurusan)
+    .map((item) => `
+    <section id="detail-jurusan" class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 mt-3">
+          <div class="card bg-info border-orange">
+            <div class="card-header alert-info text-center">
+              <div class="d-flex scroll-x">
+                <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#pembelajaran" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
+                    id="scrollKampus">Pembelajaran</a></span>
+                <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#deskripsi" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
+                    id="scrollJurusan">Deskripsi Jurusan</a></span>
+                <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#prospek-karir" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
+                    id="scrollProspek">Prospek Karir</a></span>              
+              </div>
+
+            </div>
+            <div class="card-body bg-light br row m-2">
+            <div id="yangDipelajari" class="col-md-12 mb-4 p-3 bg-light shadow">
+            <h4 class="text-muted text-center mb-2"><u>Yang dipelajari</u></h4>
+                <div class="row">
+                ${item.mataKuliah ? splittingTextComma(item.mataKuliah, 'dipelajari') : `<div class="container-fluid">
+                  <h2 class="text-center">Tidak ada data!</h2>
+                  <div class="d-flex">
+                    <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+                  </div>
+                 </div>
+                `}
+                </div>
+              </div>
+              <div class="col-md-12 mb-4 justify-content-around bg-light shadow p-3" id="info-kampus">
+              <h4 class="text-muted text-center mb-2"><u>Deskripsi Jurusan</u></h4>
+                <div class="row">
+                  <div class="col-md-12">
+                    <p id="description-jurusan" class="desc-jurusan">
+                      ${item.deskripsiKampus ? item.deskripsiKampus : `<div class="container-fluid">
+                        <h2 class="text-center">Tidak ada data!</h2>
+                        <div class="d-flex">
+                          <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+                        </div>
+                      </div>
+                      `}
+                  </div>
+                </div>
+              </div>
+              
+              <div id="prospekKarir" class="col-md-12 mb-4 p-3 bg-light shadow">
+              <h4 class="text-muted text-center mb-2"><u>Prospek Karir</u></h4>
+                <div class="row">
+                ${item.prospekKarir ? splittingTextComma(item.prospekKarir, 'karir') : `<div class="container-fluid">
+                  <h2 class="text-center">Tidak ada data!</h2>
+                  <div class="d-flex">
+                    <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+                  </div>
+                 </div>
+                `}
+                </div>
+              </div>
+              <div id="biaya" class="col-md-12 mb-4 p-3 bg-light shadow">
+              <h4 class="text-muted text-center mb-2"><u>Kelas dan Biaya SPP</u></h4>
+                <div class="row p-2">
+                ${item.kelas ? loopJurusanNameAndPrice(data, idJurusan) : `<div class="container-fluid">
+                  <h2 class="text-center">Tidak ada data!</h2>
+                  <div class="d-flex">
+                    <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+                  </div>
+                 </div>
+                `}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mt-3">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card border-orange">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-4">
+                      <img src="${data.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${data.pictureId}` : './images/default-school.png'}" alt="${data.name}" class="thumb-img-detail">
+                    </div>
+                    <div class="col-md-12 col-lg-8">
+                      <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                          <h5 class="text-heading">${data.name}</h5>
+                        </div>
+                        <div class="col-md-12 col-lg-12 mb-2">
+                          <span class="alert alert-info px-2 py-1 d-inline-block rounded-pill my-1">Akreditasi: ${data.akreditasiKampus ? data.akreditasiKampus : 'Tidak tersedia'}</span>
+                          <span class="alert alert-info px-3 py-1 d-inline-block rounded-pill my-1">${data.jenisKampus ? data.jenisKampus : 'Jenis Kampus'}</span>
+                        </div>
+                        <div class="col-md-12 col-lg-12 mb-2">
+                          ${checkPmb(data.statusPmb)}                     
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <a href="${data.linkPendaftaran ? `${data.linkPendaftaran}" target="_blank"` : '/#/404"'}>
+                        <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-wpforms fa-xl"></i> Link
+                          Pendaftaran</button></a>
+                    </div>
+                    <div class="col-md-12">
+                      <a href="${data.telepon ? redirectWa(data.telepon) : '/#/404"'}>
+                        <button class="btn btn-success w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-whatsapp fa-xl"
+                            aria-hidden="true"></i> Tanya via WhatsApp</button></a>
+                    </div>
+                  </div>
+                </div>          
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  `);
+
+  return jurusan;
+}
+
+function splittingTextComma(data, typeItem = 'dipelajari') {
+  const splitText = data.split(',');
+  let result = '';
+
+  if (typeItem === 'dipelajari') {
+    const mergeText = splitText.forEach((item) => {
+      const templateTextDipelajari = `<div class="col-sm-6 col-md-4 my-2"><i class="fa fa-book fa-xl text-primary" aria-hidden="true"></i>
+  ${item}</div>`;
+      result += templateTextDipelajari;
+    });
+    return result;
+  } if (typeItem === 'karir') {
+    const mergeText = splitText.forEach((item) => {
+      const templateTextKarir = `<div class="col-sm-6 col-md-4 my-2"><i class="fa fa-briefcase fa-xl text-primary"
+      aria-hidden="true"></i> ${item}</div>`;
+      result += templateTextKarir;
+    });
+    return result;
+  }
+  return 'Error!';
 }
 
 function checkPmb(data) {
@@ -1148,4 +1361,5 @@ export {
   createKampusDetailForm,
   createKampusDetailFormWithSubmit,
   createSettingJurusanContainerTemplate,
+  createJurusanDetailTemplate,
 };

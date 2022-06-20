@@ -14,7 +14,7 @@ class AppBar extends HTMLElement {
             <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
               <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="navitem-1">
-                  <a class="nav-link active" aria-current="page" href="#/list-kampus">Cari Kampus</a>
+                  <a class="nav-link active" aria-current="page" href="#/kampus">Cari Kampus</a>
                 </li>
                 <li class="navitem-2">
                   <a class="nav-link active" aria-current="page" href="#">Cari Jurusan</a>
