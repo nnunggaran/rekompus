@@ -1,8 +1,8 @@
 const kampusRekomendasi = () => `
-<h2 class="text-center">Rekomendasi Kampus</h2>
-<div class="row bg-regular-blue mx-auto pt-2 pb-2 br">
+<h2 class="text-center text-white mb-3">Rekomendasi Kampus</h2>
+<div class="row bg-light shadow mx-auto pt-2 pb-2 br border border-1 border-gray">
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -16,7 +16,7 @@ const kampusRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/kampus-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
@@ -24,7 +24,7 @@ const kampusRekomendasi = () => `
         </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -38,7 +38,7 @@ const kampusRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/kampus-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
@@ -46,7 +46,7 @@ const kampusRekomendasi = () => `
         </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -60,23 +60,23 @@ const kampusRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/kampus-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
             </div>
         </div>
     </div>
-    <h4 class="text-center mt-2"><a href="#" class="text-white">Tampilkan Semua</a>
+    <h4 class="text-center mt-2"><a href="#" class="fw-bold fs-3">Tampilkan Semua</a>
     </h4>
 </div>
 `;
 
 const jurusanRekomendasi = () => `
-<h2 class="text-center">Rekomendasi Jurusan</h2>
-<div class="row bg-regular-blue mx-auto pt-2 pb-2 br">
+<h2 class="text-center mb-3">Rekomendasi Jurusan</h2>
+<div class="row bg-light shadow mx-auto pt-2 pb-2 br border border-1 border-gray">
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -90,7 +90,7 @@ const jurusanRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/jurusan-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
@@ -98,7 +98,7 @@ const jurusanRekomendasi = () => `
         </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -112,7 +112,7 @@ const jurusanRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/jurusan-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
@@ -120,7 +120,7 @@ const jurusanRekomendasi = () => `
         </div>
     </div>
     <div class="col-md-6 col-lg-4 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-body d-flex">
                 <div class="thumb-container d-flex">
                     <div class="w-20">
@@ -134,7 +134,7 @@ const jurusanRekomendasi = () => `
                     </div>
                 </div>
             </div>
-            <div class="card-footer btn-dblue">
+            <div class="card-footer btn-dblue rounded-bottom">
                 <a href="/#/jurusan-rekomendasi/id">
                     <button class="btn btn-dblue w-100 fs-5">Detail</button>
                 </a>
@@ -145,62 +145,50 @@ const jurusanRekomendasi = () => `
 `;
 
 const kampusBerdasarkanLokasi = () => `
-<h2 class="text-center">Kampus berdasarkan lokasi</h2>
-<div class="row bg-regular-blue mx-auto pt-2 pb-2 br">
+<h2 class="text-center text-white mb-3">Kampus berdasarkan lokasi</h2>
+<div class="row bg-light shadow mx-auto pt-2 pb-2 br border border-1 border-gray">
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-header alert-info text-center mb-0 pb-0">
                 <h4>Bandung</h4>
                 <p class="text-muted">51 Kampus Tersedia</p>
             </div>
-            <div class="card-body">
-                <a href="#">
-                <img src="favicon.png" alt="" class="full-img w-100">
-                </a>
-            </div>
-            
+            <a href="#">
+            <img src="favicon.png" alt="" class="full-img rounded-bottom">
+            </a>
         </div>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-header alert-info text-center mb-0 pb-0">
                 <h4>Bandung</h4>
                 <p class="text-muted">51 Kampus Tersedia</p>
             </div>
-            <div class="card-body">
-                <a href="#">
-                <img src="favicon.png" alt="" class="full-img">
-                </a>
-            </div>
-            
+            <a href="#">
+            <img src="favicon.png" alt="" class="full-img rounded-bottom">
+            </a>
         </div>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-header alert-info text-center mb-0 pb-0">
                 <h4>Bandung</h4>
                 <p class="text-muted">51 Kampus Tersedia</p>
             </div>
-            <div class="card-body">
-                <a href="#">
-                <img src="favicon.png" alt="" class="full-img">
-                </a>
-            </div>
-            
+            <a href="#">
+            <img src="favicon.png" alt="" class="full-img rounded-bottom">
+            </a>
         </div>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
-        <div class="card">
+        <div class="card shadow-sm">
             <div class="card-header alert-info text-center mb-0 pb-0">
                 <h4>Bandung</h4>
                 <p class="text-muted">51 Kampus Tersedia</p>
             </div>
-            <div class="card-body">
-                <a href="#">
-                <img src="favicon.png" alt="" class="full-img">
-                </a>
-            </div>
-            
+            <a href="#">
+            <img src="favicon.png" alt="" class="full-img rounded-bottom">
+            </a>
         </div>
     </div>
 </div>
