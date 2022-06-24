@@ -1,5 +1,6 @@
 import swal from 'sweetalert';
 import RekompusSource from '../../data/rekompus-source';
+import { setCookie } from '../../utils/cookie';
 
 const Login = {
   async render() {
@@ -60,7 +61,7 @@ const Login = {
       };
 
       const postLogin = await RekompusSource.loginUser(formData);
-
+      console.log(postLogin);
       if (postLogin.status === 1) {
         swal({
           icon: 'success',
@@ -68,11 +69,9 @@ const Login = {
           text: 'Username dan Password benar!',
           timer: 2000,
         });
-        localStorage.removeItem('jwt');
-        localStorage.removeItem('email');
-        await localStorage.setItem('email', formData.email);
-        await localStorage.setItem('jwt', postLogin.data);
-        window.location = `/#/dashboard-admin/${formData.email}`;
+        setCookie('jwt', postLogin.data, 6);
+        setCookie('email', formData.email, 6);
+        window.location = `/#/admin/${formData.email}`;
       } else {
         swal({
           icon: 'warning',
@@ -85,6 +84,8 @@ const Login = {
       fieldUsername.value = '';
       fieldPassword.value = '';
     });
+
+    scrollTo({ top: 0 });
   },
 };
 

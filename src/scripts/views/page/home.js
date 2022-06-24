@@ -9,7 +9,7 @@ const Homepage = {
           <h1>Rekomendasi Kampus dan Jurusan Impianmu</h1>
           <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
               Daftar sekarang gratis!</p>
-          <a href="#kampus-rekomendasi">
+          <a href="#kampus-rekomendasi" id="btn-eksplor">
               <button class="btn btn-info text-white">Eksplor</button>
           </a>
       </div>
@@ -17,11 +17,11 @@ const Homepage = {
         <img src="./images/hero-image.png" alt="" class="hero-image">
       </div>
     </section>
-    <section id="kampus-rekomendasi" class="container-fluid mt-5">
+    <section id="kampus-rekomendasi" class="container-fluid bg-regular-blue py-5">
     </section>
-    <section id="jurusan-rekomendasi" class="container-fluid mt-5">
+    <section id="jurusan-rekomendasi" class="container-fluid bg-light py-5">
     </section>
-    <section id="lokasi-kampus" class="container-fluid mt-5">
+    <section id="lokasi-kampus" class="container-fluid bg-regular-blue py-5">
     </section>
     `;
   },
@@ -33,7 +33,12 @@ const Homepage = {
     jurusanRekomendasiEl.innerHTML = jurusanRekomendasi();
     const lokasiKampusEl = document.querySelector('#lokasi-kampus');
     lokasiKampusEl.innerHTML = kampusBerdasarkanLokasi();
+    const btnEksplor = document.getElementById('btn-eksplor');
     scrollTo({ top: 0 });
+    btnEksplor.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: kampusRekomendasiEl.offsetTop - 35 });
+    });
   },
 };
 

@@ -16,7 +16,7 @@ const EditProfileAdmin = {
               <p class="fw-bold text-muted">Alamat</p>
             </div>
             <div class="col-md-5 p-3 my-auto">
-              <a href="/#/dashboard-admin/:id" class="link text-dark text-decoration-none border-bottom border-info border-2 fw-bold fs-5 py-2">
+              <a href="/#/admin/:id" class="link text-dark text-decoration-none border-bottom border-info border-2 fw-bold fs-5 py-2">
                 <i class="fa fa-edit fa-2x text-muted" aria-hidden="true"></i> <span class="text-muted ">Atur data
                   dirimu</span>
               </a>

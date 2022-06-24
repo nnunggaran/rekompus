@@ -1,6 +1,8 @@
 import swal from 'sweetalert';
 import '../components/app-bar';
 import '../components/foot-bar';
+import RekompusSource from '../data/rekompus-source';
+import { deleteCookie, getCookie } from '../utils/cookie';
 
 const main = async () => {
   const headerEl = document.querySelector('header');
@@ -8,12 +10,11 @@ const main = async () => {
   headerEl.innerHTML = '<app-bar></app-bar>';
   footerEl.innerHTML = '<foot-bar></foot-bar>';
   const btnContainerAppBar = document.querySelector('#btnAppbar');
-  const checkLocalStorage = await localStorage.getItem('jwt');
-  if (checkLocalStorage) {
+  if (getCookie('jwt').length !== 0) {
     btnContainerAppBar.innerHTML = `
     <button type="button" class="btn1 btn-outline-primary bg-danger me-3" id="logout">Keluar</button>
     <div class="user-profile btn2 alert-primary text-dark">        
-      <a class="nav-link active" aria-current="page" href="/#/dashboard-admin/${localStorage.getItem('email')}" class="mt-0 mb-3">
+      <a class="nav-link active" aria-current="page" href="/#/admin/${getCookie('email')}" class="mt-0 mb-3">
           <span class="d-inline-block">
             <img src="./images/default-profile.png" alt="foto-user" class="rounded-pill" style="width:30px;">
           </span>
@@ -25,9 +26,8 @@ const main = async () => {
     `;
 
     const btnLogout = document.getElementById('logout');
-    btnLogout.addEventListener('click', (e) => {
+    btnLogout.addEventListener('click', async (e) => {
       e.preventDefault();
-
       swal({
         title: 'Yakin ingin logout?',
         text: 'Anda akan logout bila menekan konfirmasi. Jika tidak klik batalkan.',
@@ -43,15 +43,16 @@ const main = async () => {
             icon: 'success',
             title: 'Berhasil Logout!',
             text: 'Anda berhasil logout. Untuk mengakses halaman tertentu harap login ulang',
-          }).then(
-            headerEl.innerHTML = '<app-bar></app-bar>',
-          );
-          const removeDataLogin = async () => {
-            localStorage.removeItem('jwt');
-            await localStorage.removeItem('email');
-          };
-          removeDataLogin();
-          window.location.href = '/#/';
+          }).then(() => {
+            headerEl.innerHTML = '<app-bar></app-bar>';
+            const removeDataLogin = async () => {
+              const logout = RekompusSource.logoutUser();
+              deleteCookie('jwt');
+              deleteCookie('email');
+            };
+            removeDataLogin();
+            window.location.href = '/#/';
+          });
         } else {
           swal({
             icon: 'success',

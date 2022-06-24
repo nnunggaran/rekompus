@@ -209,6 +209,7 @@ main{
         }
     }
     #kampus-rekomendasi{
+        margin-top: 125px;
         padding-top: 60px;
         h2{
             font-weight: bold;
@@ -242,6 +243,11 @@ main{
     #list-kampus{        
     }
 
+}
+
+#groupJurusan{
+    height: 355px;
+    overflow-y: auto;
 }
 
 .list-kampus-container{

@@ -1,6 +1,6 @@
 const CONFIG = {
-  BASE_URL: '',
-  BASE_IMAGE_URL: '',
+  BASE_URL: 'http://localhost:3000/api',
+  BASE_IMAGE_URL: 'http://localhost:3000/images',
   CACHE_NAME: 'rekompus-api',
   DATABASE_NAME: 'rekompus-database',
   DATABASE_VERSION: 1,

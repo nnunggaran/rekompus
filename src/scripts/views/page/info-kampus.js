@@ -1,6 +1,7 @@
 import RekompusSource from '../../data/rekompus-source';
 import UrlParser from '../../routes/url-parser';
 import { heroText, createKampusDetailForm } from '../templates/template-creator';
+import { getCookie } from '../../utils/cookie';
 
 const InfoKampus = {
   async render() {
@@ -24,10 +25,49 @@ const InfoKampus = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const kampus = await RekompusSource.detailKampus(url.id);
     const kampusContainer = document.getElementById('infoKampus');
-
     kampusContainer.innerHTML = createKampusDetailForm(kampus);
+    const btnDeleteKampus = document.querySelector('.delete-item');
+    const namaKampus = kampus.map((item) => item.name);
     loadingContainer.classList.remove('show');
     scrollTo({ top: 0 });
+    btnDeleteKampus.addEventListener('click', (e) => {
+      e.preventDefault();
+      const kampusItem = e.target.parentElement.id;
+      removeKampus(kampusItem);
+    });
+    function removeKampus(id) {
+      const deleteKampus = (data) => {
+        const delKampus = RekompusSource.deleteKampus(data);
+        return delKampus;
+      };
+      swal({
+        title: 'Yakin ingin menghapus?',
+        text: `Anda akan menghapus kampus ${namaKampus}`,
+        icon: 'warning',
+        buttons: [
+          'Batalkan',
+          'Konfirmasi',
+        ],
+        dangerMode: true,
+      }).then((isConfirm) => {
+        if (isConfirm) {
+          deleteKampus(id);
+          swal({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: `Berhasil menghapus kampus ${namaKampus}!`,
+          }).then(
+            window.location.href = `/#/admin/${getCookie('email')}`,
+          );
+        } else {
+          swal({
+            icon: 'success',
+            title: 'Sukses Membatalkan',
+            text: `Berhasil membatalkan penghapusan kampus ${namaKampus}.`,
+          });
+        }
+      });
+    }
   },
 };
 

@@ -84,6 +84,8 @@ const Daftar = {
       loadingContainer.classList.remove('show');
       fieldPassword.value = '';
     });
+
+    scrollTo({ top: 0 });
   },
 };
 
