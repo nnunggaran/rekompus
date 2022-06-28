@@ -104,24 +104,6 @@ class RekompusSource {
     }
   }
 
-  static async filterKampus(filter, type) {
-    try {
-      const response = await fetch(`${API_ENDPOINT.KAMPUS}?filter[${type}]=${filter}`, {
-        method: 'GET',
-        headers: {
-          Accept: '*/*',
-        },
-      });
-
-      if (response.ok) {
-        const responseJson = await response.json();
-        return responseJson.data;
-      }
-    } catch (error) {
-      console.log('Error ', error.message);
-    }
-  }
-
   static async listKampus() {
     try {
       const response = await fetch(API_ENDPOINT.KAMPUS, {

@@ -22,6 +22,16 @@ const InfoKampus = {
     const heroTextEl = document.querySelector('.hero-text');
     heroTextEl.innerHTML = heroText('Info Kampus');
 
+    if (getCookie('role') !== 'ADMIN') {
+      swal({
+        icon: 'error',
+        title: 'Unauthorized!',
+        text: 'Anda tidak memiliki akses halaman ini!',
+        timer: 2000,
+      }).then(() => {
+        window.location.href = '/#/login';
+      });
+    }
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const kampus = await RekompusSource.detailKampus(url.id);
     const kampusContainer = document.getElementById('infoKampus');

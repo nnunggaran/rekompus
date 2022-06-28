@@ -11,8 +11,19 @@ const main = async () => {
   footerEl.innerHTML = '<foot-bar></foot-bar>';
   const btnContainerAppBar = document.querySelector('#btnAppbar');
   if (getCookie('jwt').length !== 0) {
-    btnContainerAppBar.innerHTML = `
-    <button type="button" class="btn1 btn-outline-primary bg-danger me-3" id="logout">Keluar</button>
+    const btnTemplateUser = `<button type="button" class="btn1 btn-outline-primary bg-danger me-3" id="logout">Keluar</button>
+    <div class="user-profile btn2 alert-primary text-dark">        
+      <a class="nav-link active" aria-current="page" href="/#/dashboard/${getCookie('email')}" class="mt-0 mb-3">
+          <span class="d-inline-block">
+            <img src="./images/default-profile.png" alt="foto-user" class="rounded-pill" style="width:30px;">
+          </span>
+          <span class="d-inline-block">
+            Akun
+          </span>
+      </a>
+    </div>`;
+
+    const btnTemplateAdmin = `<button type="button" class="btn1 btn-outline-primary bg-danger me-3" id="logout">Keluar</button>
     <div class="user-profile btn2 alert-primary text-dark">        
       <a class="nav-link active" aria-current="page" href="/#/admin/${getCookie('email')}" class="mt-0 mb-3">
           <span class="d-inline-block">
@@ -22,8 +33,13 @@ const main = async () => {
             Akun
           </span>
       </a>
-    </div>
-    `;
+    </div>`;
+
+    if (getCookie('role') === 'ADMIN') {
+      btnContainerAppBar.innerHTML = btnTemplateAdmin;
+    } else {
+      btnContainerAppBar.innerHTML = btnTemplateUser;
+    }
 
     const btnLogout = document.getElementById('logout');
     btnLogout.addEventListener('click', async (e) => {
@@ -48,10 +64,13 @@ const main = async () => {
             const removeDataLogin = async () => {
               const logout = RekompusSource.logoutUser();
               deleteCookie('jwt');
+              deleteCookie('idUser');
+              deleteCookie('name');
               deleteCookie('email');
+              deleteCookie('role');
             };
             removeDataLogin();
-            window.location.href = '/#/';
+            window.location.href = '/#/login';
           });
         } else {
           swal({
