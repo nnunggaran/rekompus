@@ -1,3 +1,4 @@
+import RekompusSource from '../../data/rekompus-source';
 import { jurusanRekomendasi, kampusBerdasarkanLokasi, kampusRekomendasi } from '../templates/home-creator';
 
 const Homepage = {
@@ -23,18 +24,25 @@ const Homepage = {
     </section>
     <section id="lokasi-kampus" class="container-fluid bg-regular-blue py-5">
     </section>
+    <div id="loading-container">
+      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
     `;
   },
 
   async afterRender() {
-    const kampusRekomendasiEl = document.querySelector('#kampus-rekomendasi');
-    kampusRekomendasiEl.innerHTML = kampusRekomendasi();
-    const jurusanRekomendasiEl = document.querySelector('#jurusan-rekomendasi');
-    jurusanRekomendasiEl.innerHTML = jurusanRekomendasi();
-    const lokasiKampusEl = document.querySelector('#lokasi-kampus');
-    lokasiKampusEl.innerHTML = kampusBerdasarkanLokasi();
-    const btnEksplor = document.getElementById('btn-eksplor');
+    const loadingContainer = document.getElementById('loading-container');
     scrollTo({ top: 0 });
+    loadingContainer.classList.add('show');
+    const kampuss = await RekompusSource.listKampus();
+    const kampusRekomendasiEl = document.querySelector('#kampus-rekomendasi');
+    kampusRekomendasiEl.innerHTML = kampusRekomendasi(kampuss);
+    const jurusanRekomendasiEl = document.querySelector('#jurusan-rekomendasi');
+    jurusanRekomendasiEl.innerHTML = jurusanRekomendasi(kampuss);
+    const lokasiKampusEl = document.querySelector('#lokasi-kampus');
+    lokasiKampusEl.innerHTML = kampusBerdasarkanLokasi(kampuss);
+    const btnEksplor = document.getElementById('btn-eksplor');
+    loadingContainer.classList.remove('show');
     btnEksplor.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollTo({ top: kampusRekomendasiEl.offsetTop - 35 });

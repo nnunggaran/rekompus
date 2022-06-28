@@ -1,4 +1,5 @@
 import KampusSource from '../../data/rekompus-source';
+import { getCookie } from '../../utils/cookie';
 import { heroText } from '../templates/template-creator';
 
 const DashboardUser = {
@@ -11,17 +12,16 @@ const DashboardUser = {
         <div class="card border-orange bg-light">
           <div class="row alert-info m-3">
             <div class="col-md-2 p-3">
-              <img src="./favicon.png" alt="" class="thumb-img-detail">
+              <img src="./images/default-profile.png" alt="" class="thumb-img-detail">
             </div>
             <div class="col-md-5 p-3 my-auto ml-auto">
-              <h4 class="fw-bold text-muted">Nama User</h4>
-              <p class="fw-bold text-muted">Siswa di SMAN 1 Aceh</p>
+              <h4 class="fw-bold text-muted">${getCookie('name')}</h4>
+              <p class="fw-bold text-muted">${getCookie('email')}</p>
             </div>
             <div class="col-md-5 p-3 my-auto">
-              <a href="/#/edit-profile/:id" class="link text-dark text-decoration-none fs-5 py-2 fw-bold">
-                <i class="fa fa-edit fa-2x text-muted" aria-hidden="true"></i> <span class="text-muted ">Atur data
-                  dirimu!</span>
-              </a>
+              <button type="button" class="btn btn-dblue rounded fs-4" data-bs-toggle="modal" data-bs-target="#aboutMe">
+              <i class="fa fa-info-circle fa-lg text-white"></i> Tentangmu
+              </button>
             </div>
           </div>
         </div>
@@ -170,14 +170,32 @@ const DashboardUser = {
           </div>
         </div>
       </div>
+      <div class="modal fade" id="aboutMe" tabindex="-1" aria-labelledby="modalAboutMeLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header alert alert-info">
+            <h5 class="modal-title" id="modalAboutMeLabel">Data Dirimu</h5>
+            <button type="button" class="btn btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="fw-bold">Nama</label>
+              <p>${getCookie('name')}</p>
+              <label for="email" class="fw-bold">Email</label>
+              <p>${getCookie('email')}</p>
+              <label for="role" class="fw-bold">Role</label>
+              <p>${getCookie('role') === null ? 'USER' : 'USER'}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
     `;
   },
   async afterRender() {
-    // const kampuss = await FavoriteRekompusSourceIdb.listKampus();
-    // const kampusContainer = document.querySelector('.list-kampus-favorite');
-    // kampuss.forEach((kampus) => {
-    //   kampusContainer.innerHTML += createListKampusItemTemplateDashboard(kampus);
-    // });
     const heroEl = document.querySelector('.hero-text');
     heroEl.innerHTML = heroText('Yuk lihat Kampus dan Jurusan Favoritmu!');
 
