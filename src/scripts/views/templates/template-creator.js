@@ -55,7 +55,7 @@ const createListKampusItemTemplate = (kampus) => `
     </div>
   </div>`;
 
-const createListKampusItemTemplateDashboard = (kampus, level = 'user') => `
+const createListKampusItemTemplateDashboard = (kampus) => `
   <div class="col-md-12 mb-3 px-1">
     <div class="card border-orange">
       <div class="card-body d-flex">
@@ -86,7 +86,47 @@ const createListKampusItemTemplateDashboard = (kampus, level = 'user') => `
             ${checkPmb(kampus.statusPmb)}
           </div>
           <div class="col-sm-6 col-md-2 my-2 d-flex align-items-center justify-content-around" data-id="${kampus.id}" data-name="${kampus.name}">
-            <a href="#/${level === 'admin' ? 'info-kampus' : 'kampus'}/${kampus.id}" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
+            <a href="#/kampus/${kampus.id}" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
+            <a href="#/delete/${getCookie('email')}" class="text-danger delete-item"><i class="fa fa-trash fa-4x border-none"
+            aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+const createListKampusItemTemplateDashboardAdmin = (kampus) => `
+  <div class="col-md-12 mb-3 px-1">
+    <div class="card border-orange">
+      <div class="card-body d-flex">
+        <div class="thumb-container row">
+          <div class="col-sm-6 col-md-1 my-2">
+            <a href="/#/kampus/${kampus.id}">
+              <img src="${kampus.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${kampus.pictureId}` : './images/default-school.png'}" alt="${kampus.name}" class="thumb-img">
+            </a>
+          </div>
+          <div class="col-sm-6 col-md-3 my-2">
+            <h4 class="fw-bold"><a href="/#/kampus/${kampus.id}" class="text-dark">${kampus.name}</a></h4>
+            <p><i class="fas fa-location-dot" aria-hidden="true"></i> ${kampus.city}</p>
+            <span class="d-inline-block my-1 alert alert-info py-1 px-2 rounded-pill">Akreditasi: ${kampus.akreditasiKampus}</span>
+            <span class="d-inline-block my-1 alert alert-info py-1 px-2 rounded-pill">${kampus.jenisKampus}</span>
+          </div>
+          <div class="col-sm-6 col-md-2 my-2">
+            <h4><u>Kelas Tersedia</u></h4>
+            ${kelasItem(kampus.kelasTersedia)}
+          </div>
+          <div class="col-sm-6 col-md-2 my-2">
+            <h4><u>Jurusan</u></h4>
+            ${jurusanItemWithLimit(kampus.jurusan)}
+            <br>
+            <a href="#/kampus/${kampus.id}"><button class="btn alert-info py-1 px-2 rounded-pill">Selengkapnya</button></a>
+          </div>
+          <div class="col-sm-6 col-md-2 my-2">
+            <h4><u>Status PMB</u></h4>
+            ${checkPmb(kampus.statusPmb)}
+          </div>
+          <div class="col-sm-6 col-md-2 my-2 d-flex align-items-center justify-content-around" data-id="${kampus.id}" data-name="${kampus.name}">
+            <a href="#/info-kampus/${kampus.id}" class="text-info"><i class="fa fa-circle-info fa-4x"></i></a>
             <a href="#/admin/${getCookie('email')}" class="text-danger delete-item"><i class="fa fa-trash fa-4x border-none"
             aria-hidden="true"></i></a>
           </div>
@@ -139,14 +179,14 @@ const createKampusDetailTemplate = (kampus) => {
             </div>
             <div class="col-md-6 ${data.linkPendaftaran ? 'col-lg-6' : 'col-lg-4'} mt-2">
               <div class="group-text">
-                <h6 class="text-heading">Website</h6>
-                <p class="text-muted"><a href="${data.linkPendaftaran ? `${data.linkPendaftaran}" target="_blank"` : '/#/404"'}>${data.linkPendaftaran ? `Kunjungi ${data.name}` : '<span class="text-danger">No Data</span>'}</a></p>
+                <h6 class="text-heading">Link Pendaftaran</h6>
+                <p class="text-muted">${data.linkPendaftaran ? `<a href="${data.linkPendaftaran}" target="_blank">Kunjungi ${data.name}</a>` : '<span class="text-danger">No Data</span>'}
               </div>
               <div class="group-text">
                 <h6 class="text-heading">Media Sosial</h6>
-                <a href="${data.linkFb ? `https://facebook.com/${data.linkFb}" target="_blank"` : '/#/404"'} class="fs-3"><i class="fab fa-facebook-square fa-xl" aria-hidden="true"></i></a>
-                <a href="${data.linkTwitter ? `https://twitter.com/${data.linkTwitter}" target="_blank"` : '/#/404"'} class="fs-3"><i class="fab fa-twitter-square fa-xl" aria-hidden="true"></i></a>
-                <a href="${data.linkIg ? `https://instagram.com/${data.linkIg}" target="_blank"` : '/#/404"'} class="fs-3"><i class="fab fa-instagram-square fa-xl" aria-hidden="true"></i></a>
+                ${data.linkFb ? `<a href="${data.linkFb}" target="_blank"  class="fs-3"><i class="fab fa-facebook-square fa-xl" aria-hidden="true"></i></a>` : ''}
+                ${data.linkTwitter ? `<a href="${data.linkTwitter}" target="_blank"  class="fs-3"><i class="fab fa-twitter-square fa-xl" aria-hidden="true"></i></a>` : ''}
+                ${data.linkIg ? `<a href="${data.linkIg}" target="_blank"  class="fs-3"><i class="fab fa-instagram-square fa-xl" aria-hidden="true"></i></a>` : ''}               
               </div>
             </div>
           </div>
@@ -159,33 +199,15 @@ const createKampusDetailTemplate = (kampus) => {
                 <div class="input-group-text">
                   <i class="fas fa-magnifying-glass"></i>
                 </div>
-                <input type="search" class="form-control" id="jurusanField" placeholder="Masukkan Jurusan">
+                <input type="text" class="form-control" id="jurusanField" placeholder="Masukkan Jurusan">
               </div>
             </div>
             <div class="col-md-6 mt-2">
-              <h5>${data.jurusan.length} Jurusan ditampilkan</h5>
+              <h5 id="jurusan-length"></h5>
             </div>
             <div class="col-md-12">
               <div class="row bg-light shadow-sm" id="jurusan-tersedia">
-                ${loopJurusan(data, data.jurusan)}
               </div>
-              <nav aria-label="Page navigation example mb-2">
-                <ul class="pagination pagination-md justify-content-center mt-2">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>
@@ -290,14 +312,25 @@ const createKampusDetailTemplate = (kampus) => {
                 </div>
               </div>
               <div class="col-md-12">
-                <a href="${data.linkPendaftaran ? `${data.linkPendaftaran}" target="_blank"` : '/#/404"'}>
-                  <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-wpforms fa-xl"></i> Link
-                    Pendaftaran</button></a>
+              ${data.linkPendaftaran ? `<a href="${data.linkPendaftaran}" target="_blank"> 
+              <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-wpforms fa-xl"></i> Link
+              Pendaftaran
+              </button>
+              </a>` : `
+                <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5" disabled><i class="fab fa-wpforms fa-xl"></i> Link
+                Pendaftaran
+                </button>
+              `}                
               </div>
               <div class="col-md-12">
-                <a href="${data.telepon ? redirectWa(data.telepon) : '/#/404"'}>
-                  <button class="btn btn-success w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-whatsapp fa-xl"
-                      aria-hidden="true"></i> Tanya via WhatsApp</button></a>
+                ${data.telepon ? `<a href="${redirectWa(data.telepon)}">
+                <button class="btn btn-success w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-whatsapp fa-xl"
+                aria-hidden="true"></i> Tanya via WhatsApp</button></a>
+                ` : `
+                <button class="btn btn-success w-100 mt-1 mb-1 p-2 fs-5" disabled><i class="fab fa-whatsapp fa-xl"
+                aria-hidden="true"></i> Tanya via WhatsApp</button>
+                `}
+                  
               </div>
             </div>
           </div>          
@@ -511,7 +544,7 @@ const createKampusDetailForm = (kampus) => {
                 </label>
               </div>
               <div class="col-sm-12 col-md-9">
-                <input type="text" id="website" class="form-control border-orange w-100" placeholder="Website kampus" readonly value="${data.linkPendaftaran}">
+                <input type="text" id="website" class="form-control border-orange w-100" placeholder="Link pendaftaran" readonly value="${data.linkPendaftaran}">
               </div>
             </div>               
           </div>
@@ -546,8 +579,6 @@ const createKampusDetailForm = (kampus) => {
             <a href="#/admin/${getCookie('email')}">
             <button type="submit" class="btn btn-warning text-white fs-4 my-1"><i class="fa fa-arrow-rotate-back fa-lg" aria-hidden="true"></i> Kembali</button>
             </a>  
-            <a href="#/setting-jurusan/${data.id}" class="btn btn-dblue fs-4 my-1"><i class="fa fa-graduation-cap fa-lg"></i>
-            Jurusan</a>
           </div>
         </div>
       </div>
@@ -569,11 +600,11 @@ const createKampusDetailFormWithSubmit = (kampus) => {
             
             <span class="d-inline-block mt-4">
                              
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalUploadLogo" tabindex="-1" aria-labelledby="modalUploadLogoLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Unggah Logo Kampus</h5>
+                        <h5 class="modal-title" id="modalUploadLogoLabel">Unggah Logo Kampus</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <form id="uploadLogo" method="post">
@@ -596,7 +627,7 @@ const createKampusDetailFormWithSubmit = (kampus) => {
                     </div>
                   </div>
                 </div>
-                <button type="button" class="btn btn-dblue rounded-circle p-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-dblue rounded-circle p-3" data-bs-toggle="modal" data-bs-target="#modalUploadLogo">
                 <i class="fas fa-camera fa-xl"></i>
                 </button>
             </span>
@@ -705,7 +736,6 @@ const createKampusDetailFormWithSubmit = (kampus) => {
                   </label>
                 </div>
 
-                
                 <div class="col-sm-12 col-md-9 row">
                   ${editKelasTersedia(data.kelasTersedia)}                
                 </div>
@@ -715,9 +745,10 @@ const createKampusDetailFormWithSubmit = (kampus) => {
             <div class="text-end">
               <button type="submit" class="btn btn-success fs-4 my-1">
               <i class="fa fa-arrow-up-from-bracket fa-lg"></i> Update
-              </button>
-              <a href="#/setting-jurusan/${data.id}" class="btn btn-dblue fs-4 my-1"><i class="fa fa-graduation-cap fa-lg"></i>
-              Jurusan</a>
+              </button>              
+              <button type="reset" class="btn btn-danger fs-4 my-1">
+              <i class="fa fa-undo fa-lg"></i> Reset
+              </button>              
             </div>
           </div>
         </form>
@@ -1213,17 +1244,17 @@ function itemsJurusanWithFilter(data, idJurusan) {
             <div class="card-header alert-info text-center">
               <div class="d-flex scroll-x">
                 <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#pembelajaran" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
-                    id="scrollKampus">Pembelajaran</a></span>
+                    id="scrollPembelajaran">Pembelajaran</a></span>
                 <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#deskripsi" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
-                    id="scrollJurusan">Deskripsi Jurusan</a></span>
+                    id="scrollProspek">Prospek Karir</a></span>
                 <span><a href="/#/kampus/${data.id}/jurusan/${idJurusan}#prospek-karir" class="text-muted fw-bold text-decoration-none d-inline-block fs-5"
-                    id="scrollProspek">Prospek Karir</a></span>              
+                    id="scrollPrice">Biaya</a></span>              
               </div>
 
             </div>
             <div class="card-body bg-light br row m-2">
-            <div id="yangDipelajari" class="col-md-12 mb-4 p-3 bg-light shadow">
-            <h4 class="text-muted text-center mb-2"><u>Yang dipelajari</u></h4>
+            <div id="yangDipelajari" class="col-md-12 mb-4 p-3 bg-light shadow rounded">
+            <h4 class="fw-bold text-muted text-center mb-2">Yang dipelajari</h4>
                 <div class="row">
                 ${item.mataKuliah ? splittingTextComma(item.mataKuliah, 'dipelajari') : `<div class="container-fluid">
                   <h2 class="text-center">Tidak ada data!</h2>
@@ -1233,25 +1264,10 @@ function itemsJurusanWithFilter(data, idJurusan) {
                  </div>
                 `}
                 </div>
-              </div>
-              <div class="col-md-12 mb-4 justify-content-around bg-light shadow p-3" id="info-kampus">
-              <h4 class="text-muted text-center mb-2"><u>Deskripsi Jurusan</u></h4>
-                <div class="row">
-                  <div class="col-md-12">
-                    <p id="description-jurusan" class="desc-jurusan">
-                      ${item.deskripsiKampus ? item.deskripsiKampus : `<div class="container-fluid">
-                        <h2 class="text-center">Tidak ada data!</h2>
-                        <div class="d-flex">
-                          <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
-                        </div>
-                      </div>
-                      `}
-                  </div>
-                </div>
-              </div>
+              </div>              
               
-              <div id="prospekKarir" class="col-md-12 mb-4 p-3 bg-light shadow">
-              <h4 class="text-muted text-center mb-2"><u>Prospek Karir</u></h4>
+              <div id="prospekKarir" class="col-md-12 mb-4 p-3 bg-light shadow rounded">
+              <h4 class="fw-bold text-muted text-center mb-2">Prospek Karir</h4>
                 <div class="row">
                 ${item.prospekKarir ? splittingTextComma(item.prospekKarir, 'karir') : `<div class="container-fluid">
                   <h2 class="text-center">Tidak ada data!</h2>
@@ -1262,8 +1278,8 @@ function itemsJurusanWithFilter(data, idJurusan) {
                 `}
                 </div>
               </div>
-              <div id="biaya" class="col-md-12 mb-4 p-3 bg-light shadow">
-              <h4 class="text-muted text-center mb-2"><u>Kelas dan Biaya SPP</u></h4>
+              <div id="biaya" class="col-md-12 mb-4 p-3 bg-light shadow rounded">
+              <h4 class="fw-bold text-muted text-center mb-2">Kelas dan Biaya SPP</h4>
                 <div class="row p-2">
                 ${item.kelas ? loopJurusanNameAndPrice(data, idJurusan) : `<div class="container-fluid">
                   <h2 class="text-center">Tidak ada data!</h2>
@@ -1357,6 +1373,7 @@ export {
   searchBar,
   createListKampusItemTemplate,
   createListKampusItemTemplateDashboard,
+  createListKampusItemTemplateDashboardAdmin,
   createKampusDetailTemplate,
   createKampusDetailForm,
   createKampusDetailFormWithSubmit,
