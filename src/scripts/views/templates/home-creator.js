@@ -158,6 +158,74 @@ const kampusBerdasarkanLokasi = (kampus) => {
   loopKotaSurabaya.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
   const loopKotaMalang = document.createElement('div');
   loopKotaMalang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaDepok = document.createElement('div');
+  loopKotaDepok.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaMakassar = document.createElement('div');
+  loopKotaMakassar.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPadang = document.createElement('div');
+  loopKotaPadang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaSemarang = document.createElement('div');
+  loopKotaSemarang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPalembang = document.createElement('div');
+  loopKotaPalembang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaBanjarmasin = document.createElement('div');
+  loopKotaBanjarmasin.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaBandaAceh = document.createElement('div');
+  loopKotaBandaAceh.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaManado = document.createElement('div');
+  loopKotaManado.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaKupang = document.createElement('div');
+  loopKotaKupang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaBandarLampung = document.createElement('div');
+  loopKotaBandarLampung.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaSurakarta = document.createElement('div');
+  loopKotaSurakarta.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaBogor = document.createElement('div');
+  loopKotaBogor.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaMedan = document.createElement('div');
+  loopKotaMedan.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaBengkulu = document.createElement('div');
+  loopKotaBengkulu.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPekanbaru = document.createElement('div');
+  loopKotaPekanbaru.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaTanjungPinang = document.createElement('div');
+  loopKotaTanjungPinang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaJambi = document.createElement('div');
+  loopKotaJambi.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPangkalPinang = document.createElement('div');
+  loopKotaPangkalPinang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPontianak = document.createElement('div');
+  loopKotaPontianak.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaSamarinda = document.createElement('div');
+  loopKotaSamarinda.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPalangkaraya = document.createElement('div');
+  loopKotaPalangkaraya.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaTanjungSelor = document.createElement('div');
+  loopKotaTanjungSelor.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaSerang = document.createElement('div');
+  loopKotaSerang.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaYogyakarta = document.createElement('div');
+  loopKotaYogyakarta.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaDenpasar = document.createElement('div');
+  loopKotaDenpasar.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaMataram = document.createElement('div');
+  loopKotaMataram.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaGorontalo = document.createElement('div');
+  loopKotaGorontalo.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaMamuju = document.createElement('div');
+  loopKotaMamuju.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaPalu = document.createElement('div');
+  loopKotaPalu.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaKendari = document.createElement('div');
+  loopKotaKendari.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaTernate = document.createElement('div');
+  loopKotaTernate.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaAmbon = document.createElement('div');
+  loopKotaAmbon.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaManokwari = document.createElement('div');
+  loopKotaManokwari.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
+  const loopKotaJayapura = document.createElement('div');
+  loopKotaJayapura.classList.add('col-sm-6', 'col-md-4', 'col-lg-3', 'mb-3');
 
   const templateItemKota = (univ, length, filterCity) => `
     <div class="card shadow-sm">
@@ -243,10 +311,221 @@ const kampusBerdasarkanLokasi = (kampus) => {
   });
 
   const kotaMalang = kampus.filter((univ) => univ.city.toLowerCase() === 'malang');
+
   kotaMalang.forEach((univ) => {
     loopKotaMalang.innerHTML = templateItemKota(univ, kotaMalang.length, kotaMalang);
   });
-  const result = `${container} ${loopKotaBandung.outerHTML} ${loopKotaJakarta.outerHTML} ${loopKotaSurabaya.outerHTML} ${loopKotaMalang.outerHTML}`;
+
+  const kotaDepok = kampus.filter((univ) => univ.city.toLowerCase() === 'depok');
+
+  kotaDepok.forEach((univ) => {
+    loopKotaDepok.innerHTML = templateItemKota(univ, kotaDepok.length, kotaDepok);
+  });
+
+  const kotaMakassar = kampus.filter((univ) => univ.city.toLowerCase() === 'makassar');
+
+  kotaMakassar.forEach((univ) => {
+    loopKotaMakassar.innerHTML = templateItemKota(univ, kotaMakassar.length, kotaMakassar);
+  });
+
+  const kotaPadang = kampus.filter((univ) => univ.city.toLowerCase() === 'padang');
+
+  kotaPadang.forEach((univ) => {
+    loopKotaPadang.innerHTML = templateItemKota(univ, kotaPadang.length, kotaPadang);
+  });
+
+  const kotaSemarang = kampus.filter((univ) => univ.city.toLowerCase() === 'semarang');
+
+  kotaSemarang.forEach((univ) => {
+    loopKotaSemarang.innerHTML = templateItemKota(univ, kotaSemarang.length, kotaSemarang);
+  });
+
+  const kotaPalembang = kampus.filter((univ) => univ.city.toLowerCase() === 'palembang');
+
+  kotaPalembang.forEach((univ) => {
+    loopKotaPalembang.innerHTML = templateItemKota(univ, kotaPalembang.length, kotaPalembang);
+  });
+
+  const kotaBanjarmasin = kampus.filter((univ) => univ.city.toLowerCase() === 'banjarmasin');
+
+  kotaBanjarmasin.forEach((univ) => {
+    loopKotaBanjarmasin.innerHTML = templateItemKota(univ, kotaBanjarmasin.length, kotaBanjarmasin);
+  });
+
+  const kotaBandaAceh = kampus.filter((univ) => univ.city.toLowerCase() === 'banda aceh');
+
+  kotaBandaAceh.forEach((univ) => {
+    loopKotaBandaAceh.innerHTML = templateItemKota(univ, kotaBandaAceh.length, kotaBandaAceh);
+  });
+
+  const kotaManado = kampus.filter((univ) => univ.city.toLowerCase() === 'manado');
+
+  kotaManado.forEach((univ) => {
+    loopKotaManado.innerHTML = templateItemKota(univ, kotaManado.length, kotaManado);
+  });
+
+  const kotaKupang = kampus.filter((univ) => univ.city.toLowerCase() === 'kupang');
+
+  kotaKupang.forEach((univ) => {
+    loopKotaKupang.innerHTML = templateItemKota(univ, kotaKupang.length, kotaKupang);
+  });
+
+  const kotaBandarLampung = kampus.filter((univ) => univ.city.toLowerCase() === 'bandar lampung');
+
+  kotaBandarLampung.forEach((univ) => {
+    // eslint-disable-next-line max-len
+    loopKotaBandarLampung.innerHTML = templateItemKota(univ, kotaBandarLampung.length, kotaBandarLampung);
+  });
+
+  const kotaSurakarta = kampus.filter((univ) => univ.city.toLowerCase() === 'surakarta');
+
+  kotaSurakarta.forEach((univ) => {
+    loopKotaSurakarta.innerHTML = templateItemKota(univ, kotaSurakarta.length, kotaSurakarta);
+  });
+
+  const kotaBogor = kampus.filter((univ) => univ.city.toLowerCase() === 'bogor');
+
+  kotaBogor.forEach((univ) => {
+    loopKotaBogor.innerHTML = templateItemKota(univ, kotaBogor.length, kotaBogor);
+  });
+
+  const kotaMedan = kampus.filter((univ) => univ.city.toLowerCase() === 'medan');
+
+  kotaMedan.forEach((univ) => {
+    loopKotaMedan.innerHTML = templateItemKota(univ, kotaMedan.length, kotaMedan);
+  });
+
+  const kotaBengkulu = kampus.filter((univ) => univ.city.toLowerCase() === 'bengkulu');
+
+  kotaBengkulu.forEach((univ) => {
+    loopKotaBengkulu.innerHTML = templateItemKota(univ, kotaBengkulu.length, kotaBengkulu);
+  });
+
+  const kotaPekanbaru = kampus.filter((univ) => univ.city.toLowerCase() === 'pekanbaru');
+
+  kotaPekanbaru.forEach((univ) => {
+    loopKotaPekanbaru.innerHTML = templateItemKota(univ, kotaPekanbaru.length, kotaPekanbaru);
+  });
+
+  const kotaTanjungPinang = kampus.filter((univ) => univ.city.toLowerCase() === 'tanjung pinang');
+
+  kotaTanjungPinang.forEach((univ) => {
+    // eslint-disable-next-line max-len
+    loopKotaTanjungPinang.innerHTML = templateItemKota(univ, kotaTanjungPinang.length, kotaTanjungPinang);
+  });
+
+  const kotaJambi = kampus.filter((univ) => univ.city.toLowerCase() === 'jambi');
+
+  kotaJambi.forEach((univ) => {
+    loopKotaJambi.innerHTML = templateItemKota(univ, kotaJambi.length, kotaJambi);
+  });
+
+  const kotaPangkalPinang = kampus.filter((univ) => univ.city.toLowerCase() === 'pangkal pinang');
+
+  kotaPangkalPinang.forEach((univ) => {
+    // eslint-disable-next-line max-len
+    loopKotaPangkalPinang.innerHTML = templateItemKota(univ, kotaPangkalPinang.length, kotaPangkalPinang);
+  });
+
+  const kotaPontianak = kampus.filter((univ) => univ.city.toLowerCase() === 'pontianak');
+
+  kotaPontianak.forEach((univ) => {
+    loopKotaPontianak.innerHTML = templateItemKota(univ, kotaPontianak.length, kotaPontianak);
+  });
+
+  const kotaSamarinda = kampus.filter((univ) => univ.city.toLowerCase() === 'samarinda');
+
+  kotaSamarinda.forEach((univ) => {
+    loopKotaSamarinda.innerHTML = templateItemKota(univ, kotaSamarinda.length, kotaSamarinda);
+  });
+
+  const kotaPalangkaraya = kampus.filter((univ) => univ.city.toLowerCase() === 'palangkaraya');
+
+  kotaPalangkaraya.forEach((univ) => {
+    // eslint-disable-next-line max-len
+    loopKotaPalangkaraya.innerHTML = templateItemKota(univ, kotaPalangkaraya.length, kotaPalangkaraya);
+  });
+
+  const kotaTanjungSelor = kampus.filter((univ) => univ.city.toLowerCase() === 'tanjung selor');
+
+  kotaTanjungSelor.forEach((univ) => {
+    // eslint-disable-next-line max-len
+    loopKotaTanjungSelor.innerHTML = templateItemKota(univ, kotaTanjungSelor.length, kotaTanjungSelor);
+  });
+
+  const kotaSerang = kampus.filter((univ) => univ.city.toLowerCase() === 'serang');
+
+  kotaSerang.forEach((univ) => {
+    loopKotaSerang.innerHTML = templateItemKota(univ, kotaSerang.length, kotaSerang);
+  });
+
+  const kotaYogyakarta = kampus.filter((univ) => univ.city.toLowerCase() === 'yogyakarta');
+
+  kotaYogyakarta.forEach((univ) => {
+    loopKotaYogyakarta.innerHTML = templateItemKota(univ, kotaYogyakarta.length, kotaYogyakarta);
+  });
+
+  const kotaDenpasar = kampus.filter((univ) => univ.city.toLowerCase() === 'denpasar');
+
+  kotaDenpasar.forEach((univ) => {
+    loopKotaDenpasar.innerHTML = templateItemKota(univ, kotaDenpasar.length, kotaDenpasar);
+  });
+
+  const kotaMataram = kampus.filter((univ) => univ.city.toLowerCase() === 'mataram');
+
+  kotaMataram.forEach((univ) => {
+    loopKotaMataram.innerHTML = templateItemKota(univ, kotaMataram.length, kotaMataram);
+  });
+
+  const kotaGorontalo = kampus.filter((univ) => univ.city.toLowerCase() === 'gorontalo');
+
+  kotaGorontalo.forEach((univ) => {
+    loopKotaGorontalo.innerHTML = templateItemKota(univ, kotaGorontalo.length, kotaGorontalo);
+  });
+
+  const kotaMamuju = kampus.filter((univ) => univ.city.toLowerCase() === 'mamuju');
+
+  kotaMamuju.forEach((univ) => {
+    loopKotaMamuju.innerHTML = templateItemKota(univ, kotaMamuju.length, kotaMamuju);
+  });
+
+  const kotaPalu = kampus.filter((univ) => univ.city.toLowerCase() === 'palu');
+
+  kotaPalu.forEach((univ) => {
+    loopKotaPalu.innerHTML = templateItemKota(univ, kotaPalu.length, kotaPalu);
+  });
+
+  const kotaKendari = kampus.filter((univ) => univ.city.toLowerCase() === 'kendari');
+
+  kotaKendari.forEach((univ) => {
+    loopKotaKendari.innerHTML = templateItemKota(univ, kotaKendari.length, kotaKendari);
+  });
+
+  const kotaTernate = kampus.filter((univ) => univ.city.toLowerCase() === 'ternate');
+
+  kotaTernate.forEach((univ) => {
+    loopKotaTernate.innerHTML = templateItemKota(univ, kotaTernate.length, kotaTernate);
+  });
+
+  const kotaAmbon = kampus.filter((univ) => univ.city.toLowerCase() === 'ambon');
+
+  kotaAmbon.forEach((univ) => {
+    loopKotaAmbon.innerHTML = templateItemKota(univ, kotaAmbon.length, kotaAmbon);
+  });
+
+  const kotaManokwari = kampus.filter((univ) => univ.city.toLowerCase() === 'manokwari');
+
+  kotaManokwari.forEach((univ) => {
+    loopKotaManokwari.innerHTML = templateItemKota(univ, kotaManokwari.length, kotaManokwari);
+  });
+
+  const kotaJayapura = kampus.filter((univ) => univ.city.toLowerCase() === 'jayapura');
+
+  kotaJayapura.forEach((univ) => {
+    loopKotaJayapura.innerHTML = templateItemKota(univ, kotaJayapura.length, kotaJayapura);
+  });
+
+  const result = `${container} ${loopKotaBandung.outerHTML} ${loopKotaJakarta.outerHTML} ${loopKotaSurabaya.outerHTML} ${loopKotaMalang.outerHTML} ${loopKotaDepok.outerHTML} ${loopKotaMakassar.outerHTML} ${loopKotaPadang.outerHTML} ${loopKotaSemarang.outerHTML} ${loopKotaPalembang.outerHTML} ${loopKotaBanjarmasin.outerHTML} ${loopKotaBandaAceh.outerHTML} ${loopKotaManado.outerHTML} ${loopKotaKupang.outerHTML} ${loopKotaBandarLampung.outerHTML} ${loopKotaSurakarta.outerHTML} ${loopKotaBogor.outerHTML} ${loopKotaMedan.outerHTML} ${loopKotaBengkulu.outerHTML} ${loopKotaPekanbaru.outerHTML} ${loopKotaTanjungPinang.outerHTML} ${loopKotaJambi.outerHTML} ${loopKotaPangkalPinang.outerHTML} ${loopKotaPontianak.outerHTML} ${loopKotaSamarinda.outerHTML} ${loopKotaPalangkaraya.outerHTML} ${loopKotaTanjungSelor.outerHTML} ${loopKotaSerang.outerHTML} ${loopKotaYogyakarta.outerHTML} ${loopKotaDenpasar.outerHTML} ${loopKotaMataram.outerHTML} ${loopKotaGorontalo.outerHTML} ${loopKotaMamuju.outerHTML} ${loopKotaPalu.outerHTML} ${loopKotaKendari.outerHTML} ${loopKotaTernate.outerHTML} ${loopKotaAmbon.outerHTML} ${loopKotaManokwari.outerHTML} ${loopKotaJayapura.outerHTML}`;
   return result;
 };
 
