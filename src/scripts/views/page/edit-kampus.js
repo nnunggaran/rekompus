@@ -2,6 +2,7 @@
 import UrlParser from '../../routes/url-parser';
 import RekompusSource from '../../data/rekompus-source';
 import { createKampusDetailFormWithSubmit, heroText } from '../templates/template-creator';
+import { getCookie } from '../../utils/cookie';
 
 const EditKampus = {
   async render() {
@@ -21,6 +22,17 @@ const EditKampus = {
     loadingContainer.classList.add('show');
     const heroTextEl = document.querySelector('.hero-text');
     heroTextEl.innerHTML = heroText('Edit Kampus');
+
+    if (getCookie('role') !== 'ADMIN') {
+      swal({
+        icon: 'error',
+        title: 'Unauthorized!',
+        text: 'Anda tidak memiliki akses halaman ini!',
+        timer: 2000,
+      }).then(() => {
+        window.location.href = '/#/login';
+      });
+    }
 
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const kampus = await RekompusSource.detailKampus(url.id);

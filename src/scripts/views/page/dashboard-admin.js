@@ -1,6 +1,8 @@
+/* eslint-disable array-callback-return */
 import RekompusSource from '../../data/rekompus-source';
 import { getCookie } from '../../utils/cookie';
-import { heroText, createListKampusItemTemplateDashboard } from '../templates/template-creator';
+import { heroText, createListKampusItemTemplateDashboardAdmin } from '../templates/template-creator';
+import renderPagination from '../../utils/pagination';
 
 const DashboardAdmin = {
   async render() {
@@ -15,14 +17,13 @@ const DashboardAdmin = {
               <img src="./images/default-profile.png" alt="" class="thumb-img-detail">
             </div>
             <div class="col-md-5 p-3 my-auto ml-auto">
-              <h4 class="fw-bold text-muted">Nama Admin</h4>
-              <p class="fw-bold text-muted">Alamat</p>
+              <h4 class="fw-bold text-muted">${getCookie('name')}</h4>
+              <p class="fw-bold text-muted">${getCookie('email')}</p>
             </div>
             <div class="col-md-5 p-3 my-auto">
-              <a href="/#/edit-profile-admin/:id" class="link text-dark text-decoration-none fs-5 py-2 fw-bold">
-                <i class="fa fa-edit fa-2x text-muted" aria-hidden="true"></i> <span class="text-muted ">Atur data
-                  dirimu</span>
-              </a>
+            <button type="button" class="btn btn-dblue rounded fs-4" data-bs-toggle="modal" data-bs-target="#aboutMe">
+            <i class="fa fa-info-circle fa-lg text-white"></i> Tentangmu
+            </button>            
             </div>
           </div>
         </div>
@@ -44,7 +45,7 @@ const DashboardAdmin = {
                         <div class="input-group-text">
                           <i class="fas fa-magnifying-glass"></i>
                         </div>
-                        <input type="search" class="form-control p-2 fs-5 fw-bold" id="kampusField" placeholder="Cari kampus">
+                        <input type="text" class="form-control p-2 fs-5 fw-bold" id="searchField" placeholder="Cari kampus / jurusan">
                       </div>
                     </div>
                     <div class="button-add-kampus col-sm-12 col-md-3 col-lg-3 my-1 ms-auto">
@@ -57,21 +58,35 @@ const DashboardAdmin = {
                   <div class="row mt-2 pt-2 pb-2 list-kampus-container">
                     
                   </div>
-                  <ul class="pagination pagination-md justify-content-center mt-2">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">Next</span>
-                      </a>
-                    </li>
-                  </ul>
+                  <nav aria-label="Page navigation example mb-2">
+                    <ul class="pagination pagination-md justify-content-center mt-2" id="pageNumbers">
+                      <li class="page-item">
+                        <button class="page-link" href="#" aria-label="Halaman Awal" id="first">
+                          <span aria-hidden="true"><< First</span>
+                        </button>
+                      </li>
+                      <li class="page-item">
+                        <button class="page-link" href="#" aria-label="Halaman Sebelumnya" id="previous">
+                          <span aria-hidden="true">< Prev</span>
+                        </button>
+                      </li>
+                      <li class="page-item mx-1">
+                        <button class="page-link bg-primary" href="#" aria-label="Nomor Halaman" disabled>
+                          <span aria-hidden="true" id="page-number" class="text-white"></span>
+                        </button>
+                      </li>
+                      <li class="page-item">
+                        <button class="page-link" href="#" aria-label="Halaman Selanjutnya" id="next">
+                          <span aria-hidden="true">Next ></span>
+                        </button>
+                      </li>
+                      <li class="page-item">
+                        <button class="page-link" href="#" aria-label="Halaman Akhir" id="last">
+                          <span aria-hidden="true">Last >></span>
+                        </button>
+                      </li>
+                    </ul>
+                </nav>
                 </div>
               </div>
             </div>
@@ -79,6 +94,29 @@ const DashboardAdmin = {
         </div>
       </section>
     </section>
+    <div class="modal fade" id="aboutMe" tabindex="-1" aria-labelledby="modalAboutMeLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header alert alert-info">
+            <h5 class="modal-title" id="modalAboutMeLabel">Data Dirimu</h5>
+            <button type="button" class="btn btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="name" class="fw-bold">Nama</label>
+              <p>${getCookie('name')}</p>
+              <label for="email" class="fw-bold">Email</label>
+              <p>${getCookie('email')}</p>
+              <label for="role" class="fw-bold">Role</label>
+              <p>${getCookie('role')}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="loading-container">
       <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
@@ -87,11 +125,14 @@ const DashboardAdmin = {
 
   async afterRender() {
     const loadingContainer = document.getElementById('loading-container');
+    const heroTextEl = document.querySelector('.hero-text');
+    scrollTo({ top: 0 });
     loadingContainer.classList.add('show');
+    heroTextEl.innerHTML = heroText('Dashboard Admin');
     if (getCookie('email').length === 0 && getCookie('jwt').length === 0) {
       swal({
         icon: 'error',
-        title: 'Error!',
+        title: 'Unauthorized!',
         text: 'Harap login terlebih dahulu!',
         timer: 2000,
       }).then(() => {
@@ -99,8 +140,26 @@ const DashboardAdmin = {
       });
     }
 
-    const kampuss = await RekompusSource.listKampus();
+    if (getCookie('role') !== 'ADMIN') {
+      swal({
+        icon: 'error',
+        title: 'Unauthorized!',
+        text: 'Anda tidak memiliki akses halaman ini!',
+        timer: 2000,
+      }).then(() => {
+        window.location.href = '/#/login';
+      });
+    }
+
+    const prev = document.getElementById('previous');
+    const next = document.getElementById('next');
+    const first = document.getElementById('first');
+    const last = document.getElementById('last');
+    const ulPageNumber = document.getElementById('pageNumbers');
     const kampusContainer = document.querySelector('.list-kampus-container');
+    const searchField = document.getElementById('searchField');
+
+    const kampuss = await RekompusSource.listKampus();
     if (kampuss.length === 0) {
       kampusContainer.innerHTML = `
       <div class="container-fluid">
@@ -113,12 +172,203 @@ const DashboardAdmin = {
       `;
     }
 
-    kampuss.forEach((kampus) => {
-      kampusContainer.innerHTML += createListKampusItemTemplateDashboard(kampus, 'admin');
-    });
-    const listContainer = document.querySelector('.list-kampus-container');
+    let index = 1;
+    const maxRowPerPage = 5;
+    const pageNumberEl = document.getElementById('page-number');
 
-    listContainer.addEventListener('click', (e) => {
+    function disabledPrevFirst() {
+      prev.disabled = true;
+      first.disabled = true;
+      prev.classList.add('bg-gray', 'text-muted');
+      first.classList.add('bg-gray', 'text-muted');
+    }
+
+    function disabledNextLast() {
+      next.disabled = true;
+      last.disabled = true;
+      next.classList.add('bg-gray', 'text-muted');
+      last.classList.add('bg-gray', 'text-muted');
+    }
+
+    function enabledPrevFirst() {
+      prev.disabled = false;
+      first.disabled = false;
+      prev.classList.remove('bg-gray', 'text-muted');
+      first.classList.remove('bg-gray', 'text-muted');
+    }
+
+    function enabledNextLast() {
+      next.disabled = false;
+      last.disabled = false;
+      next.classList.remove('bg-gray', 'text-muted');
+      last.classList.remove('bg-gray', 'text-muted');
+    }
+
+    disabledPrevFirst();
+
+    renderPagination(
+      kampuss,
+      kampusContainer,
+      index,
+      maxRowPerPage,
+      pageNumberEl,
+      createListKampusItemTemplateDashboardAdmin,
+    );
+
+    prev.addEventListener('click', () => {
+      if (index === 1) {
+        disabledPrevFirst();
+        return;
+      }
+
+      if (index <= 2) {
+        disabledPrevFirst();
+      }
+
+      enabledNextLast();
+      kampusContainer.innerHTML = '';
+      index -= 1;
+      renderPagination(
+        kampuss,
+        kampusContainer,
+        index,
+        maxRowPerPage,
+        pageNumberEl,
+        createListKampusItemTemplateDashboardAdmin,
+      );
+    });
+
+    next.addEventListener('click', () => {
+      if (index === Math.ceil(kampuss.length / maxRowPerPage)) {
+        disabledNextLast();
+        return;
+      }
+
+      if (index >= Math.ceil(kampuss.length / maxRowPerPage) - 1) {
+        disabledNextLast();
+      }
+
+      enabledPrevFirst();
+      kampusContainer.innerHTML = '';
+      index += 1;
+      renderPagination(
+        kampuss,
+        kampusContainer,
+        index,
+        maxRowPerPage,
+        pageNumberEl,
+        createListKampusItemTemplateDashboardAdmin,
+      );
+    });
+
+    first.addEventListener('click', () => {
+      if (index === 1) {
+        disabledPrevFirst();
+        return;
+      }
+
+      if (index <= 1) {
+        disabledPrevFirst();
+      }
+
+      disabledPrevFirst();
+      enabledNextLast();
+      kampusContainer.innerHTML = '';
+      index = 1;
+      renderPagination(
+        kampuss,
+        kampusContainer,
+        index,
+        maxRowPerPage,
+        pageNumberEl,
+        createListKampusItemTemplateDashboardAdmin,
+      );
+    });
+
+    last.addEventListener('click', () => {
+      if (index === Math.ceil(kampuss.length / maxRowPerPage)) {
+        disabledNextLast();
+        return;
+      }
+
+      if (index >= Math.ceil(kampuss.length / maxRowPerPage) - 1) {
+        disabledNextLast();
+      }
+
+      disabledNextLast();
+      enabledPrevFirst();
+      kampusContainer.innerHTML = '';
+      index = Math.ceil(kampuss.length / maxRowPerPage);
+      renderPagination(
+        kampuss,
+        kampusContainer,
+        index,
+        maxRowPerPage,
+        pageNumberEl,
+        createListKampusItemTemplateDashboardAdmin,
+      );
+    });
+
+    function hiddenPagination() {
+      ulPageNumber.parentElement.classList.add('hide');
+    }
+
+    function showPagination() {
+      ulPageNumber.parentElement.classList.remove('hide');
+    }
+
+    searchField.addEventListener('keyup', async (e) => {
+      enabledNextLast();
+      kampusContainer.innerHTML = '';
+
+      if (e.target.value.trim() === '') {
+        showPagination();
+        renderPagination(
+          kampuss,
+          kampusContainer,
+          index,
+          maxRowPerPage,
+          pageNumberEl,
+          createListKampusItemTemplateDashboardAdmin,
+        );
+        return;
+      }
+      const tempUniv = [];
+      const allData = await kampuss;
+
+      allData.forEach((univ) => {
+        if (univ.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+          tempUniv.push(univ);
+          return;
+        }
+
+        univ.jurusan.forEach((prodi) => {
+          if (prodi.namaJurusan.toLowerCase().includes(e.target.value.toLowerCase())) {
+            tempUniv.push(univ);
+          }
+        });
+      });
+
+      if (tempUniv.length > 0) {
+        kampusContainer.innerHTML = '';
+        hiddenPagination();
+        tempUniv.forEach((item) => {
+          kampusContainer.innerHTML += createListKampusItemTemplateDashboardAdmin(item);
+        });
+      } else {
+        hiddenPagination();
+        kampusContainer.innerHTML = `
+        <div class="container-fluid">
+          <h2 class="text-center">Tidak ada data!</h2>
+          <div class="d-flex">
+          <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+          </div>
+        </div>
+      `;
+      }
+    });
+
+    kampusContainer.addEventListener('click', (e) => {
       if (e.target.parentElement.parentElement.className === 'text-danger delete-item') {
         console.log(e.target);
         const kampusItem = e.target.parentElement.parentElement.parentElement.dataset.id;
@@ -135,15 +385,7 @@ const DashboardAdmin = {
           title: 'Berhasil menghapus!',
           text: `Anda berhasil menghapus kampus ${itemName}`,
         }).then(async () => {
-          const renderContainer = document.querySelector('.list-kampus-container');
-          renderContainer.innerHTML = '';
-          loadingContainer.classList.add('show');
-          const kampusRender = await RekompusSource.listKampus();
-          kampusRender.forEach((kampus) => {
-            renderContainer.innerHTML += createListKampusItemTemplateDashboard(kampus, 'admin');
-          });
-          loadingContainer.classList.remove('show');
-          scrollTo({ top: 0 });
+          window.location.reload();
         });
       };
       swal({
@@ -167,10 +409,6 @@ const DashboardAdmin = {
         }
       });
     };
-
-    const heroTextEl = document.querySelector('.hero-text');
-    heroTextEl.innerHTML = heroText('Dashboard Admin');
-    scrollTo({ top: 0 });
     loadingContainer.remove('show');
   },
 };

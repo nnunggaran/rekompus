@@ -76,12 +76,39 @@ class RekompusSource {
     }
   }
 
+  static async aboutUser() {
+    try {
+      const response = await fetch(API_ENDPOINT.USER, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${getCookie('jwt')}`,
+        },
+      });
+
+      if (response.ok) {
+        const responseJson = await response.json();
+        return responseJson.data;
+      }
+
+      if (response.status === 401) {
+        return response;
+      }
+    } catch (error) {
+      swal({
+        icon: 'error',
+        title: 'Error',
+        text: `Masalah yang terjadi adalah ${error.message}`,
+      }).then(
+        window.location.href = '/#/login',
+      );
+    }
+  }
+
   static async listKampus() {
     try {
       const response = await fetch(API_ENDPOINT.KAMPUS, {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${getCookie('jwt')}`,
           Accept: '*/*',
         },
       });
@@ -184,7 +211,6 @@ class RekompusSource {
         }).then(() => {
           window.location.href = `/#/admin/${getCookie('email')}`;
         });
-        console.log(responseJson);
         return responseJson;
       }
     } catch (error) {

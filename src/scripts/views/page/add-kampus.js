@@ -95,6 +95,7 @@ const AddKampus = {
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
+                <option value="C+">C+</option>
                 <option value="Baik">Baik</option>
                 <option value="Sangat Baik">Sangat Baik</option>
                 <option value="Unggul">Unggul</option>
@@ -310,7 +311,7 @@ const AddKampus = {
       const dataJenjang = ['S1', 'S2', 'S3', 'D1', 'D2', 'D3', 'D4', 'Profesi', 'Sp-1', 'Sp-2'];
       const dataSppJurusan = ['sppReguler', 'sppKaryawan', 'sppOnline'];
       const dataCbKelas = ['Reguler', 'Karyawan', 'Online'];
-      const dataAkreditasi = ['A', 'B', 'C', 'Baik', 'Sangat Baik', 'Unggul', 'Belum Terakreditasi'];
+      const dataAkreditasi = ['A', 'B', 'C', 'C+', 'Baik', 'Sangat Baik', 'Unggul', 'Belum Terakreditasi'];
 
       const groupJurusanName = document.createElement('div');
       groupJurusanName.classList.add('col-md-8', 'mb-2');
@@ -318,6 +319,7 @@ const AddKampus = {
       const labelJurusanName = document.createElement('label');
       labelJurusanName.appendChild(document.createTextNode('Nama Jurusan'));
       labelJurusanName.htmlFor = `namaJurusan-${lengthField.length}`;
+      labelJurusanName.classList.add('fw-bold', 'text-muted');
 
       const fieldJurusanName = document.createElement('input');
       fieldJurusanName.setAttribute('type', 'text');
@@ -334,6 +336,7 @@ const AddKampus = {
       const labelAkreditasi = document.createElement('label');
       labelAkreditasi.appendChild(document.createTextNode('Pilih Akreditasi'));
       labelAkreditasi.htmlFor = `akreditasi-${lengthField.length}`;
+      labelAkreditasi.classList.add('fw-bold', 'text-muted');
 
       const selectAkreditasi = document.createElement('select');
       selectAkreditasi.setAttribute('required', 'true');
@@ -360,6 +363,7 @@ const AddKampus = {
       const labelJenjang = document.createElement('label');
       labelJenjang.appendChild(document.createTextNode('Pilih Jenjang'));
       labelJenjang.htmlFor = `jenjang-${lengthField.length}`;
+      labelJenjang.classList.add('fw-bold', 'text-muted');
 
       const selectJenjang = document.createElement('select');
       selectJenjang.setAttribute('required', 'true');
@@ -379,6 +383,44 @@ const AddKampus = {
       });
 
       groupJenjang.append(labelJenjang, selectJenjang);
+
+      const groupMataKuliah = document.createElement('div');
+      groupMataKuliah.classList.add('col-md-8', 'mb-2');
+
+      const labelMataKuliah = document.createElement('label');
+      labelMataKuliah.appendChild(document.createTextNode('Mata Kuliah'));
+      labelMataKuliah.htmlFor = `mataKuliah-${lengthField.length}`;
+      labelMataKuliah.classList.add('fw-bold', 'text-muted');
+
+      const fieldMataKuliah = document.createElement('textarea');
+      fieldMataKuliah.setAttribute('type', 'text');
+      fieldMataKuliah.setAttribute('required', 'true');
+      fieldMataKuliah.setAttribute('placeholder', 'Dalam menuliskan Mata Kuliah, harap pisahkan dengan tanda koma (,). \nContoh : Mata Kuliah1, Mata Kuliah 2, dan seterusnya.');
+      fieldMataKuliah.setAttribute('id', `mataKuliah-${lengthField.length}`);
+      fieldMataKuliah.classList.add('form-control', 'mata-kuliah');
+
+      groupMataKuliah.append(labelMataKuliah, fieldMataKuliah);
+
+      const groupProspekKarir = document.createElement('div');
+      groupProspekKarir.classList.add('col-md-8', 'mb-2');
+
+      const labelProspekKarir = document.createElement('label');
+      labelProspekKarir.appendChild(document.createTextNode('Prospek Karir'));
+      labelProspekKarir.htmlFor = `mataKuliah-${lengthField.length}`;
+      labelProspekKarir.classList.add('fw-bold', 'text-muted');
+
+      const fieldProspekKarir = document.createElement('textarea');
+      fieldProspekKarir.setAttribute('type', 'text');
+      fieldProspekKarir.setAttribute('required', 'true');
+      fieldProspekKarir.setAttribute('placeholder', 'Dalam menuliskan Prospek Karir, harap pisahkan dengan tanda koma (,). \nContoh : Prospek Karir1, Prospek Karir2, dan seterusnya.');
+      fieldProspekKarir.setAttribute('id', `prospekKarir-${lengthField.length}`);
+      fieldProspekKarir.classList.add('form-control', 'prospek-karir');
+
+      groupProspekKarir.append(labelProspekKarir, fieldProspekKarir);
+
+      const labelKelasTersedia = document.createElement('label');
+      labelKelasTersedia.appendChild(document.createTextNode('Kelas Tersedia'));
+      labelKelasTersedia.classList.add('fw-bold', 'text-muted');
 
       const cbContainer = document.createElement('div');
       cbContainer.classList.add('col-md-8', 'mb-2');
@@ -428,6 +470,9 @@ const AddKampus = {
         groupJurusanName,
         groupJenjang,
         groupAkreditasi,
+        groupMataKuliah,
+        groupProspekKarir,
+        labelKelasTersedia,
         cbContainer,
         sppContainer,
       );
@@ -475,6 +520,8 @@ const AddKampus = {
           const namaJurusan = document.querySelectorAll('.nama-jurusan')[index].value;
           const jenjang = document.querySelectorAll('.select-jenjang')[index].value;
           const akreditasi = document.querySelectorAll('.select-akreditasi')[index].value;
+          const mataKuliah = document.querySelectorAll('.mata-kuliah')[index].value;
+          const prospekKarir = document.querySelectorAll('.prospek-karir')[index].value;
           const kelas = [];
           const cbRegulerJurusan = document.querySelectorAll('.cbRegulerJurusan')[index];
           const cbKaryawanJurusan = document.querySelectorAll('.cbKaryawanJurusan')[index];
@@ -509,6 +556,8 @@ const AddKampus = {
             namaJurusan,
             jenjang,
             akreditasi,
+            mataKuliah,
+            prospekKarir,
             kelas,
           });
         });

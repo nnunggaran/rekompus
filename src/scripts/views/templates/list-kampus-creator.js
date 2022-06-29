@@ -1,12 +1,12 @@
-const selectJurusanItem = () => `
-<option value="Teknik Informatika">Teknik Informatika</option>
-<option value="Sistem Informasi">Sistem Informasi</option>
-<option value="Ilmu Hukum">Ilmu Hukum</option>
+const selectJenisKampusItem = () => `
+  <option value="PTN">PTN</option>
+  <option value="PTS">PTS</option>
 `;
-const selectProvinsiItem = () => `
-  <option value="Jawa Barat">Jawa Barat</option>
-  <option value="Jawa Tengah">Jawa Tengah</option>
-  <option value="Jawa Timur   ">Jawa Timur </option>
+const selectKotaItem = () => `
+  <option value="Medan">Medan</option>
+  <option value="Jakarta">Jakarta</option>
+  <option value="Bandung">Bandung</option>
+  <option value="Surabaya">Surabaya</option>
 `;
 
 const selectKelasItem = () => `
@@ -17,9 +17,13 @@ const selectKelasItem = () => `
 
 const selectAkreditasiItem = () => `
   <option value="A">A</option>
-  <option value="BA">BA</option>
   <option value="B">B</option>
+  <option value="C+">C+</option>
   <option value="C">C</option>
+  <option value="Unggul">Unggul</option>
+  <option value="Sangat Baik">Sangat Baik</option>
+  <option value="Baik">Baik</option>
+  <option value="Belum Terakreditasi">Belum Terakreditasi</option>
 `;
 
 const selectJenjangItem = () => `
@@ -31,13 +35,13 @@ const selectJenjangItem = () => `
 `;
 
 const selectPmbItem = () => `
-  <option value="Dibuka">Dibuka</option>
-  <option value="Ditutup">Ditutup</option>
+  <option value="Buka">Buka</option>
+  <option value="Tutup">Tutup</option>
 `;
 
 export {
-  selectJurusanItem,
-  selectProvinsiItem,
+  selectJenisKampusItem,
+  selectKotaItem,
   selectKelasItem,
   selectAkreditasiItem,
   selectJenjangItem,
