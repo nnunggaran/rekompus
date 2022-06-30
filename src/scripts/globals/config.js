@@ -5,6 +5,9 @@ const CONFIG = {
   DATABASE_NAME: 'rekompus-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'rekompuss',
+  DATABASE_JURUSAN: 'rekompus-jurusan',
+  DATABASE_JURUSAN_VERSION: 1,
+  OBJECT_STORE_JURUSAN: 'jurusan',
 };
 
 export default CONFIG;

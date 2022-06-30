@@ -1,6 +1,8 @@
-import KampusSource from '../../data/rekompus-source';
+/* eslint-disable no-shadow */
+import FavoriteJurusanIdb from '../../data/favoritejurusan-idb';
+import FavoriteRekompusIdb from '../../data/favoriterekompus-idb';
 import { getCookie } from '../../utils/cookie';
-import { heroText } from '../templates/template-creator';
+import { createListJurusanItemTemplate, createListKampusItemTemplate, heroText } from '../templates/template-creator';
 
 const DashboardUser = {
   async render() {
@@ -42,128 +44,46 @@ const DashboardUser = {
               </a>
             </div>
           </div>
-          <div class="card-body">
-            <div class="row">
+          <div class="card-body">            
+            <div class="row">            
               <div class="col-md-12">
                 <div class="collapse show" id="kampusFavorite">
-                  <div class="card-body">
-                    <div class="row list-kampus-favorite">
-                      <div class="col-md-12 mb-3">
-                        <div class="card border-orange">
-                          <div class="card-body d-flex">
-                            <div class="thumb-container row">
-                              <div class="col-sm-6 col-md-1">
-                                <a href="#/kampus/:id">
-                                  <img src="./favicon.png" alt="" class="thumb-img">
-                                </a>
-                              </div>
-                              <div class="col-sm-6 col-md-3">
-                                <h4 class="fw-bold"><a href="#/kampus/:id" class="text-dark">Nama Universitas</a></h4>
-                                <p><i class="fas fa-location-dot" aria-hidden="true"></i> Kota</p>
-                                <span class="alert alert-info p-0 ps-1 pe-1 mb-3">Akreditasi A</span>
-                                <span class="alert alert-info p-0 ps-1 pe-1">PTN</span>
-                              </div>
-                              <div class="col-sm-6 col-md-2">
-                                <h4><u>Kelas Tersedia</u></h4>
-                                Reguler<br>
-                                Karyawan<br>
-                                Online<br>
-                                Umum
-                              </div>
-                              <div class="col-sm-6 col-md-2">
-                                <h4><u>Jurusan</u></h4>
-                                Teknik Informatika<br>
-                                Sistem Informasi<br>
-                                Ilmu Hukum<br>
-                                <a href="#"><button class="btn alert-info p-2">Selengkapnya</button></a>
-                              </div>
-                              <div class="col-sm-6 col-md-2">
-                                <h4><u>Status PMB</u></h4>
-                                <p><span class="alert alert-success text-white p-1">Dibuka</span></p>
-                              </div>
-                              <div class="col-sm-6 col-md-2 d-flex align-items-center justify-content-around">
-                                <a href="#/kampus/:id" class="text-info"><i
-                                    class="fa fa-circle-info fa-4x"></i></a>
-                                <a href="#/delete-kampus-favorite/:id" class="text-danger"><i class="fa fa-trash fa-4x"
-                                    aria-hidden="true"></i></a>
-                              </div>
-                            </div>
+                  <div class="bg-primary p-2 rounded">
+                    <div class="row justify-content-between">
+                      <div class="col-sm-12 my-1">
+                        <div class="input-group">
+                          <div class="input-group-text">
+                            <i class="fas fa-magnifying-glass"></i>
                           </div>
+                          <input type="text" class="form-control p-2 fs-5 fw-bold" id="searchFieldKampus" placeholder="Cari kampus / jurusan">
                         </div>
                       </div>
-                      
                     </div>
-                    <ul class="pagination pagination-md justify-content-center mt-2">
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                          <span aria-hidden="true">Previous</span>
-                        </a>
-                      </li>
-                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                      <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                          <span aria-hidden="true">Next</span>
-                        </a>
-                      </li>
-                    </ul>
+                  </div>
+                  <div class="card-body">
+                    <div class="row list-kampus-container">
+                    </div>                    
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-12">
               <div class="collapse" id="jurusanFavorite">
-                <div class="card-body">
-                  <div class="row list-jurusan-favorite">
-                    <div class="col-md-12 mb-3">
-                      <div class="card border-orange">
-                        <div class="card-body d-flex">
-                          <div class="thumb-container row justify-content-center">
-                            <div class="col-sm-6 col-md-3 my-2">
-                              <h4 class="fw-bold"><a href="#/jurusan/id" class="text-dark">Nama Program Studi</a></h4>
-                            </div>
-                            <div class="col-sm-6 col-md-2 my-2">
-                              <a href="#/jurusan/id">
-                                <img src="./favicon.png" alt="" class="thumb-img-detail">
-                              </a>
-                            </div>
-                            <div class="col-sm-6 col-md-2 my-2">
-                              <h4><u>Akreditasi</u></h4>
-                              <h2>A</h2>
-                            </div>
-                            <div class="col-sm-6 col-md-2 my-2">
-                              <h4><u>Kelas Tersedia</u></h4>
-                              Reguler<br>
-                              Karyawan<br>
-                              Online<br>
-                            </div>
-                            <div class="col-sm-12 col-md-2 d-flex align-items-center justify-content-around my-2">
-                              <a href="#/jurusan/:id" class="text-info"><i
-                                  class="fa fa-circle-info fa-4x"></i></a>
-                              <a href="#/delete-jurusan-favorite/:id" class="text-danger"><i class="fa fa-trash fa-4x"
-                                  aria-hidden="true"></i></a>
-                            </div>
-                          </div>
+                <div class="bg-primary p-2 rounded">
+                  <div class="row justify-content-between">
+                    <div class="col-sm-12 my-1">
+                      <div class="input-group">
+                        <div class="input-group-text">
+                          <i class="fas fa-magnifying-glass"></i>
                         </div>
+                        <input type="text" class="form-control p-2 fs-5 fw-bold" id="searchFieldJurusan" placeholder="Cari kampus / jurusan">
                       </div>
                     </div>
                   </div>
-                  <ul class="pagination pagination-md justify-content-center mt-2">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">Next</span>
-                      </a>
-                    </li>
-                  </ul>
+                </div>
+                <div class="card-body">
+                  <div class="row list-jurusan-favorite">                    
+                  </div>
                 </div>
               </div>
             </div>
@@ -199,9 +119,68 @@ const DashboardUser = {
     const heroEl = document.querySelector('.hero-text');
     heroEl.innerHTML = heroText('Yuk lihat Kampus dan Jurusan Favoritmu!');
 
+    const listKampusFavorite = document.querySelector('.list-kampus-container');
+    const searchFieldKampus = document.getElementById('searchFieldKampus');
+    const kampuss = await FavoriteRekompusIdb.getAllRekompuss();
+    if (kampuss.length === 0) {
+      listKampusFavorite.innerHTML = `
+      <div class="container-fluid empty-data">
+        <h2 class="text-center">Tidak ada data kampus favorite!</h2>
+        <div class="d-flex">
+        <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+        </div>
+      </div>`;
+    } else {
+      kampuss.forEach((kampus) => {
+        listKampusFavorite.innerHTML += createListKampusItemTemplate(kampus);
+      });
+
+      searchFieldKampus.addEventListener('keyup', async (e) => {
+        console.log(e.target.value);
+        listKampusFavorite.innerHTML = '';
+
+        if (e.target.value.trim() === '') {
+          kampuss.forEach((kampus) => {
+            listKampusFavorite.innerHTML += createListKampusItemTemplate(kampus);
+          });
+          return;
+        }
+        const tempUniv = [];
+        const allData = await kampuss;
+
+        allData.forEach((univ) => {
+          if (univ.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+            tempUniv.push(univ);
+            return;
+          }
+
+          univ.jurusan.forEach((prodi) => {
+            if (prodi.namaJurusan.toLowerCase().includes(e.target.value.toLowerCase())) {
+              tempUniv.push(univ);
+            }
+          });
+        });
+
+        if (tempUniv.length > 0) {
+          listKampusFavorite.innerHTML = '';
+          tempUniv.forEach((item) => {
+            listKampusFavorite.innerHTML += createListKampusItemTemplate(item);
+          });
+        } else {
+          listKampusFavorite.innerHTML = `
+          <div class="container-fluid">
+            <h2 class="text-center">Tidak ada data!</h2>
+            <div class="d-flex">
+            <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+            </div>
+          </div>
+        `;
+        }
+      });
+    }
+
     const btnKampusFavorite = document.getElementById('btnKampusFavorite');
     const btnJurusanFavorite = document.getElementById('btnJurusanFavorite');
-
     const kampusFavorite = document.getElementById('kampusFavorite');
     const jurusanFavorite = document.getElementById('jurusanFavorite');
 
@@ -211,11 +190,73 @@ const DashboardUser = {
       btnJurusanFavorite.classList.remove('border-bottom', 'border-info', 'border-2', 'fw-bold');
       btnKampusFavorite.classList.add('border-bottom', 'border-info', 'border-2', 'fw-bold');
     });
-    btnJurusanFavorite.addEventListener('click', (e) => {
+
+    btnJurusanFavorite.addEventListener('click', async (e) => {
       e.preventDefault();
       kampusFavorite.classList.remove('show');
       btnKampusFavorite.classList.remove('border-bottom', 'border-info', 'border-2', 'fw-bold');
       btnJurusanFavorite.classList.add('border-bottom', 'border-info', 'border-2', 'fw-bold');
+      const listJurusanFavorite = document.querySelector('.list-jurusan-favorite');
+      const searchFieldJurusan = document.getElementById('searchFieldJurusan');
+
+      const jurusan = await FavoriteJurusanIdb.getAllJurusan();
+      if (jurusan.length === 0) {
+        listJurusanFavorite.innerHTML = `
+        <div class="container-fluid empty-data">
+          <h2 class="text-center">Tidak ada data jurusan favorite!</h2>
+          <div class="d-flex">
+          <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+          </div>
+        </div>;
+        `;
+      } else {
+        listJurusanFavorite.innerHTML = '';
+        jurusan.forEach((item) => {
+          listJurusanFavorite.innerHTML += createListJurusanItemTemplate(item);
+        });
+        console.log(jurusan);
+      }
+
+      searchFieldJurusan.addEventListener('keyup', async (e) => {
+        console.log(e.target.value);
+        listJurusanFavorite.innerHTML = '';
+
+        if (e.target.value.trim() === '') {
+          jurusan.forEach((item) => {
+            listJurusanFavorite.innerHTML += createListJurusanItemTemplate(item);
+          });
+          return;
+        }
+        const tempUniv = [];
+        const allData = await jurusan;
+
+        allData.forEach((univ) => {
+          if (univ.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+            tempUniv.push(univ);
+            return;
+          }
+
+          if (univ.nama_kampus.toLowerCase().includes(e.target.value.toLowerCase())) {
+            tempUniv.push(univ);
+          }
+        });
+
+        if (tempUniv.length > 0) {
+          listJurusanFavorite.innerHTML = '';
+          tempUniv.forEach((item) => {
+            listJurusanFavorite.innerHTML += createListJurusanItemTemplate(item);
+          });
+        } else {
+          listJurusanFavorite.innerHTML = `
+          <div class="container-fluid">
+            <h2 class="text-center">Tidak ada data!</h2>
+            <div class="d-flex">
+            <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+            </div>
+          </div>
+        `;
+        }
+      });
     });
 
     scrollTo({ top: 0 });
