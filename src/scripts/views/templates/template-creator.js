@@ -24,33 +24,65 @@ const createListKampusItemTemplate = (kampus) => `
     <div class="card border-orange">
         <div class="card-body d-flex">
             <div class="thumb-container row">
-                <div class="col-md-1">
+                <div class="col-md-1 mt-1">
                     <a href="/#/kampus/${kampus.id}">
-                    <img src="${kampus.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${kampus.pictureId}` : './images/default-school.png'}" alt="" class="thumb-img">
+                    <img src="${kampus.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${kampus.pictureId}` : './images/default-school.png'}" alt="${kampus.name}" class="thumb-img">
                     </a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mt-1">
                   <h4 class="fw-bold"><a href="/#" class="text-dark">${kampus.name}</a></h4>
                   <p><i class="fas fa-location-dot" aria-hidden="true"></i> ${kampus.city}</p>
                   <span class="d-inline-block my-1 alert alert-info px-2 py-1 rounded-pill">Akreditasi: ${kampus.akreditasiKampus}</span>
                   <span class="d-inline-block my-1 alert alert-info px-2 py-1 rounded-pill">${kampus.jenisKampus}</span>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mt-1">
                   <h4><u>Kelas Tersedia</u></h4>
                   ${kelasItem(kampus.kelasTersedia)}
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mt-1">
                   <h4><u>Jurusan</u></h4>
                   ${jurusanItemWithLimit(kampus.jurusan)}
                 <br>
                 <a href="/#/kampus/${kampus.id}" style="z-index: 30;"><button class="btn alert-info py-1 px-2 rounded-pill">Selengkapnya</button></a>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 mt-1">
                   <h4><u>Status PMB</u></h4>
                   ${checkPmb(kampus.statusPmb)}
                 </div>
             </div>
           <a href="/#/kampus/${kampus.id}" class="stretched-link"></a>
+        </div>
+    </div>
+  </div>`;
+
+const createListJurusanItemTemplate = (jurusan) => `
+  <div class="col-md-12 mb-3">
+    <div class="card border-orange">
+        <div class="card-body d-flex">
+            <div class="thumb-container row">
+                <div class="col-md-1 mt-2">
+                    <a href="/#/kampus/${jurusan.id_kampus}/jurusan/${jurusan.id}">
+                    <img src="${jurusan.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${jurusan.pictureId}` : './images/default-school.png'}" alt="${jurusan.nama_kampus}" class="thumb-img">
+                    </a>
+                </div>
+                <div class="col-md-3 mt-2">
+                  <h4 class="fw-bold"><a href="/#/kampus/${jurusan.id_kampus}/jurusan/${jurusan.id}" class="text-dark">${jurusan.name}</a></h4>
+                  <p><i class="fas fa-location-dot" aria-hidden="true"></i> ${jurusan.city}</p>
+                  <span class="d-inline-block my-1 alert alert-info px-2 py-1 rounded-pill">Akreditasi Jurusan: ${jurusan.akreditasi}</span>
+                  <span class="d-inline-block my-1 alert alert-info px-3 py-1 rounded-pill">${jurusan.jenjang}</span>
+                </div>                
+                <div class="col-md-3 mt-2">
+                  <h4><u>Kelas Tersedia</u></h4>
+                  ${jurusan.kelas.map((item) => `${item.name}<hr class="m-0">`).join('')}
+                </div>
+                <div class="col-md-2 mt-2">
+                  <h4><u>Status PMB</u></h4>
+                  ${checkPmb(jurusan.statusPmb)}
+                </div>
+                <div class="col-md-3 mt-2 my-auto">
+                  <p><span class="alert alert-info py-1 py-2 my-2 rounded-pill fw-bold d-inline-block fs-5"><a href="/#/kampus/${jurusan.id_kampus}" class="text-dark">${jurusan.nama_kampus}</a></span></p>
+                </div>
+            </div>
         </div>
     </div>
   </div>`;
@@ -180,7 +212,7 @@ const createKampusDetailTemplate = (kampus) => {
             <div class="col-md-6 ${data.linkPendaftaran ? 'col-lg-6' : 'col-lg-4'} mt-2">
               <div class="group-text">
                 <h6 class="text-heading">Link Pendaftaran</h6>
-                <p class="text-muted">${data.linkPendaftaran ? `<a href="${data.linkPendaftaran}" target="_blank">Kunjungi ${data.name}</a>` : '<span class="text-danger">No Data</span>'}
+                <p class="text-muted">${data.linkPendaftaran ? `<a href="${checkLink(data.linkPendaftaran)}" target="_blank">Kunjungi ${data.name}</a>` : '<span class="text-danger">No Data</span>'}
               </div>
               <div class="group-text">
                 <h6 class="text-heading">Media Sosial</h6>
@@ -214,76 +246,19 @@ const createKampusDetailTemplate = (kampus) => {
         <h4 id="review" class="text-center mb-2">Form Review</h4>
         <hr>
         <form id="postReview" class="shadow-sm">
-          <input type="hidden" id="txtId" value=":id">
+          <input type="hidden" id="txtId" value="${data.id}">
           <label for="txtName">Nama anda :</label>
           <br>
-          <input type="text" id="txtNama" placeholder="Masukkan nama anda..." class="form-control mb-2" value="user" readonly>
+          <input type="text" id="txtNama" class="form-control mb-2" value="${getCookie('name')}" readonly>
           <label for="txtReview">Review anda :</label>
-          <textarea id="txtReview" placeholder="Masukkan review anda..." class="form-control mb-2"></textarea>
-          <button type="submit" class="btn btn-primary mb-3">Post</button>
+          <textarea id="txtReview" placeholder="Masukkan review anda..." class="form-control mb-2" required></textarea>
+          <button type="submit" class="btn btn-primary text-white fs-4 mb-2"><i class="fas fa-paper-plane" aria-hidden="true"></i> Post</button>
+          <button type="reset" class="btn btn-danger text-white fs-4 mb-2"><i class="fa fa-arrow-rotate-back" aria-hidden="true"></i> Reset</button>
           <br>
         </form>
         <h4 class="text-center mt-4 mb-2">User Reviews</h4>
         <hr>
         <div class="container-reviews shadow-sm">
-          <div class="row">
-            <div class="col-3 col-sm-3 col-md-2 col-lg-2">
-              <img src="./images/default-profile.png" alt="foto-profil" class="rounded-circle w-100">
-            </div>
-            <div class="col-9 col-sm-9 col-md-10 col-lg-10">
-              <div class="row">
-                <div class="col-md-12">
-                <h5 class="text-heading">Name</h5>
-                </div>
-                <div class="col-md-12">
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus quibusdam natus ullam. Qui modi doloremque cumque necessitatibus ab incidunt pariatur eligendi iste. Molestiae, cumque delectus dolor ut dicta error provident qui unde! Ut accusantium necessitatibus labore, repellat quisquam error quibusdam eveniet voluptas accusamus maiores delectus consequuntur assumenda, impedit neque id.</p>
-                </div>
-                <div class="col-md-12">
-                <p class="text-primary">Date</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-3 col-sm-3 col-md-2 col-lg-2">
-              <img src="./images/default-profile.png" alt="foto-profil" class="rounded-circle w-100">
-            </div>
-            <div class="col-9 col-sm-9 col-md-10 col-lg-10">
-              <div class="row">
-                <div class="col-md-12">
-                <h5 class="text-heading">Name</h5>
-                </div>
-                <div class="col-md-12">
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus quibusdam natus ullam.</p>
-                </div>
-                <div class="col-md-12">
-                <p class="text-primary">Date</p>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </div>
-          <div class="row">
-            <div class="col-3 col-sm-3 col-md-2 col-lg-2">
-              <img src="./images/default-profile.png" alt="foto-profil" class="rounded-circle w-100">
-            </div>
-            <div class="col-9 col-sm-9 col-md-10 col-lg-10">
-              <div class="row">
-                <div class="col-md-12">
-                <h5 class="text-heading">Name</h5>
-                </div>
-                <div class="col-md-12">
-                <p class="text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus quibusdam natus ullam. Qui modi doloremque cumque necessitatibus ab incidunt pariatur eligendi iste.</p>
-                </div>
-                <div class="col-md-12">
-                <p class="text-primary">Date</p>
-                </div>
-              </div>
-            </div>
-            <hr>
-          </div>
-
         </div>
       </div>
     </div>
@@ -312,7 +287,7 @@ const createKampusDetailTemplate = (kampus) => {
                 </div>
               </div>
               <div class="col-md-12">
-              ${data.linkPendaftaran ? `<a href="${data.linkPendaftaran}" target="_blank"> 
+              ${data.linkPendaftaran ? `<a href="${checkLink(data.linkPendaftaran)}" target="_blank"> 
               <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-wpforms fa-xl"></i> Link
               Pendaftaran
               </button>
@@ -540,7 +515,7 @@ const createKampusDetailForm = (kampus) => {
             <div class="row p-2 align-items-center">
               <div class="col-sm-12 col-md-3">
                 <label for="website">
-                  <h5 class="fw-bold text-muted">Website kampus</h5>
+                  <h5 class="fw-bold text-muted">Link Pendaftaran</h5>
                 </label>
               </div>
               <div class="col-sm-12 col-md-9">
@@ -780,6 +755,7 @@ const createJurusanDetailTemplate = (kampus, idJurusan) => {
     </div>
     </section>
     ${itemsJurusanWithFilter(data, idJurusan)}
+    ${getCookie('role') !== 'ADMIN' ? '<div id="likeButtonContainer"></div>' : ''}
   `);
   return dataKampus;
 };
@@ -1014,6 +990,28 @@ const createSettingJurusanContainerTemplate = (kampus) => {
   return finalResult;
 };
 
+const createLikeButtonTemplate = () => `
+  <button aria-label="favorite this kampus" id="likeButton" class="like">
+    <i class="far fa-star" aria-hidden="true"></i>
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unfavorite this kampus" id="likeButton" class="liked">
+    <i class="fa fa-star" aria-hidden="true"></i>
+  </button>
+`;
+
+function checkLink(link) {
+  if (link.substr(0, 8) === 'https://') {
+    return link;
+  } if (link.substr(0, 4) === 'www.') {
+    return link;
+  }
+  const addHttps = `https://${link}`;
+  return addHttps;
+}
+
 function editKelasTersedia(data) {
   let result = '';
   const kelasTersedia = ['Reguler', 'Karyawan', 'Online'];
@@ -1023,8 +1021,6 @@ function editKelasTersedia(data) {
       dataKelasChecked.push(item);
     }
   });
-  kelasTersedia.sort();
-  dataKelasChecked.sort();
 
   kelasTersedia.forEach((item, index) => {
     const templateResultChecked = `
@@ -1132,6 +1128,10 @@ function kelasItem(data, separator = 'default') {
   return namaKelas;
 }
 
+// function kelasItemJurusan(data) {
+//   const obj = data.map((map) => map)
+// }
+
 function mappingKelasNamaJurusan(data) {
   const mapJurusan = data.map((item) => `${item.name}`);
   const result = mapJurusan.join('<br>');
@@ -1211,13 +1211,11 @@ function loopJurusanWithFilterHeading(data, idJurusan) {
 }
 
 function loopJurusanNameAndPrice(data, idJurusan) {
-  console.log('data', data);
   let spaceKelasTersedia = '';
   const kelasTersedia = data.jurusan
     .filter((item) => item.id === idJurusan)
     .map((item) => {
       const loopKelas = item.kelas.forEach((value) => {
-        console.log('value', value);
         const createItemJurusanTemplate = `
         <div class="col-sm-12 col-md-6 col-lg-4 card shadow-sm p-3">
           <h5 class="text-heading py-1 px-2"> <i class="fa fa-building-circle-check text-primary"></i> ${value.name}</h5>
@@ -1317,7 +1315,7 @@ function itemsJurusanWithFilter(data, idJurusan) {
                       </div>
                     </div>
                     <div class="col-md-12">
-                      <a href="${data.linkPendaftaran ? `${data.linkPendaftaran}" target="_blank"` : '/#/404"'}>
+                      <a href="${data.linkPendaftaran ? `${checkLink(data.linkPendaftaran)}" target="_blank"` : '/#/404"'}>
                         <button class="btn btn-primary w-100 mt-1 mb-1 p-2 fs-5"><i class="fab fa-wpforms fa-xl"></i> Link
                           Pendaftaran</button></a>
                     </div>
@@ -1379,4 +1377,7 @@ export {
   createKampusDetailFormWithSubmit,
   createSettingJurusanContainerTemplate,
   createJurusanDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createListJurusanItemTemplate,
 };
