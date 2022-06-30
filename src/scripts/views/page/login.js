@@ -69,12 +69,11 @@ const Login = {
           text: 'Username dan Password benar!',
           timer: 2000,
         });
-        // setCookie('email', formData.email, 6);
+
         setCookie('jwt', postLogin.data, 6);
 
         const checkMe = await RekompusSource.aboutUser();
-        console.log(checkMe);
-        setCookie('idUser', checkMe[0].id, 6);
+
         setCookie('email', checkMe[0].email, 6);
         setCookie('name', checkMe[0].name, 6);
         setCookie('role', checkMe[0].role, 6);

@@ -304,6 +304,50 @@ const AddKampus = {
 
     const lengthField = [];
 
+    groupJurusanContainer.addEventListener('click', (e) => {
+      console.log('parent', e.target.parentElement.parentElement.parentElement.nextElementSibling.childNodes[0].firstChild.childNodes[0]);
+
+      if (e.target.className.includes('cbReguler') || e.target.className.includes('cbRegulerJurusan')) {
+        const myData = e
+          .target.parentElement.parentElement
+          .parentElement.nextElementSibling
+          .childNodes[0].childNodes[0].childNodes[0];
+        if (e.target.checked) {
+          myData.removeAttribute('disabled');
+          myData.setAttribute('required', 'true');
+          return;
+        }
+        myData.removeAttribute('required');
+        myData.setAttribute('disabled', 'true');
+      }
+      if (e.target.className.includes('cbKaryawan') || e.target.className.includes('cbKaryawanJurusan')) {
+        const myData = e
+          .target.parentElement.parentElement
+          .parentElement.nextElementSibling
+          .childNodes[0].childNodes[1].childNodes[0];
+        if (e.target.checked) {
+          myData.removeAttribute('disabled');
+          myData.setAttribute('required', 'true');
+          return;
+        }
+        myData.removeAttribute('required');
+        myData.setAttribute('disabled', 'true');
+      }
+      if (e.target.className.includes('cbOnline') || e.target.className.includes('cbOnlineJurusan')) {
+        const myData = e
+          .target.parentElement.parentElement
+          .parentElement.nextElementSibling
+          .childNodes[0].childNodes[2].childNodes[0];
+        if (e.target.checked) {
+          myData.removeAttribute('disabled');
+          myData.setAttribute('required', 'true');
+          return;
+        }
+        myData.removeAttribute('required');
+        myData.setAttribute('disabled', 'true');
+      }
+    });
+
     addFieldJurusan.addEventListener('click', (e) => {
       e.preventDefault();
       lengthField.push('item');
@@ -431,7 +475,7 @@ const AddKampus = {
         const label = document.createElement('label');
         label.appendChild(document.createTextNode(`${kelas}`));
         label.htmlFor = `cb${kelas}-${lengthField.length}`;
-        label.classList.add('mx-2');
+        label.classList.add('mx-2', `cb${kelas}`);
         label.style.fontSize = '16px';
         const divCb = document.createElement('div');
         divCb.classList.add('col-sm-6', 'col-md-4');
@@ -455,6 +499,7 @@ const AddKampus = {
         inputText.type = 'number';
         inputText.placeholder = `Masukkan ${jurusan}`;
         inputText.setAttribute('id', `${jurusan}-${lengthField.length}`);
+        inputText.setAttribute('disabled', 'true');
         inputText.classList.add(`${jurusan}Jurusan`, 'form-control', 'my-1');
         divField.append(inputText);
         divField.classList.add('col-md-4');
