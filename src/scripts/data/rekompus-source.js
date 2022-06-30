@@ -104,6 +104,49 @@ class RekompusSource {
     }
   }
 
+  static async getReview(id) {
+    try {
+      const response = await fetch(`${API_ENDPOINT.REVIEW}/${id}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${getCookie('jwt')}`,
+        },
+      });
+      if (response.ok) {
+        const responseJson = await response.json();
+        return responseJson.data;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  static async postReview(data) {
+    try {
+      const response = await fetch(API_ENDPOINT.REVIEW, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${getCookie('jwt')}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const responseJson = await response.json();
+        return responseJson.data;
+      }
+      return response;
+    } catch (error) {
+      // swal({
+      //   icon: 'error',
+      //   title: 'Gagal!',
+      //   text: 'Gagal menambahkan komentar!',
+      //   timer: 2000,
+      // });
+    }
+  }
+
   static async listKampus() {
     try {
       const response = await fetch(API_ENDPOINT.KAMPUS, {
@@ -142,9 +185,9 @@ class RekompusSource {
         icon: 'error',
         title: 'Error!',
         text: `Masalah yang terjadi adalah ${error.message}. Jika halaman masih belum dapat diakses harap hubungi admin rekompus.`,
-      }).then(
-        window.location.href = '/#/',
-      );
+      }).then(() => {
+        console.log(error);
+      });
     }
   }
 
@@ -185,9 +228,9 @@ class RekompusSource {
         icon: 'warning',
         title: 'Data tidak tersedia',
         text: `Masalah yang terjadi adalah ${error.message}. Jika halaman masih belum dapat diakses harap hubungi admin rekompus.`,
-      }).then(
-        window.location.href = '/#/',
-      );
+      }).then(() => {
+        console.log(error);
+      });
     }
   }
 

@@ -21,11 +21,10 @@ const FavoriteRekompusIdb = {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
   async putRekompus(rekompus) {
-    // eslint-disable-next-line no-prototype-builtins
     if (!rekompus.hasOwnProperty('id')) {
       return;
     }
-    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    return (await dbPromise).put(OBJECT_STORE_NAME, rekompus);
   },
   async deleteRekompus(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);

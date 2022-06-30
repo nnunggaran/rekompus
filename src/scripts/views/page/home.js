@@ -5,16 +5,22 @@ const Homepage = {
   async render() {
     return `
     <section class="hero container-fluid row">
-      <div class="col-md-6">
+      <div class="col-md-6 my-2">
           <p class="welcome-text">Selamat Datang di Rekompus</p>
           <h1>Rekomendasi Kampus dan Jurusan Impianmu</h1>
           <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
               Daftar sekarang gratis!</p>
           <a href="#kampus-rekomendasi" id="btn-eksplor">
-              <button class="btn btn-info text-white">Eksplor</button>
+              <button class="btn btn-primary text-white">
+              <i class="fas fa-building-columns"></i> Eksplor</button>
+          </a>
+          <a href="/#/kampus" id="btn-jurusan">
+            <button class="btn btn-info text-white">
+            <i class="fas fa-magnifying-glass-arrow-right"></i> Cari Jurusan
+            </button>
           </a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 my-2">
         <img src="./images/hero-image.png" alt="" class="hero-image">
       </div>
     </section>

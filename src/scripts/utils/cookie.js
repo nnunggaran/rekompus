@@ -24,7 +24,7 @@ function getCookie(cookieName) {
 
 function deleteCookie(cookieName) {
   const dayData = new Date();
-  dayData.setTime(dayData.getTime() + (-1 * 24 * 60 * 60 * 1000));
+  dayData.setTime(dayData.getTime() + (-99 * 24 * 60 * 60 * 1000));
   const expired = `expires=${dayData.toUTCString()}`;
   document.cookie = `${cookieName}=;${expired};path=/`;
 }

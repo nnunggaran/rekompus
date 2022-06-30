@@ -12,7 +12,7 @@ import {
 import { heroText, createListKampusItemTemplate } from '../templates/template-creator';
 import renderPagination from '../../utils/pagination';
 import RekompusSource from '../../data/rekompus-source';
-import { getCookie, deleteCookie } from '../../utils/cookie';
+import { deleteCookie } from '../../utils/cookie';
 
 const ListKampus = {
   async render() {
@@ -53,8 +53,10 @@ const ListKampus = {
                 </select>
             </div>
             <div class="filter-button mt-2">
-              <button class="btn btn-success" id="filterButton">Filter</button>
-              <button class="btn btn-danger" id="resetButton">Reset</button>
+              <button class="btn btn-success fs-5" id="filterButton">
+              <i class="fa fa-filter"></i> Filter</button>
+              <button class="btn btn-danger fs-5" id="resetButton">
+              <i class="fa fa-arrow-rotate-back" aria-hidden="true"></i> Reset</button>
             </div>
         </section>
         <section id="list-kampus" class="container-fluid">
