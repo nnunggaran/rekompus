@@ -163,6 +163,16 @@ const ListKampus = {
     const maxRowPerPage = 5;
     const pageNumberEl = document.getElementById('page-number');
 
+    if (kampuss.length === 0) {
+      kampusList.innerHTML = `
+      <div class="container-fluid empty-data">
+        <h2 class="text-center">Tidak ada data kampus favorite!</h2>
+        <div class="d-flex">
+        <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
+        </div>
+      </div>`;
+    }
+
     function disabledPrevFirst() {
       prev.disabled = true;
       first.disabled = true;
