@@ -5,7 +5,7 @@ const Homepage = {
   async render() {
     return `
     <section class="hero container-fluid row">
-      <div class="col-md-6 my-2">
+      <div class="col-md-6 m-0 p-0 my-2">
           <p class="welcome-text">Selamat Datang di Rekompus</p>
           <h1>Rekomendasi Kampus dan Jurusan Impianmu</h1>
           <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
@@ -20,7 +20,7 @@ const Homepage = {
             </button>
           </a>
       </div>
-      <div class="col-md-6 my-2">
+      <div class="col-md-6 m-0 p-0 my-2">
         <img src="./images/hero-image.png" alt="" class="hero-image">
       </div>
     </section>

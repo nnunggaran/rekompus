@@ -71,7 +71,7 @@ $x-large: 990px;
       margin-top: 100px;
       div{
         .hero-image{
-          width: 320px;
+          width: $small - 20px;
         }
       }
     }
@@ -83,7 +83,7 @@ $x-large: 990px;
         margin-top: 100px;
         div{
           .hero-image{
-            width: 400px;
+            width: $medium - 100px;
           }
         }
     }
