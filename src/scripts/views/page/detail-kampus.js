@@ -43,8 +43,7 @@ const DetailKampus = {
     const jurusanTersedia = document.getElementById('jurusan-tersedia');
     const jurusanLength = document.getElementById('jurusan-length');
     const jurusanField = document.getElementById('jurusanField');
-    console.log(kampus[0]);
-    console.log(kampus[0].jurusan);
+
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       rekompus: {
@@ -307,7 +306,9 @@ const DetailKampus = {
 
       if (tempJurusan.length > 0) {
         jurusanLength.innerText = `${tempJurusan.length} Jurusan ditampilkan`;
-        jurusanTersedia.innerHTML += createTemplateJurusan(kampus, tempJurusan);
+        kampus.forEach((univ) => {
+          jurusanTersedia.innerHTML += createTemplateJurusan(univ, tempJurusan);
+        });
       } else {
         jurusanLength.innerText = `${tempJurusan.length} Jurusan ditampilkan`;
         jurusanTersedia.innerHTML = `

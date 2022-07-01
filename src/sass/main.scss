@@ -112,6 +112,7 @@ footer {
 }
 .container-fluid{
     padding: 5px 5%;
+    margin: auto;
 }
 .border-orange{
   border: 2px solid #FF9675;
@@ -178,7 +179,7 @@ main{
                 font-weight: normal;
             }
             .hero-image{
-                width: 220px;
+                min-width: 200px;
             }
             button{
                 font-size: 20px;
@@ -242,9 +243,6 @@ main{
             }
         }
     }
-    #list-kampus{        
-    }
-
 }
 
 #jurusan-tersedia{
