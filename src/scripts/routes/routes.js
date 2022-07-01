@@ -15,10 +15,12 @@ import Login from '../views/page/login';
 import Daftar from '../views/page/daftar';
 import DetailJurusan from '../views/page/detail-jurusan';
 import NotFound from '../views/page/404';
+import About from '../views/page/about';
 
 const routes = {
   '/': Homepage,
   '/home': Homepage,
+  '/about': About,
   '/kampus': ListKampus,
   '/kampus/:id': DetailKampus,
   '/kampus/:id/jurusan/:subid': DetailJurusan,

@@ -11,11 +11,11 @@ const Homepage = {
           <p class="desc-text">Temukan Rekomendasi Kampus dan Jurusan Impianmu di Rekompus sekarang juga.<br>
               Daftar sekarang gratis!</p>
           <a href="#kampus-rekomendasi" id="btn-eksplor">
-              <button class="btn btn-primary text-white">
+              <button class="btn btn-primary text-white my-1">
               <i class="fas fa-building-columns"></i> Eksplor</button>
           </a>
           <a href="/#/kampus" id="btn-jurusan">
-            <button class="btn btn-info text-white">
+            <button class="btn btn-info text-white my-1">
             <i class="fas fa-magnifying-glass-arrow-right"></i> Cari Jurusan
             </button>
           </a>

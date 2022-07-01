@@ -9,6 +9,7 @@ class RekompusSource {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body: JSON.stringify(data),
       });
@@ -32,6 +33,7 @@ class RekompusSource {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body: JSON.stringify(data),
       });
@@ -55,6 +57,7 @@ class RekompusSource {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
       if (response.status === 500) {
@@ -82,6 +85,7 @@ class RekompusSource {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
 
@@ -110,6 +114,7 @@ class RekompusSource {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
       if (response.ok) {
@@ -128,6 +133,7 @@ class RekompusSource {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body: JSON.stringify(data),
       });
@@ -153,6 +159,7 @@ class RekompusSource {
         method: 'GET',
         headers: {
           Accept: '*/*',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
 
@@ -197,6 +204,7 @@ class RekompusSource {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
       if (response.ok) {
@@ -241,6 +249,7 @@ class RekompusSource {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body: JSON.stringify(data),
       });
@@ -274,6 +283,7 @@ class RekompusSource {
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
           'Content-Type': 'application/json',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body: JSON.stringify(data),
       });
@@ -303,6 +313,7 @@ class RekompusSource {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
+          'Accept-Encoding': 'gzip, deflate, br',
         },
       });
 
@@ -332,6 +343,7 @@ class RekompusSource {
         headers: {
           Authorization: `Bearer ${getCookie('jwt')}`,
           Accept: '*/*',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         body,
       });
