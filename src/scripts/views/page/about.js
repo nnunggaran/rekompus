@@ -7,7 +7,7 @@ const About = {
           <hr>
           <p align="justify">Rekompus adalah sebuah website yang memberikan kemudahan bagi para siswa SMA sederajat untuk mencari informasi mengenai perguruan tinggi di Indonesia beserta program studinya.</p>
 
-          <p align="justify">Rekompus ingin membantu para siswa melihat informasi perguruan tinggi beserta program studinya dengan mudah, nyaman, dan efektif hanya cukup mengaksesnya lewat website tanpa datang ke tiap perguruan tinggi yang tentunya menyita banyak waktu dan tenaga ataupun harus mencari melalui search engine dan mengunjungi satu persatu. Dengan memilih proyek ini, tim kami melakukan berkontribusi untuk pemerintah dalam meningkatkan Angka Partisipasi Kasar (APK) Perguruan Tinggi, dan berperan dalam meningkatkan kualitas pengembangan manusia Indonesia.
+          <p align="justify">Rekompus ingin membantu para siswa melihat informasi perguruan tinggi beserta program studinya dengan mudah, nyaman, dan efektif hanya cukup mengaksesnya lewat website tanpa datang ke tiap perguruan tinggi yang tentunya menyita banyak waktu dan tenaga ataupun harus mencari melalui search engine dan mengunjungi satu persatu. Rekompus berkontribusi untuk pemerintah dalam meningkatkan Angka Partisipasi Kasar Perguruan Tinggi, dan berperan dalam meningkatkan kualitas pengembangan manusia Indonesia.
           </p>     
           <hr>                        
       </div>
@@ -22,48 +22,48 @@ const About = {
       <div class="col-sm-6 col-md-4 col-lg-3 my-1">
         <div class="card shadow">
           <img src="./images/nosef-nunggaran.jpeg" class="card-img-top" alt="user-profile">
-          <div class="card-body" style="padding-bottom: 15px;">
+          <div class="card-body" style="height: 240px;">
             <h5 class="card-title">Nosef Nunggaran</h5>
             <p class="card-text">Berkontribusi dalam pengembangan Back-End dan pembuatan API</p>
-            <a href="https://www.linkedin.com/in/nosef-nunggaran/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/nosef-nunggaran/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
             <a href="https://github.com/nnunggaran" class="btn btn-dark" target="_blank"><i class="fa-brands fa-github"></i> 
-            GitHub</a>
+            </a>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 my-1">
         <div class="card shadow">
           <img src="./images/nurul-huda.png" class="card-img-top" alt="user-profile">
-          <div class="card-body" style="padding-bottom: 15px;">
+          <div class="card-body" style="height: 240px;">
             <h5 class="card-title">Nurul Huda</h5>
             <p class="card-text">Berkontribusi dalam pengembangan Front-End Web dan Consume API</p>
-            <a href="https://www.linkedin.com/in/nurulhuda-jombang/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/nurulhuda-jombang/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
             <a href="https://github.com/rulhuda" class="btn btn-dark" target="_blank"><i class="fa-brands fa-github"></i> 
-            GitHub</a>
+            </a>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 my-1">
         <div class="card shadow">
           <img src="./images/raihan-putro.jpeg" class="card-img-top" alt="user-profile">
-          <div class="card-body" style="padding-bottom: 15px;">
+          <div class="card-body" style="height: 240px;">
             <h5 class="card-title">Raihan Putro Maulana Rizky</h5>
             <p class="card-text">Berkontribusi dalam pengembangan Front-End Web dan Data Rekompus</p>
-            <a href="https://www.linkedin.com/in/raihanputro/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/raihanputro/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
             <a href="https://github.com/raihanputro" class="btn btn-dark" target="_blank"><i class="fa-brands fa-github"></i> 
-            GitHub</a>
+            </a>
           </div>
         </div>
       </div>
       <div class="col-sm-6 col-md-4 col-lg-3 my-1">
         <div class="card shadow">
           <img src="./images/zahra-amalia.jpeg" class="card-img-top" alt="user-profile">
-          <div class="card-body" style="padding-bottom: 15px;">
+          <div class="card-body" style="height: 240px;">
             <h5 class="card-title">Zahra Amalia Nur Sabrina</h5>
             <p class="card-text">Berkontribusi dalam pengembangan Front-End Web dan Data Rekompus</p>
-            <a href="https://www.linkedin.com/in/zahra-amalia-nur-sabrina-6a6468232/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/zahra-amalia-nur-sabrina-6a6468232/" class="btn btn-primary" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
             <a href="https://github.com/Zahraamalia" class="btn btn-dark" target="_blank"><i class="fa-brands fa-github"></i> 
-            GitHub</a>
+            </a>
           </div>
         </div>
       </div>
