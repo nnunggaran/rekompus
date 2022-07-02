@@ -1,5 +1,5 @@
 const CONFIG = {
-  BASE_URL: 'https://api.rekompus.app/api',
+  BASE_URL: 'http://34.128.86.233/api',
   BASE_IMAGE_URL: 'http://34.128.86.233/images',
   CACHE_NAME: 'rekompus-api',
   DATABASE_NAME: 'rekompus-database',
