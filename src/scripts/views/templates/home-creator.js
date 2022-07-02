@@ -47,13 +47,13 @@ const kampusRekomendasi = (kampus) => {
     .forEach((item) => {
       loopData += `<div class="col-md-6 col-lg-4 mb-3">
             <div class="card shadow-sm">
-                <div class="card-body d-flex">
+                <div class="card-body d-flex" style="overflow-x: auto;">
                     <div class="thumb-container d-flex">
                         <div class="w-20">
-                            <img src="${item.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${item.pictureId}` : './images/default-school.png'}" alt="${item.name}" class="thumb-img">
+                            <img src="${item.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${item.pictureId}` : './images/default-school.png'}" alt="${item.name}" class="thumb-img" style="width:80px">
                         </div>
                         <div class="w-80">
-                            <h4 class="ms-2" style="height:60px">${item.name}</h4>
+                            <h4 class="ms-2" style="height:60px; overflow-y: auto;">${item.name}</h4>
                             <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-2 my-1">Akeditasi: ${item.akreditasiKampus}</span>
                             <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-3 my-1">${item.jenisKampus}</span>
                             <p class="ms-2 mt-2 mb-0">Biaya kuliah mulai: ${kampusPrice(item.jurusan)}</p>
@@ -115,13 +115,13 @@ const jurusanRekomendasi = (kampus) => {
           .map((object) => `
         <div class="col-md-6 col-lg-4 mb-3">
             <div class="card shadow-sm">
-                <div class="card-body d-flex">
+                <div class="card-body d-flex" style="overflow-x: auto;">
                     <div class="thumb-container d-flex">
                         <div class="w-20">
-                            <img src="${dataKampus.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${dataKampus.pictureId}` : './images/default-school.png'}" alt="" class="thumb-img">
+                            <img src="${dataKampus.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${dataKampus.pictureId}` : './images/default-school.png'}" alt="${dataKampus.name}" class="thumb-img" style="width: 80px;">
                         </div>
                         <div class="w-80">
-                            <h4 class="ms-2" style="height:60px">${object.namaJurusan}</h4>
+                            <h4 class="ms-2" style="height:60px; overflow-y: auto;">${object.namaJurusan}</h4>
                             <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-2 my-1">Akreditasi: ${object.akreditasi}</span>
                             <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-3 my-1">${dataKampus.jenisKampus}</span>
                             <p class="ms-2 mt-2 mb-0">Biaya SPP: ${object.kelas[0].biayaSPP}</p>
@@ -212,7 +212,7 @@ const kampusBerdasarkanLokasi = (kampus) => {
                         <img src="${item.pictureId ? `${CONFIG.BASE_IMAGE_URL}/${item.pictureId}` : './images/default-school.png'}" alt="${item.name}" class="thumb-img">
                     </div>
                     <div class="w-80">
-                        <h4 class="ms-2" style="height:60px">${item.name}</h4>
+                        <h4 class="ms-2" style="height:60px; overflow-y: auto;">${item.name}</h4>
                         <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-2 my-1">Akeditasi: ${item.akreditasiKampus}</span>
                         <span class="ms-2 alert alert-info d-inline-block rounded-pill py-1 px-3 my-1">${item.jenisKampus}</span>
                         <p class="ms-2 mt-2 mb-0">Biaya kuliah mulai: ${kampusPrice(item.jurusan)}</p>
