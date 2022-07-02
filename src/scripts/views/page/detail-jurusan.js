@@ -46,21 +46,23 @@ const DetailJurusan = {
       }
     });
 
-    LikeButtonInitiatorJurusan.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      jurusan: {
-        id_kampus: kampus[0].id,
-        nama_kampus: kampus[0].name,
-        pictureId: kampus[0].pictureId,
-        city: kampus[0].city,
-        statusPmb: kampus[0].statusPmb,
-        id: jurusanItem[0].id,
-        name: jurusanItem[0].namaJurusan,
-        kelas: jurusanItem[0].kelas.map((item) => item),
-        jenjang: jurusanItem[0].jenjang,
-        akreditasi: jurusanItem[0].akreditasi,
-      },
-    });
+    if (getCookie('role') !== 'ADMIN') {
+      LikeButtonInitiatorJurusan.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        jurusan: {
+          id_kampus: kampus[0].id,
+          nama_kampus: kampus[0].name,
+          pictureId: kampus[0].pictureId,
+          city: kampus[0].city,
+          statusPmb: kampus[0].statusPmb,
+          id: jurusanItem[0].id,
+          name: jurusanItem[0].namaJurusan,
+          kelas: jurusanItem[0].kelas.map((item) => item),
+          jenjang: jurusanItem[0].jenjang,
+          akreditasi: jurusanItem[0].akreditasi,
+        },
+      });
+    }
 
     scrollPembelajaran.addEventListener('click', (e) => {
       e.preventDefault();

@@ -44,20 +44,22 @@ const DetailKampus = {
     const jurusanLength = document.getElementById('jurusan-length');
     const jurusanField = document.getElementById('jurusanField');
 
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      rekompus: {
-        id: kampus[0].id,
-        name: kampus[0].name,
-        pictureId: kampus[0].pictureId,
-        city: kampus[0].city,
-        jenisKampus: kampus[0].jenisKampus,
-        akreditasiKampus: kampus[0].akreditasiKampus,
-        kelasTersedia: kampus[0].kelasTersedia,
-        statusPmb: kampus[0].statusPmb,
-        jurusan: kampus[0].jurusan.map((item) => item),
-      },
-    });
+    if (getCookie('role') !== 'ADMIN') {
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        rekompus: {
+          id: kampus[0].id,
+          name: kampus[0].name,
+          pictureId: kampus[0].pictureId,
+          city: kampus[0].city,
+          jenisKampus: kampus[0].jenisKampus,
+          akreditasiKampus: kampus[0].akreditasiKampus,
+          kelasTersedia: kampus[0].kelasTersedia,
+          statusPmb: kampus[0].statusPmb,
+          jurusan: kampus[0].jurusan.map((item) => item),
+        },
+      });
+    }
 
     const containerReviews = document.querySelector('.container-reviews');
     const postReview = document.getElementById('postReview');
