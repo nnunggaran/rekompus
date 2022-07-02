@@ -136,7 +136,6 @@ const DashboardUser = {
       });
 
       searchFieldKampus.addEventListener('keyup', async (e) => {
-        console.log(e.target.value);
         listKampusFavorite.innerHTML = '';
 
         if (e.target.value.trim() === '') {
@@ -207,18 +206,16 @@ const DashboardUser = {
           <div class="d-flex">
           <img src="./images/no-data.png" alt="no-data" class="w-75 mx-auto">
           </div>
-        </div>;
+        </div>
         `;
       } else {
         listJurusanFavorite.innerHTML = '';
         jurusan.forEach((item) => {
           listJurusanFavorite.innerHTML += createListJurusanItemTemplate(item);
         });
-        console.log(jurusan);
       }
 
       searchFieldJurusan.addEventListener('keyup', async (e) => {
-        console.log(e.target.value);
         listJurusanFavorite.innerHTML = '';
 
         if (e.target.value.trim() === '') {

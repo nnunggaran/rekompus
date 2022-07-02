@@ -61,7 +61,7 @@ const Login = {
       };
 
       const postLogin = await RekompusSource.loginUser(formData);
-      console.log(postLogin);
+
       if (postLogin.status === 1) {
         swal({
           icon: 'success',

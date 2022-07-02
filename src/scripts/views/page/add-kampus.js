@@ -305,8 +305,6 @@ const AddKampus = {
     const lengthField = [];
 
     groupJurusanContainer.addEventListener('click', (e) => {
-      console.log('parent', e.target.parentElement.parentElement.parentElement.nextElementSibling.childNodes[0].firstChild.childNodes[0]);
-
       if (e.target.className.includes('cbReguler') || e.target.className.includes('cbRegulerJurusan')) {
         const myData = e
           .target.parentElement.parentElement
