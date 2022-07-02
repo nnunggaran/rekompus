@@ -71,7 +71,6 @@ const EditKampus = {
         idLogo.value,
         formData,
       );
-      console.log('post logo', postLogo);
 
       if (postLogo.status === 200) {
         swal({
