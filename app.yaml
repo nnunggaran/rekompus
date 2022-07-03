@@ -1,5 +1,10 @@
 runtime: nodejs16
+instance_class: B2
 service: default
+
+manual_scaling:
+  instances: 3
+
 handlers:
 
   - url: /
